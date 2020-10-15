@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    	<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<link rel="stylesheet" href="css/layout.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<!-- / https://www.nngroup.com/articles/mobile-navigation-patterns/ -->
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h3>The aim of this presentation is</h3>
+					<p>to document the most widely used UX Patterns for Navigation on Mobile devices, with a view to informing how to create a powerful, flexible and useable UI on that platform.</p>
+				</section>
+
+				<section>
+					<h3>Questions we are trying to answer;</h3>
+					<ol>
+						<li class="fragment"><a href="#/mobile-first">Why are we looking at Mobile first, isn't that something that should happen after we have figured out the Desktop version?</a></li>
+						<li class="fragment"><a href="#/mobile-nav-patterns">What are the main Mobile Navigation Patterns?</a></li>
+						<li class="fragment"><a href="#/mobile-nav-examples">Are there examples in wide use that we could leverage?</a></li>
+					<ol>
+				</section>
+<!-- 
+				<section>
+					<h1>Basic Patterns for Mobile Navigation</h1>
+					<h3>A Primer</h3>
+					<p>Mobile navigation must be discoverable, accessible, and take little screen space. To create a workable approach to our UIs, we need to address how they should work on Mobiles first.</p>
+				</section> -->
+
+				<section id="mobile-first">
+					<h3>Why Mobile first?</h3>
+					<p>With such limited real estate on small screens, UX designers must prioritize the most important aspects of their apps.</p>
+
+					<p>By prioritising only the essential on a Mobile, we are not preventing the development of additional features for an enhanced Desktop experience.</p>
+
+					<p>But we are insisting on a decoupling of the essential from the additional which doesn't tend to happen when the Desktop is focused on first, and which a Mobile experience cannot be successful without.</p>
+				</section>
+
+				<section id="mobile-nav-patterns">
+					<h3>Mobile Navigation Patterns</h3>
+					<p>Screen space is really scarce. The basic tenet of mobile usability: prioritize content over chrome (navigation bars, footers, logos, branding, the search box).</p>
+					<p>Different approaches tend to sacrifice either content prioritization or the accessibility of the navigation. These approaches include;</p>
+					<ul>
+						<li>Tab Bar</li>
+						<li>Navigation Bar</li>
+						<li>Hamburger Menu</li>
+						<li>Navigation Hub</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h3>Tab Bar</h3>
+						<ul>
+							<li>The tab bar is a close relative of the top navigation bar specific to apps. It can appear at the top (Android mostly) or at the bottom of the page (iOS mostly).</li>
+							<li>Tab bars are persistent (they don't move period), that is, they are always visible on the screen, whether the user scrolls down the page or not.</li>
+							<li>For this reason Tab Bars must be Non Modal by the definition of being locked to the Home Parent screens.</li>
+						</ul>
+					</section>
+					
+					<section>
+<!-- 						<h3>Tab Bar</h3> -->
+						<p>Facebook on iPhone (left) & Android (right) used a tab bar for the main navigation. Positioned at bottom on iPhone (+ icons labeled) & at top on Android.</p>
+						<img width="600" data-src="images/ux-principles/examples/facebook.png">
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>Navigation Bar</h3>
+						<p>Is essentially inherited from desktop design. It is simply a bar that enumerates the main navigational options across the top of the screen.</p>
+					</section>
+
+					<section>
+						<p>Google Play was able to fit more items in the navigation bar by using a carousel.</p>
+						<img width="600" data-src="images/ux-principles/examples/nav-bar.png">
+					</section>
+
+					<section>
+						<h3>Navigation Bar Carousels</h3>
+						<ul>
+							<li>Tab bars & navigation bars are well suited for sites with relatively few navigation options (< 5). Using a carousel can expand this number but items off the screen have a weak information scent (ie they tend to be forgotten about).</li>
+
+							<li>This is likely less of a problem in our apps than on general websites, as there is more commitment to our apps and ultimately there is no solution that is a panacea.</li>
+						</ul>
+					</section>
+				</section>
+
+ 				<section>
+	 				<section>
+						<h3>Hamburger Menu</h3>
+						<ul>
+							<li>Contains the main navigation options in a manner that usually hides the detailed options but makes them visible upon request</li>
+							<li>Can contain a fairly large number of navigation options in a tiny space and can also easily support submenus, if needed</li>
+							<li>Disadvantage is that it is less discoverable, since, as the old adage says, “out of sight is out of mind.”</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Hamburger Menu Example</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img width="500" data-src="images/ux-principles/examples/usatoday.png">
+								</div>
+
+								<div class="col-8">
+									<p>A hamburger menu as used for the global navigation options on USAToday.com. In essence a Modal screen that animates form the side.</p>
+								</div>
+							</div>
+						</div>	
+					</section>
+				</section>
+
+				<section>
+					<h3>Navigation Hub</h3>
+					<ul>
+						<li>a page (usually homepage) that lists all the navigation options. To navigate to a new location, users have to first go back to the hub</li>
+
+						<li>usually devotes the homepage exclusively to navigation (at the expense of content), and incurs an extra step (back to the hub) for each use. It can work well in task-based apps</li>
+
+						<li>Useful where users rarely accomplish more than one task during a single session, and thus they don’t need to traverse the navigation tree often (an action that is difficult if all navigation must go through the homepage)</li>
+
+					</ul>
+				</section>
+
+				<section>
+					<section id="mobile-nav-examples">
+						<h3>Google Navigation Bar</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img width="200" data-src="images/ux-principles/examples/google-1.jpg">
+								</div>
+
+								<div class="col-8">
+									<p>If we consider some of the elements of Google search page on a Mobile</p>
+									<ol style="margin-left:0px;">
+										<li>System name</li>
+										<li>User Logged In</li>
+										<li>Hamburger menu</li>
+										<li>Home level Menu</li>
+										<li>List</li>
+									</ol>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+<!-- 					<section>
+						<h3>Google on Mobile</h3>
+						<img width="200" data-src="images/ux-principles/examples/google-1.jpg">
+						<ul>
+							<li>System name</li>
+							<li>User Logged In</li>
+							<li>Hamburger</li>
+							<li>Home level Menu</li>
+							<li>List</li>
+						</ul>
+					</section> -->
+
+
+					<section>
+						<h3>Google Navigation Bar 2</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img width="200" data-src="images/ux-principles/examples/google-3.jpg">
+								</div>
+
+								<div class="col-8">
+									<p>And again for a return on the results for the search 'U2';</p>
+									<ol style="margin-left:0px;">
+										<li>Band Context banner</li>
+										<li>Overview tab</li>
+										<li>List tab (Albums)</li>
+										<li>+ other tabs</li>
+									</ol>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+					<section>
+						<h3>Google Navigation Bar 3</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img width="200" data-src="images/ux-principles/examples/google-4.jpg">
+								</div>
+
+								<div class="col-8">
+									<p>And again when we click on the album 'War';</p>
+									<ol style="margin-left:0px;">
+										<li>Album Context banner</li>
+										<li>Overview tab</li>
+										<li>List tab (Songs)</li>
+										<li>+ other tabs</li>
+									</ol>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+					<section>
+						<h3>Google Navigation Bar 4</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img width="200" data-src="images/ux-principles/examples/google-5.jpg">
+								</div>
+
+								<div class="col-8">
+									<p>And again when we click on the song 'New Years Day';</p>
+									<ol style="margin-left:0px;">
+										<li>Song Context banner</li>
+										<li>Overview tab</li>
+										<li>List tab (Other Records)</li>
+										<li>+ other tabs</li>
+									</ol>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+					<section>
+						<h3>Take aways</h3>
+						<ul>
+							<li>The content can be used to provide a navigational stairs spanning the system from the top generation to the bottom</li>
+							<li>Additional 'non offspring' content (for example - Overviews) can be accommodated through the use of multiple tabs at each level</li>
+							<li>Multiple branches can be supported</li>
+							<li>This is true of many types of content - Mammals can cycle Qinling panada</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+<!-- 						<h3>Asana 1</h3> -->
+						<div class="container">
+							<h3>Asana Modals</h3>
+							<div class="row">
+								<div class="col">
+									<img width="200" data-src="images/ux-principles/examples/Asana_0.jpg">
+								</div>
+
+								<div class="col-8">
+									<p>If we consider some of the elements of the Asana app on a Mobile</p>
+									<ul>
+										<li>Page name</li>
+										<li>User Logged In</li>
+<!-- 										<li>Hamburger</li> -->
+										<li>Home level Menu</li>
+<!-- 										<li>List</li> -->
+									</ul>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+					<section>
+						<h3>Asana Modals 2</h3>
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img width="200" data-src="images/ux-principles/examples/Asana_1.jpg">
+								</div>
+
+								<div class="col-8">
+									<p>On the Homepage</p>
+									<ul>
+										<li>Page name</li>
+<!-- 										<li>User Logged In</li>
+										<li>Hamburger</li> -->
+										<li>Home level Menu</li>
+										<li>List tabs</li>
+									</ul>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+<!-- 					<section>
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img width="500" data-src="images/ux-principles/examples/Asana_2.jpg">
+								</div>
+
+								<div class="col-8">
+									<ul>
+										<li>Contst</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>	
+					</section> -->
+
+					<section>
+						<h3>Asana Modals 3</h3>
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img width="200" data-src="images/ux-principles/examples/Asana_3.jpg">
+								</div>
+
+								<div class="col-8">
+									<p>And again when we click on a Project 'CI Design System';</p>
+									<ul>
+										<li>Back button</li>
+										<li>Context Title</li>
+										<li>List tab</li>
+										<li>+ other views</li>
+									</ul>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+					<section>
+						<h3>Asana Modals 4</h3>
+						<div class="container">
+
+							<div class="row">
+								<div class="col">
+									<img width="200" data-src="images/ux-principles/examples/Asana_4.jpg">
+								</div>
+
+								<div class="col-8">
+									<p>And again when we click on a Task 'Icon Component ...';</p>
+									<ul>
+										<li>Back button</li>
+										<li>Context Title</li>
+										<li>Context Menu</li>
+										<li>List</li>
+										<li>Parent name</li>
+									</ul>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+					<section>
+						<h3>Asana Modals 5</h3>
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img width="200" data-src="images/ux-principles/examples/Asana_5.jpg">
+								</div>
+
+								<div class="col-8">
+									<p>And again when we click on a Subtask 'Need Styleguide ...';</p>
+									<ul>
+										<li>Back button</li>
+										<li>Context Title</li>
+										<li>Context Menu</li>
+										<li>Parent name</li>
+									</ul>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+					<section>
+						<h3>Take aways</h3>
+						<ul>
+							<li>As well as link, the content can layer on top of itself as discreet Task Modals, to allow the full use of the screen canvas for that Task/</li>
+ 							<li>Cul de sacs can be avoided with the use of the back arrow</li>
+							<!--<li>Multiple branches can be supported</li>
+							<li>This is true of many types of content - Mammals can cycle Qinling panada</li> -->
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h3>Conclusions</h3>
+					<ul>
+						<li>A mix of the 2 Patterns illustrated above will support Navigation through the content - think 'Stairs'</li>
+						<li>A Hierarchical nav (think 'Lift') and Search (think 'Willy Wonka Lift') can be supported through the use of a Hamburger menu</li>
+						<li>These Patterns can be enhanced on the larger canvas of a Desktop but should still be relatable between devices for users and developers</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Expand - Amazon, Gmail</h3>
+
+				</section>
+
+				<section>
+					<h3>Context</h3>
+					<p>A Navigation Bar is more suited to our systems as it is a more flexible Pattern and can be put to use in creating a navigation that can support an infinite amount of navigating up and down a rich information hierarchy.</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Validation Errors Patterns</h1>
+					<h3>Review of what might be done better</h3>
+<!-- 					<p>
+						<small>Created by <a href="http://openapp.ie">Turlough McAnespy</a></small>
+					</p> -->
+				</section>
+
+				<section>
+					<h2>As a User, I want to </h2>
+					<ol>
+						<li>know what to do</li>
+						<li class="fragment">have system prevent me from doing things wrong if possible</li>
+						<li class="fragment">forgive my mistakes where possible</li>
+						<li class="fragment">know what is correct</li>
+<!-- 						<li class="fragment">know what needs fixed maybe</li> -->
+						<li class="fragment">know what needs fixed</li>
+						<li class="fragment">know how to fix it</li>
+					</ol>
+				</section>
+
+<!-- 
+Manual entry - wrong format
+Manual entry date in past
+Manual entry date in future
+Manual entry is valid
+
+Datepicker entry date in past
+Datepicker entry date in future
+Datepicker entry is valid
+
+Messaging
+
+-->
+				<section>
+
+					<section>
+						<h2>1. Areas we can know to be Invalid</h2>
+						<p>Some of these examples aren't likely in practice but thats not to say we shouldn't address them.</p>
+					</section>
+
+					<section>
+						<h2>Text entry - date in wrong format 1</h2>
+						<ul>
+							<li>01-01-2000 is fixed to 01/Jan/2000 = Good</li>
+							<li>01/01/2000 is fixed to 01/Jan/2000 = Good</li>
+						</ul>
+						<img src="images/validation-issues/text-format-valid.png" alt="">
+					</section>
+
+					<section>
+						<h2>Text entry - date in wrong format 2</h2>
+						<p>The system is returning a good Error message (in content not presentation), but isn't showing the Field to be Invalid and the Enrol button is Active</p>
+<!-- 						<p>2000-01-01 is not fixed but does not actually return an Error</p>
+						<p>01-13-2000 is not fixed but does not actually return an Error</p> -->
+<!-- 						<p>2000/01/01 is not fixed but does not actually return an Error</p> -->
+						<img src="images/validation-issues/text-format-invalid-reverse.png" alt="">
+						<p>But also a Required fields Error status is being removed by a format that we are saying is Invalid</p>
+						<p>Likewise for 2000-01-01 and 01-13-2000</p>
+					</section>
+
+					<section>
+						<h2>Text entry - date in wrong format 3</h2>
+						<img src="images/validation-issues/text-input-invalid.png" alt="">
+						<p>We should refuse some formats, we can't cover every input possibility, but we should give feeback</p>
+						<img src="images/validation-issues/text-format-valid-no-feedback.png" alt="">
+					</section>
+
+					<section>
+						<h2>Text entry - date in future</h2>
+						<p>Again, we can't cover every input possibility but we should give feeback.</p>
+
+						<img src="images/validation-issues/text-format-valid-no-feedback.png" alt="">
+					</section>
+
+					<section>
+						<h2>Text entry - date invalid so switches back to previous valid</h2>
+						<p>This is inappropriate as we must assume it was changed for a reason, so to change it back without saying we are doing so is likely to end in a value the User doesn't want being saved.</p>
+						<img src="images/validation-issues/text-in-past-valid.png" alt="">
+					</section>
+
+					<section>
+						<h2>Text entry - date far in past</h2>
+						<p>Should we not a have a baseline for exceptable DOBs which is consistantly reflected in both the text input and date picker?</p>
+						<img src="images/validation-issues/text-in-past-valid.png" alt="">
+					</section>
+
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Date picker - date in future</h2>
+						<p>This is how it should be, its preventing a bad choice rather than deleting it and seems intuitive</p>
+						<img src="images/validation-issues/datepicker-in-future-disabled.png" alt="">
+					</section>
+
+					<section>
+						<h2>Date picker - date far in past</h2>
+						<p>But here allows a DOB 160 years in the past</p>
+ 						<img src="images/validation-issues/datepicker-allows-1860.png" alt="">
+					</section>
+
+					<section>
+						<h2>Consent Date picker - date before DOB</h2>
+						<p>'Date entered cannot be before the date of birth' - content is correct and it is apperaing as an Error message, but this should be a Hard check = Red and Enrol button should be disabled</p>
+ 						<img src="images/validation-issues/datepicker-before-dob.png" alt="">
+					</section>
+
+					<section>
+						<h2>Consent</h2>
+						<p>This states that there is no Consent to Enrol the Patient to the system, but we are allowing them to Enrol. Should we harden this up, its not just a data point.</p>
+						<img src="images/validation-issues/consent.png" alt="">
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Messaging</h2>
+						<img src="images/validation-issues/messaging.png" style="max-height:300px" alt="">
+						<ul>
+							<li>We should say 'All fields marked with a Astericks are Required'</li>
+							<li>'Form contains error or omissions' should reflect the Hard nature (form can't be Saved) of the issue - Red not Amber</li>
+							<li>When a Error message is delivered in context with the field the action bar message dissappears</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>As a User, I want to </h2>
+						<ul>
+							<li><strong>know what to do</strong> - we need to add instructions about Required + Expected</li>
+							<li class="fragment"><strong>have system prevent me from doing things wrong if possible</strong> - we shouldn't allow user to click on 'really' invalid dates. Or even scroll to ones?</li>
+							<li class="fragment"><strong>forgive my mistakes where possible</strong> - but not reverse a Users input without feedback, but absolutely not revert to a previous input</li>
+							<li class="fragment"><strong>know what is correct</strong></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>As a User, I want to </h2>
+						<ul>
+							<li class="fragment"><strong>know what needs fixed</strong> - hard feedback to change an input should be consistant in presentation = a red outline and ...</li>
+							<li class="fragment">must never allow a field to be Saved when we have identified the input is wrong or that a hard condition isn't met - as with Consent</li>
+							<li class="fragment"><strong>know how to fix it</strong> - should state what they user needs to do - "the date needs to be in the format ...", "the date must not be in the future", "the date must be within the last 120 years" etc.</li>
+						</ul>
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

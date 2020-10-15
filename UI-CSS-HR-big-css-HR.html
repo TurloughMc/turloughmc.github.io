@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>CSS Principles</h1>
+					<h3>Ideas around how to Architect for Scalable and Maintainable CSS</h3>
+					<p>
+						<small>Created by <a href="http://openapp.ie">Turlough McAnespy</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>The problem with CSS</h2>
+
+					<ol>
+						<li class="fragment">HTML is viewed in situ...</li>
+						<li class="fragment">Has no interdependencies</li>
+						<li class="fragment">Is, by nature, self-explanatory</li>
+					</ol>
+
+					<ol>
+						<li class="fragment">CSS relies on inheritance...</li>
+						<li class="fragment">The cascade...</li>
+						<li class="fragment">Specificity</li>
+					</ol>
+				</section>
+
+
+				<section>
+					<h2>?</h2>
+					<h3>Defer more work to HTML</h3>
+					<ul>
+						<li>More of HTML like this - class="navbar navbar-expand navbar-light bg-white"</li>
+						<li>For less CSS this - #tlec .col-b #more-tleo-promo .promo-entry</li>						
+					</ul>
+				</section>
+
+				<section>
+					<h2>?</h2>
+					<p>Lots more markup and classes, a LOT less CSS.</p>
+					<h3>The easiest way to keep CSS maintainable is to avoid writing it</h3>
+				</section>
+
+				<section>
+					<h2>Tips and Tricks</h2>
+				</section>
+
+				<section>
+					<h2>Keep Specificity Low</h2>
+					<ol>
+						<li class="fragment">No IDs in CSS</li>
+						<li class="fragment">Write rulesets iin specificity order - see pyramid</li>
+						<li class="fragment">Avoid qualifying selectors</li>
+						<li class="fragment">Avoid unnecessary nesting</li>
+						<li class="fragment">Avoid chaining selectors</li>
+					</ol>
+				</section>
+
+
+<!-- 				<section>
+					<h2>Types of Screen</h2>
+					<p>There are only two fundamental types of screens in user interfaces *.</p>
+					<br>
+					<ol>
+						<li class="fragment">Non-Modal Screens</li>
+						<li class="fragment">Modal Screens</li>
+					</ol>
+					<span class="fragment"><p><small>* - Almost</small></p></span>
+				</section> -->
+
+				<section>
+					<h2>What is ITCSS?</h2>
+					<p>There are only two fundamental types of screens in user interfaces *.</p>
+					<br>
+					<ol>
+						<li class="fragment">Non-Modal Screens</li>
+						<li class="fragment">Modal Screens</li>
+					</ol>
+					<span class="fragment"><p><small>* - Almost</small></p></span>
+				</section>
+
+				<section>
+					<h2>* ITCSS port of Bootstrap v3.3.3</h2>
+					<ul>
+						<li>1. Settings................Global variables, config switches.</li>
+						<li>2. Tools...................Default mixins and functions.</li>
+						<li>3. Generic.................Ground-zero styles (resets, box-sizing, reboot).</li>
+						<li>4. Base....................Unclassed HTML elements (type selectors).</li>
+						<li>5. Components..............Designed components, chunks of UI, plugins</li>
+
+						<li>5.1 atoms</li>
+						<li>5.1 molecules</li>
+						<li>5.1 organisms</li>
+						<li>5.1 templates</li>
+						<li>5.1 pages</li>
+
+						<li>6. Utilities..................Helpers and overrides.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2></h2>
+					<ul>
+						<li>The front-end architecture needs to support front-end developers (including the designers)</li>
+
+						<li>A fundamental element of this is the Scaleability and Consistancy of the UI. The Components in Vue are currently disassociated from the visual UI Components - Conext banner, Anchor nav, etc...</li>
+
+						<li>A fundamental element of this is the Scaleability and Maintainablity of the CSS. The Components in Vue are currently disassociated from the CSS Components - easily identifiable from the stylesheet</li>
+
+						<li>We must create a coherency in the relationship between the CSS and the Vue Components that use the CSS so it is organised better to deal with CSS specifics like global namespace, cascade and selectors specificity.</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>The Challenge</h2>
+					<ul>
+						<li>Con asked Kevin to tweak the Platform so we can create significantly more Registries per year =</li>
+						<li>Do More with Less work =</li>
+						<li><strong>Reuse and Recycle</strong></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What are we trying to style?</h2>
+					<ul>
+						<li>Cosmetic Skinning for Branding etc... - should happen at the top Global section of the style 
+						or leverage the Utilities at the BOTTOM which might over-ride everything else with the use of !important (the bottom being the only place !important is justified)</li>
+
+						<li>Styling for accessibility - should happen at the Product (or at least Project) level recognising that different User types (Patients v Clinicians for example)</li>
+
+						<li>Component styling - (a table, login box, banner etc.) should happen at a Component level not at a Page/Template level as we want the Components to improve and mature, and remain consistant from project to project</li>
+
+						<li>Page level macro layouts - these really shouldn't need css in them at all. The layout should be governed by the correct use of layout classes - combinations of .col-sm, .col-md etc.</li>
+
+						<li>Style hacks - assuming there is a need for a style hack on a particular view/page on a particular project, it *might be justifiable to add a css hack inside a particular pageset. How do we prevent this from getting replicated into other pagesets and other projects where upon it needs to kept for eternity because no-one knows what will happen if it gets deleted</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Scoping</h2>
+
+					Global scope is typically a bad thing in programming. Variables in global scope are unpredictable because:
+
+					When you access them later in your program, you have no sure way of knowing what state they will be in.
+					They can be accidentally called in other parts of the program.
+					They can be accidentally reassigned by other global variables.
+
+
+					Although not the same thing the parellel with CSS is that loose scoping can lead to un-intended consequences with the styling. This is very bad.
+
+					.title{
+					}
+				</section>
+
+				<section>
+					<h2>Scoping with Vue Pagesets</h2>
+
+					<p>The benefit of having the style inside a Vue pageset, is nominally that it allows for scoping. But the scoping at this level doesn't dovetail with the natural structure of the UI elements or the styling of them.</p>
+
+					<p>And Poorly Used Scoping = NO Reuse and Recycle of the CSS.</p>
+
+				</section>
+
+				<section>
+					<h2>Scoping in CSS</h2>
+
+					<p>Also there are already techniques available for scoping in CSS;</p>
+
+					Nesting classes inside other classes provides scope but also unnecessarily raises specificity which is in itself also undesirable
+
+					.some-widget .title{
+					}
+
+					Use a naming convention allows you to namespace your selectors with the scope in which they function. This also allows the style to become re-usable because the we know what it is for and predict what it will do.
+
+					.some-widget{
+					}
+
+					    .some-widget__title{
+					    }
+
+				</section>
+
+				<section>
+					<h2>The Good news</h2>
+					A large chunk of our CSS (Bootstrap based + alot of plugins) already does this or at least is compatible with, and we have a model will can scale on top of.  
+
+<!-- 					<pre class="highlight scss"><span class="nc">.selector</span> <span class="p">{</span>
+					  <span class="na">property</span><span class="p">:</span> <span class="n">value</span><span class="p">;</span>
+					<span class="p">}</span>
+					</pre> -->
+
+					<pre class="highlight scss">
+					.form{
+					}
+
+						.form-check{
+						}
+
+							.form-check-input{
+							}
+					</pre>
+				</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://bradfrost.com/blog/post/atomic-web-design/">Atomic Web Design</a> <br>
+
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

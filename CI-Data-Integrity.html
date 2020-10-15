@@ -1,0 +1,532 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Making the Case for RAG</h1>
+					<h3>(or not)</h3>
+
+					<p>
+						Validation within the Clinical Insight System<br />
+						<small>Created by Turlough McAnespy</small>
+					</p>
+				</section>
+
+				<section>
+					<h1>Making the Case for RAG</h1>
+					<ul>
+						<li><a href="#/background">CDM Background</a></li>
+						<li><a href="#/truths">Summary of CDM Truths</a></li>
+						<li><a href="#/undefined">Currently Undefined</a></li>
+						<li><a href="#/strategies">Validation Check Strategies</a></li>
+						<li><a href="#/web">Web Validation Patterns</a></li>
+						<li><a href="#/conflicting">Conflicting Concepts of Valid</a></li>
+						<li><a href="#/insights">Clinical Insight Concepts</a></li>
+						<li><a href="#/castor">Versus Castor</a></li>
+						<li><a href="#/states">States Needed</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Presentation Purpose</h2>
+					<p class="fragment">This Presentation is intended for <strong>summarising some of the Validation concepts</strong> used within Clinical Insight, <span class="fragment"><strong>where they have come from</strong></span> <span class="fragment">and if they are fit for purpose <strong>or need to be re-designed</strong>.</span></p>
+				</section>
+
+				<section>
+					<section id="background">
+						<h2>CDM Background</h2>
+<!-- 						<blockquote class="fragment">'<strong>Begin at the beginning</strong>', the King said gravely, <strong>'and go on till you come to the end: then stop.'</strong></blockquote> -->
+
+						<p class="fragment"><strong>Clinical data management (CDM)</strong> - a critical process in clinical research, which leads to generation of high-quality, reliable, and statistically sound data from clinical trials</p>
+					</section>
+<!-- 				<section>
+					<h2>All our Customer want to get here - </h2>
+					<p class="fragment"><strong>Clinical data management (CDM)</strong> - a critical process in clinical research, which leads to generation of high-quality, reliable, and statistically sound data from clinical trials</p>
+				</section>
+ -->
+
+ 				
+					<section>
+						<h2>Clinical Data Manager</h2>
+						<ul>
+							<li class="fragment">oversees development of data collection tools based on the clinical trial protocol</li>
+							<li class="fragment">ensures that data is collected, <strong>validated, complete,</strong> and consistent</li>
+							<li class="fragment">ensures that all data expected has been accounted for and that all data management activities are complete</li>
+							<li class="fragment">data can be Frozen to pause collection (reversible, verifiable, active queries)</li>
+							<li class="fragment">data is declared final by Locking a Casebook</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Case report form design</h2>
+						<ul>
+							<li class="fragment">The (CRF) is the data collection tool for the clinical trial</li> 
+							<li class="fragment">Electronic CRFs enable data to be typed directly into fields using a computer and transmitted electronically to Data Management</li>
+							<li class="fragment">Design of CRFs needs to take into account the information required to be collected by the clinical trial protocol</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Data entry</h2>
+						<ul>
+							<li class="fragment">When an electronic CRF is in use data entry is carried out by staff at the investigative site</li>
+							<li class="fragment">When using a paper CRF the pages are entered by data entry operators</li>
+
+	<!-- 						<li class="fragment">Best practice is for a first pass data entry to be completed followed by a second pass or verification step by an independent operator. Any discrepancies between the first and second pass may be resolved such that the data entered is a true reflection of that recorded on the CRF. Where the operator is unable to read the entry the clinical data manager should be notified so that the entry may be clarified with the person who completed the CRF.</li> -->
+
+						</ul>
+					</section>
+
+					<section>
+						<h2>Validation rules</h2>
+						<p>These check if the data "makes sense" and include;
+						<ul>
+							<li><strong>Presence check</strong> (very binary)</li>
+							<li>Range check</li>
+							<li>Type check</li>
+							<li>Format check</li>
+							<li>Length check</li>
+							<li><strong>Outlier check</strong> (a bit fuzzier)</li>
+							<li>Data distribution check</li>
+						</ul>
+						</p>
+					</section>
+
+					<section>
+	<!-- 					<h2>Validation rules</h2> -->
+						<img src="images/ci-data-integrity/Principles-and-Practice-of-Clinical-Trial-Medicine.png" width="636" height="828">
+					</section>
+
+ 				</section>
+
+				<section id="truths">
+					<h2>Summary of CDM truths</h2>
+					<ul>
+						<li class="fragment"><strong>Data Manager</strong> is ultimately responsible for Validation</li>
+						<li class="fragment">Validation is defined by <strong>Validation Rules</strong></li>
+						<li class="fragment">Rules (Checks) can be programmed into the system using <strong>Checks</strong> which will effect what happens next</li>
+					</ul>
+				</section>
+
+				<section>
+					<section id="undefined">
+						<h2>Currently undefined 1</h2>
+						<ul>
+							<li class="fragment">What are the consequences of when a field fails a Check?</li>
+							<li class="fragment">Should automated Queries be triggered automatically? Ours current implementation allows for the Investigator to create a Query on a Soft Check fail, but is that not a scenario of lesser concern?</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Currently undefined 2</h2>
+						<ul>
+							<li class="fragment">Do we consider all that all Rules should be defined by the Data Manager?</li>
+							<li class="fragment">If this isn't the case, is it clear when we should add Rules ourselves and how these might effect what happens next?</li>
+							<li class="fragment">Is it correct to have Required fields inside Optional Sections/Progressive Disclosure?</li>
+							<li class="fragment">Should % Valid/Complete be based on fields with Checks or all fields?</li>
+						</ul>
+					</section>
+				</section>
+
+				<section id="strategies">
+					<section>
+						<h2>Validation Check Strategies</h2>
+						<p>A validation check returning an Error (broadest sense) <strong>might</strong>;
+						<ul>
+							<li class="fragment">force a change in real time at the point of entry - not allow the Form to be Saved until the Data is made Valid - This is a <strong>Hard check</strong></li>
+							<li class="fragment">or allow the Form to be Saved (a <strong>Soft check</strong>) and <strong>automatically</strong> trigger a <strong>Data Query</strong></li>
+							<li class="fragment">or allow the Form to be Saved (signal a Soft check) and 'allow' the Data Entry to create a Query. Note: is this a form of correcting your own homework and needs to be supported with a higher transparency on Soft Check warnings?</li>
+							<li class="fragment">or allow the Form to be Saved (and prompt a review?) A Data Manager/Monitor might choose to <strong>raise a Data Query</strong></li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>Hard Checks</h2>
+						<p>
+						<ul>
+							<li class="fragment">Unfortunately, hard edit checks that keep the user from advancing to the next field or page, unless indicated criteria are met, are frequently overused</li>
+							<li class="fragment">Hard edit checks enforce restrictive rules that prevent the user from saving the form</li>
+							<li class="fragment">When this happens, users become frustrated and may enter incorrect data that meets the criteria just to be able to proceed </li>
+						</ul>
+					</section>
+
+
+
+
+					<section>
+						<h2>Data queries</h2>
+							<p class="fragment">Where data entered does 'not pass validation rules' then a data query may be issued to the investigative site where the clinical trial is conducted to request clarification of the entry.</p>
+
+							<p class="fragment">When an item or variable has a query raised against it, it is said to have a “discrepancy” or “query”. <span class="fragment">Queries can be resolved in several ways:</span></p>
+								<ul>
+									<li class="fragment">Automatic Query - by the Investigator correcting the error before interacting with the Query</li>
+									<li class="fragment">by Monitor/Data manager marking the Query as Closed / Canceled</li>
+								</ul>
+					</section>
+
+					<section>
+						<h2>Raised Data queries workflow</h2>
+						<img src="images/ci-data-integrity/Workflow-Data-Queries.png" width="654" height="543">
+					</section>
+
+	<!-- 				<section>
+						<h2>Batch Data queries - ???</h2>
+						<p>What defines a the these Data Queries from the standard Automatically raised Queries;</p>
+						<ul>
+							<li class="fragment">Additional and in parallel</li>
+							<li class="fragment">Defined at Protocol</li>
+							<li class="fragment">Not visible to Data Entry (or @ Data Entry?)</li>
+							<li class="fragment">Above Needs Defined</li>
+						</ul>
+					</section> -->
+
+
+					<section>
+						<h2>Realtime Validation</h2>
+						<ul>
+							<li class="fragment">If a Validation check prevents the Saving of the Form (a Hard check) we need a signal for this - it must correlate with the UI Pattern for Validation Error. A field requiring an Email is a typical example;
+							<img src="images/ci-data-integrity/best_old_216.jpg" width="592" height="454" style="margin: 0 auto; display: block;"></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Realtime Validation</h2>
+						<ul>
+							<li class="fragment">If a Validation check allows the Form to Save but still has some form of 'Soft' Validation or Validation Warning, this also requires a signal</li>
+						</ul>
+					</section>
+
+	<!-- 				<section>
+						<h2>Relationship between Query Closure and Data Verification</h2>
+						<p>I don't know. If the data was entered as a value that was Invalid on paper the System Value matches the Paper Value. It can't be Valid. Should this be Verified?</p>
+					</section> -->
+				</section>
+
+<!-- 				<section>
+					<h2>Data Source Verification</h2>
+					<ul>
+						<li class="fragment">Determining and reviewing sources of Data</li>
+						<li class="fragment">Comparing collection, entry and storage against the protocol</li>
+						<li class="fragment">Comparing the data against its original source</li>
+						<li class="fragment">Samples may suffice</li>
+					</ul>
+				</section> -->
+
+				<section id="web">
+					<section>
+						<h2>Web Validation Patterns</h2>
+	<!-- 					<blockquote class="fragment">'<strong>Begin at the beginning</strong>', the King said gravely, <strong>'and go on till you come to the end: then stop.'</strong></blockquote> -->
+
+						<p class="fragment"><strong>Form Data Validation</strong> - a set of web application functionality which checks it to see that the data entered by a User is correct, often performed on the Client-side in browser, before the data has been submitted to the server.</p>
+
+						<p class="fragment">If the information isn't correct, it gives you an error message explaining what needs to be corrected.</p>
+					</section>
+
+					<section>
+						<h2>Client-side Validation</h2>
+						<p>In Web Applications the data tends to be modeled as;
+						<ul>
+							<li class="fragment">Invalid - the Form can't be Saved</li>
+							<li class="fragment">Valid - the Form can be Saved</li>
+						</ul>
+						</p>
+					</section>
+
+					<section>
+						<h2>Client-side Validation</h2>
+						<p>Widely used approaches include 
+						<ul>
+							<li class="fragment">signaling an Invalid field by border the field in Red</li>
+							<li class="fragment">disabling the submit button until all fields are Valid</li>
+						</ul>
+						<p>
+	<!-- 					<img src="images/mP4sx.png" width="256" height="283"> -->
+						<img class="fragment" src="images/ci-data-integrity/NOT-disabling-it.png" width="462" height="332">
+					</section>
+
+					<section>
+						<h2>Client-side Validation</h2>
+						<p>Widely used approaches include 
+						<ul>
+							<li class="fragment">another approach is use Asterisks to communicate the presence of a 'Presence Check'</li>
+						</ul>
+						<img class="fragment" src="images/ci-data-integrity/red-asterisk.png" width="283" height="148">
+					</section>
+				</section>
+
+				<section id="conflicting">
+					<h2>Conflicting concepts</h2>
+					<p class="fragment">It may make sense that Invalid Data can exist in a Study Dataset (think of paper) until it is identified as such and addressed by a Data Manager</p>
+
+					<p class="fragment">In a Web Applications it is typical to try and prevent the Form from being Submitted to the Database while Fields are Invalid.</p>
+
+					<p class="fragment">The above concepts need to reconciled and may require the creation of 2 (or more) categories of Invalid Validation states (what is not at all ok and what is not ideal).</p> 
+				</section>
+
+				<section id="insights">
+					<section>
+						<h2>Clinical Insight Concepts</h2>
+						<ul>
+							<li class="fragment">Expected fields</li>
+							<li class="fragment">Cascading of Validation signals</li>
+							<li class="fragment">Section Validation signals within Section nav</li>					
+						</ul>
+					</section>
+
+					<section>
+						<h2>Expected fields</h2>
+						<p>Whereas red Astericks is used to communicate the presence of a Required field, an amber/orange triangle character is used to communicate the presence of a Expected field.</p>
+						<img class="fragment" src="images/ci-data-integrity/expected.png" width="301" height="40">
+					</section>
+
+					<section>
+						<h2>Cascading of Validation signals</h2>
+						
+						<p>In Clinical Insight we took the signal for a Invalid field and we cascaded it up. So where a field signals its Validation Error, the Section containing it also communicates the presence of the field with the Validation Error</p>
+
+						<img src="images/ci-data-integrity/required_11.png" width="981" height="145">
+					</section>
+
+					<section>
+						<h2>Validation signals in Section nav</h2>
+						
+						<p>As well as letting the User select and navigate, the Section Navigation also attempts to communicate the Validation states of Sections as defined above. This may be a overreach.</p>
+
+						<img src="images/ci-data-integrity/required_9.png" width="222" height="99">
+					</section>
+				</section>
+
+<!-- 				<section>
+					<h2>Validation rules</h2>
+					<p>Validation Rules are ???electronic checks??? defined in advance which ensure the completeness and consistency of the clinical trial data.</p>
+Our world hard and soft
+						<li class="fragment">Electronic trial design also includes edit check programming. Edit checks are used to fire a query message when discrepant data is entered, to map certain data points from one CRF to the other, to calculate certain fields like Subject's Age, BMI etc.. <strong>Edit checks help the investigators to enter the right data at the moment data is entered</strong> and also help in increasing the quality of the Clinical trial data.</li>
+				</section>
+
+				<section>
+					<h2>Data validation</h2>
+					<p>Data validation is the application of validation rules to the data. For electronic CRFs the validation rules may be applied in real time at the point of entry. Offline validation may still be required (e.g. for cross checks between data types)</p>
+				</section> -->
+
+				<section id="missteps">
+					<section>
+						<h2>Possible misstep 1</h2>
+						<p>The Section is showing as having a Expected field, even though none is displaying. I think this kind of implied/dependancy Validation Warnings/Errors are a misstep. Logically justifiable but not intuitive.</p>
+						<img src="images/ci-data-integrity/comorbidities_0.png" width="907" height="123">
+					</section>
+
+					<section>
+						<h2>Possible misstep 2</h2>
+						<p>When the button is clicked to add a repeating concept - this is now showing as Valid even though nothing has been added. This might be a bug but that it exists is probably a sympton of the Validation rules being too complicated.</p>
+						<img src="images/ci-data-integrity/comorbidities_1.png" width="911" height="209">
+					</section>
+				</section>
+
+				<section id="castor">
+					<section>
+						<h2>Comparisions with Castor</h2>
+						<ul>
+							<li>Obvious competitor in that market</li>
+							<li>Have had investment and spent it in the design of interface</li>
+							<li>Document heavily and freely available</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>UI Similarities to Castor</h2>
+						<ul>
+							<li>Phase (example Baseline, Follow-up) could be like CI Form</li>
+							<li>Steps (ex. Physical Exam, Laboratory) could be like Sections</li>
+							<li>Has Valid fields (Green)</li>
+							<li>Has Optional fields (labels bolded) and Expected fields (Amber)</li>
+							<li>Creates Hard Check fails (Red) in real-time</li>
+						</ul>
+					</section>
+
+<!-- <section>
+When you get rid of the last Amber field (Heart Rate) in the Physical Exam, then Physical Exam also automatically (there is no option to set it as Complete) goes from Amber (In Progress) to Green (Completed). And the Follow-up Visit also goes from Amber to Green (Completed).
+
+Also the Laboratory part of the Follow-up is Green (Completed) even though it is empty - this is because it has no Expected fields (The fields below are marked as not required and the questions are therefore not bold.), and is therefore set to Completed by default.
+</section> -->
+					<section>
+						<h2>UI Similarities to Castor</h2>
+						<ul>
+							<li>a Physical Exam with no empty (Amber) Required fields is automatically considered Completed (Green)</li>
+							<li>a Follow-up Visit with no empty (Amber) Required fields is automatically considered Completed (Green)</li>
+							<li>Castor show Steps (Sections) as Amber if any field is Amber including for an Open Query</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Differences to Castor</h2>
+						<ul>
+							<li>Uses Hard checks sparingly</li>
+							<li>Has concept of 'Not Started' which switches on 1 field being entered</li>
+							<li>They do not show a 'Report' (after creation) as Amber even when all fields within are Amber until one field is entered</li>
+							<li>Castor use the Steps (Sections?) in a Modular way - you can leave bits out and there is no xxx </li>
+
+							<li>Master > detail sitting inside a Vertical parent Master detail = Controversial</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Take aways</h2>
+						<ul>
+							<li>In this space their UI seems better polished rather than categorically different</li>
+							<li>A bit more polish can close this gap without being disruptive to current Insight models</li>
+							<li>With the exception of being able to Save as you go?</li>
+						</ul>
+					</section>
+				</section>
+
+				<section id="states">
+					<section>
+						<h2>States needed</h2>
+						<ul>
+							<li>Red (astericks) - the input is invalid or does not comply with the inclusion criteria for the study. This is accompanied by a red warning message.</li>
+							<li>Amber (triangle?) - Data is required not valid data has been inputed and the 'form' can be saved</li>
+							<li>Green - The input is valid or optional and the 'form' can be saved</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Additional functionality as field</h2>
+						<ul>
+							<li>Clear - override individual Radio buttons/Checkboxes</li>
+							<li>Help info</li>
+							<li>User missing - bypass checks?</li>
+							<li>Queries</li>
+							<li>Comment > Query Note</li>
+							<li>Audit trail</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Phase (Form)</h2>
+						<ul>
+							<li>Grey - not started</li>
+							<li>Amber - In Progress - When not all fields are Green</li>
+							<li>Green - Completed</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Phase (Form)</h2>
+						<ul>
+							<li>Mark Phase as missing</li>
+							<li>Lock</li>
+							<li>Sign</li>
+							<li>Mark as Verified</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Record</h2>
+						<ul>
+							<li>Progress - Blue bar over grey</li>
+							<li>Full Green bar = 100%</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Queries</h2>
+						<ul>
+							<li>New</li>
+							<li>Open</li>
+							<li>Unconfirmed</li>
+							<li>Confirmed</li>
+							<li>Resolved</li>
+							<li>Closed</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Definitions</h2>
+						<img src="images/ci-data-integrity/castor/castor-ui.png" width="" height="">
+					</section>
+
+					<section>
+						<h2>Definitions</h2>
+						<img src="images/ci-data-integrity/castor/Definitions.png" width="" height="">
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Display logic v Validation logic</h2>
+						<p>I think we should keep these separate as much as possible. The Validation should be attached at a field (low) level. The Section selection should act much as adding a page to a paper Form (ie be Modular). IE the page is there to see or not. Each field has a Validation rule or not.</p>
+					</section>
+				</section>
+
+				<section>
+						<ul>
+							<li><a href="https://en.wikipedia.org/wiki/Clinical_data_management" target="_blank">Wikipedia - Clinical data management</a></li>
+							<li><a href="https://docs.oracle.com/health-sciences/oc-rdc-52/rdc-user/managing.htm#RDCOG314" target="_blank">docs.oracle.com/managing</a></li>
+							<li><a href="https://docs.oracle.com/health-sciences/oc-rdc-52/rdc-user/verifying.htm#RDCOG391" target="_blank">docs.oracle.com/verifying</a></li>
+							<li><a href="https://pdfs.semanticscholar.org/b3c1/2957c7465d873db05155ad8110851d9a82af.pdf" target="_blank">An outline of data management in clinical research PDF</a></li>
+							<li><a href="https://docs.openclinica.com/3.1/openclinica-user-guide/monitor-and-manage-data/notes-and-discrepancies" target="_blank">docs.openclinica.com/notes-and-discrepancies</a></li>
+							<li><a href="https://books.google.ie/books?id=HgmrI2r5eo4C&pg=PA314&dq=are+validation+rules+defined+part+of+the+study+protocol&hl=en&sa=X&ved=0ahUKEwizye2p1pvjAhWGi1wKHdF9CScQ6AEIKjAA#v=onepage&q=are%20validation%20rules%20defined%20part%20of%20the%20study%20protocol&f=false" target="_blank">books.google.ie/Principles-and-Practice-of-Clinical-Trial-Medicine</a></li>
+							<li><a href="https://medinstitute.com/2019/08/07/clinical-trials-considerations-for-designing-and-building-an-electronic-data-capture-edc-system-part-1-considerations-for-designing-an-electronic-data-capture-system-with-users-in-mind/" target="_blank"designing-an-electronic-data-capture-system-with-users-in-mind</a></li>
+							<li><a href="http://ui-patterns.com/patterns/InputFeedback/examples/1066" target="_blank">ui-patterns.com/patterns/InputFeedback</a></li>
+						</ul>
+				</section>
+
+<!-- 				<section>
+					<h2>Registry Confederation</h2>
+					<ul>
+						<li>There is always a tension between making it easy to add data and making it hard to add poor quality data.</li>
+						<li>This is best addressed by have a small number of hard checks and a larger number of soft checks which can be used to raise Queries or gate keep the moving of the data up the chain. It is much easier to Manage Data collected than collecting it in the first place.</li>
+						<li>This means the integrity of the Data has the Data Manager as the main gatekeeper rather than the Data Entry</li>
+						<li>With the importing of data into the Warehouse we can only prevent data coming in and report back why. We can't control the design of the dataset or raise Queries for clarification. Ultimately the bar to entry will need to awknowledge the quality of the source data and possibly adjust to some sort of goldilocks sweet spot for data integrity</li>
+					</ul>
+				</section> -->
+
+
+
+
+
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

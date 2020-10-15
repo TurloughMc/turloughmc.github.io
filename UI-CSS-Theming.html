@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Methods for Theming</h1>
+					<h3>Ideas around which techniques to use and when</h3>
+					<p>
+						<small>Created by <a href="http://openapp.ie">Turlough McAnespy</a></small>
+					</p>
+				</section>
+
+<!-- 				<section>
+					<h2>Types of Screen</h2>
+					<p>There are only two fundamental types of screens in user interfaces *.</p>
+					<br>
+					<ol>
+						<li class="fragment">Non-Modal Screens</li>
+						<li class="fragment">Modal Screens</li>
+					</ol>
+					<span class="fragment"><p><small>* - Almost</small></p></span>
+				</section> -->
+
+				<section>
+					<h1>Advice on Theming</h1>
+					<ul>
+						<li>Avoid if possible - make sure there is a real business case</li>
+						<li>KISS - always reduce the complexity involved</li>
+						<li>Only make changes to cosmetic aspects - avoiid altering box-model</li>
+						<li>Enforce rules - deviation is expensive</li>
+						<li>Use it as an up-sell - 'Any deviation is going to cost'</li>
+					</ul>
+				</section>
+				
+ 				<section>
+					<h2>So why would we theme</h2>
+					<p>There are only two main reasons</p>
+					<br>
+					<ol>
+						<li class="fragment">Branding</li>
+						<li class="fragment">Accessibility</li>
+					</ol>
+				</section>
+
+				<section>
+
+					<section>
+						<h1>Methods for Theming</h1>
+						<p>4 Techniques with different scenarios</p>
+					</section>
+
+					<section>
+						<h1>#1 - Theme Layer</h1>
+						<p>Overiding default style with additional CSS</p>
+
+						<ol>
+							<li class="fragment">Most common approach</li>
+							<li class="fragment">Start off with the base/default styling</li>
+							<li class="fragment">Use additional, subsequent CSS to override and redefine</li>
+						</ol>
+						
+						<p>Suited to;
+						<ol>
+							<li class="fragment">Bespoke theming for clients.</li>
+						</ol></p>
+
+						<p>The Good;
+						<ol>
+							<li class="fragment">You can swap layers out</li>
+							<li class="fragment">You can theme anything</li>
+						</ol></p>
+
+						<p>The Bad;
+						<ol>
+							<li class="fragment">Lots of redundancy</li>
+							<li class="fragment">Wasted CSS over the wire</li>
+							<li class="fragment">Shards styles across multiple files</li>
+						</ol></p>
+
+					</section>
+
+					<section>
+						<h1>#2 - Stateful Theming</h1>
+				        <p>Styling a UI based on a state or condition</p>
+
+						<ol>
+							<li class="fragment">Different skins based on conditions</li>
+							<li class="fragment">Allow themes to be switched on the client</li>
+						</ol>
+
+				        Suited to;
+						<ol>
+							<li class="fragment">Style switchers</li>
+							<li class="fragment">Individually styled sections or areas of a site</li>
+						</ol>
+				        
+				        Stateful Utility Classes;
+				        A utility class that tracks the current theme
+
+				        The Good;
+						<ol>
+							<li class="fragment">Bundle a number of themes into one codebase</li>
+							<li class="fragment">Great for style-switchers</li>
+							<li class="fragment">Perfect for 'areas' of a site</li>
+							<li class="fragment">You can theme anything</li>
+						</ol>
+
+				        The Bad;
+						<ol>
+							<li class="fragment">Bundle a number of themes into one codebase</li>
+							<li class="fragment">Potential redundancy</li>
+						</ol>
+
+					</section>
+
+					<section>
+						<h1>#3 Config Theming</h1>
+				        <p>Invoking a theme based on settings</p>
+
+				        <ol>
+							<li class="fragment">Switching between themes dev-side</li>
+							<li class="fragment">Compiling the same CSS with a different skin based on a setting</li>
+						</ol>
+
+				        Suited to;
+				        <ol>
+							<li class="fragment">Spitting out differently themed variants of a UI</li>
+							<li class="fragment">Offering off-the-shelf themes to clients</li>
+						</ol>
+
+				        The Good;
+				        <ol>
+							<li class="fragment">Only send as little CSS over the wire as necessary</li>
+							<li class="fragment">Alter the entire theme fom one location</li>
+							<li class="fragment">You can theme anything</li>
+						</ol>
+
+				        The Bad;
+				        <ol>
+							<li class="fragment">Lots of logic in your Sass</li>
+							<li class="fragment">Only supports a finite number of themes</li>
+							<li class="fragment">Theme information is spread out through the codebase</li>
+							<li class="fragment">Adding themes could be laborious</li>
+						</ol>
+					</section>
+
+					<section>
+						<h1>#4 Theme Palettes</h1>
+
+						<p>Holding entire themes in a palette file</p>
+				        <ol>
+							<li class="fragment">Preload all of your theme settings into a palette</li>
+							<li class="fragment">Inject these settings into the project later</li>
+				        </ol>
+
+						Suited to;
+				        <ol>
+							<li class="fragment">Fully bespoke theming for clients</li>
+							<li class="fragment">Adding specific branding to a project</li>
+				        </ol>
+
+						The Good;
+				        <ol>
+							<li class="fragment">Zero redundancy</li>
+							<li class="fragment">Perfect for bespoke theming - just plug in the client's brand colours</li>
+							<li class="fragment">Completely restyle the project from one file</li>
+				        </ol>
+
+						The Bad;
+				        <ol>
+							<li class="fragment">Limited mainly just to theming colours</li>
+				        </ol>
+
+					</section>
+				</section>
+
+				<section>
+					<h1>When to use</h1>
+					<ul>
+						<li>Do the themes need to change once they're on the client? Yes for Accessibility changes = Stateful</li>
+						<li>Do you have themes that you want people to be able to toggle? = Stateful</li>
+
+						<li>Do you have sections of the site that need to look different? = Stateful</li>
+
+						<li>Do you have preset themes that a client can choose from? Config</li>
+
+						<li>Do you offer bespoke theming for white-label clients? - Theme Layer or Theme Palette</li>
+					</ul>
+				</section>
+
+
+
+
+
+
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://bradfrost.com/blog/post/atomic-web-design/">Atomic Web Design</a> <br>
+
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

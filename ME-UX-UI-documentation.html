@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+<!--  				<section>
+					<h1>UX & UI Documentation</h1>
+					<h3>Identifying the different requirements</h3>
+					<p>
+						<small>Created by <a href="http://openapp.ie">Turlough McAnespy</a></small>
+					</p>
+				</section> -->
+
+				<section>
+				<h2>Aim of the Presentation</h2>
+				<h4>To answer the following questions;</h4>
+ 				<ul>
+					<li><a href="#/design-system">Why create a Design System?</a></li>
+					<li><a href="#/openapp-toolkit">Why an Openapp Toolkit?</a></li>
+					<li><a href="#/saas-roadmap">SaaS Roadmap</a></li>
+				</ul>
+ 				</section>
+
+				<section id="design-system">
+					<h2>What a Design System?</h2>
+					<p>A Design System is the single source of truth which groups all the elements that will allow the teams to design, realize and develop a product.</p>
+				</section>
+<!--
+				<section>
+					<h2>Why</h2>
+					<p>This document was created with the intention of recording my thinking with regards the documentation of Clinical Insight</p>
+					</p>
+				</section> -->
+
+				<section>
+					<section>
+						<h2>Why is this useful?</h2>
+						<p>There are a number of different areas needing needing designed and documented within any digital product. These include;</p>
+						<ul id="fragments">
+							<li class="fragment"><strong>Functional User Experience Patterns</strong> - the essence of which is behavioural</li>
+							<li class="fragment"><strong>Perceptual Patterns</strong> - iconography styles, colors and typography</li>
+							<li class="fragment"><strong>User Interface Components</strong> - tangible building blocks of the interface, such as a button, a header, a form element, a menu</li>
+						</ul>
+					</section>
+					<section>
+						<h2>UX Patterns Example</h2>
+						<img src="images/documentation/Table-Filter.png" alt="" height="500" width="700">
+					</section>
+					<section>
+						<h2>UX Patterns Requires</h2>
+						<p>This must be at an abstract level;</p>
+						<ul id="fragments">
+							<li class="fragment"><strong>Problem stated</strong></li>
+							<li class="fragment"><strong>Examples of Solution (images)</strong></li>
+							<li class="fragment"><strong>Usage stated</strong></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Perceptual Pattern Example</h2>
+						<img src="images/documentation/styletile.jpg" alt="" height="549" width="770">
+					</section>
+					<section>
+						<h2>Perceptual Pattern Requires</h2>
+						<ul id="fragments">
+							<li class="fragment"><strong>Colours (HTML + CSS)</strong></li>
+							<li class="fragment"><strong>Typography (HTML + CSS)</strong></li>
+							<li class="fragment"><strong>Iconography (HTML + CSS)</strong></li>
+						</ul>
+						<p class="fragment">Ideally this will be tethered to the main code base so the style in the documentation updates in real time with the development and cannot branch away from it through time<p>
+					</section>
+
+					<section>
+						<h2>UI Component Example</h2>
+						<img src="images/documentation/Component.png" alt="" height="570" width="700">
+					</section>
+					<section>
+						<h2>UI Component Requires</h2>
+						<ul id="fragments">
+							<li class="fragment"><strong>Overview</strong></li>
+							<li class="fragment"><strong>Design (HTML + CSS)</strong></li>
+							<li class="fragment"><strong>Code (HTML with Classes)</strong></li>
+						</ul>
+						<p class="fragment">Again tethered to the main code base and able to act as a Sandbox for crafting Modular & Maintainable Components that will work in multiple instance in the system. Storybook can do this with a change of focus from managing Vue (Code) Components to documenting of UI Components (Code and Design)<p>
+					</section>
+
+				</section>
+
+				<section id="design-system">
+
+					<section>
+					<h2>Why a Design System?</h2>
+					<p>The "things" being documented are very different in their nature and hence benefit from being documented in differing ways</p>
+					</p>
+					<ul id="fragments">
+						<li class="fragment"><strong>Functional User Experience Patterns</strong> - Behaviour</li>
+						<li class="fragment"><strong>Perceptual Patterns</strong> - Style</li>
+						<li class="fragment"><strong>User Interface Components</strong> - Code + Style</li>
+					</ul>
+					</section>
+
+					<section>
+					<h2>Why a Design System?</h2>
+					<p>Without a coherent strategy for where each piece of documentation 'lives', it quickly becomes un-manageable - patchy, featuring duplication & requiring too much effort for proper engagement from other stakeholders</p>
+					</p>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Is this really a problem?</h2>
+						<p>Not if we are Post design, <span class="fragment">but we're not.</span></p>
+						<img class="fragment" src="images/documentation/Notification-Freq.png" alt="" width="900">
+					</section>
+
+					<section>
+						<h2>1 PO 'Sketches' for Requirements</h2>
+						<p>But is potentially re-inventing the wheel, if its not obvious the wheel already exists. IE - there is no documented solution in at least a Styleguide or a Component in the Figma library.</p>
+					</section>
+
+					<section>
+						<h2>2 Developer codes a Solution</h2>
+						<img src="images/documentation/Notification-Freq-2.png" alt="" width="700">
+					</section>
+
+					<section>
+						<h2>2 Developer codes a Solution</h2>
+						<p>But because there was no clear solution (wheel), develops their own in a Vue Component;</p>
+						<p>Introducing potential issues;</p>
+						<ul>
+							<li>Consistancy in Branding</li>
+							<li>Consistancy in User Experiance</li>
+							<li>Inefficiencies in time spent development & testing</li>
+							<li>Documentation</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>3 Old Wheel already existed</h2>
+						<img src="images/documentation/Notification-Freq-3.png" alt="" width="700">
+					</section>
+
+					<section>
+						<h2>4 New Wheel can't be documented</h2>
+						<p>Because the style in a Vue Component, it can't be re-used without creating a copy (another source of truth).</p>
+						<p class="fragment">And be can't documented as there is no way of tying the CSS to Docs</p>
+						<p class="fragment">"The road to hell is paved with good intentions"</p>
+					</section>
+
+				</section>
+
+<!-- refactor what this is start -->
+<!-- 				<section>
+					<section>
+						<h2>Piecemeal Approach</h2>
+						<ol id="fragments">
+							<li class="fragment"><strong>Identify Users</strong> - create a Glossary</li>
+							<li class="fragment"><strong>Identify User Stories</strong> - create a Glossary of main Functions</li>
+							<li class="fragment"><strong>Identify Functional User Experience Patterns</strong> - Common Behaviour within CI - Epics, Stories and list in an order lending itself to an easilly identifiable Narrative</li>
+							<li class="fragment"><strong>Perceptual Patterns</strong> - Create a Styleguide</li>
+							<li class="fragment"><strong>Identify User Interface Components</strong> - Start with Inventory and then try to hone these to become Scaleable and Modular</li>
+						</ol>
+					</section>
+					<section>
+						<h2>UX & UI Process</h2>
+						<p>Something like this</p>
+						<img src="images/documentation/UI-Design-workflow-1.png" alt="" height="290" width="900">
+					</section>
+				</section> -->
+<!-- refactor what this is send -->
+
+				<section>
+					<section>
+						<h2>Potential Solution</h2>
+						<h4 id="fragments">Create a Design System</h4>
+					</section>
+
+					<section>
+						<h2>Design System Process</h2>
+						<img src="images/documentation/design-system-journey.png" alt="" width="900">
+					</section>
+
+					<section>
+						<h2>Design System Characteristic</h2>
+						<ol>
+							<li>Input from more than one viewpoint</li>
+							<li>Space for Diverge > Converge on Problem & Solution</li>
+							<li>Creation of source of truth</li>
+							<li>Documentation of the Solution</li>
+							<li>Developer has Solution to use out of the box and can concentrate on other problems</li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>How</h2>
+						<ol id="fragments">
+							<li class="fragment">Build on top of the toolkit we already use (Bootstrap + our own bits), modifying and adding to as needed</li>
+							<li class="fragment">We don't need to break anything that is already working ok</li>
+							<li class="fragment">We don't need to forget and re-learn what is already understood reasonably well</li>
+							<li class="fragment">Refine and document legacy</li>
+							<li class="fragment">Add new documentation of Components/Patterns as these are developed</li>
+						</ol>
+					</section>
+
+	<!-- 				<section>
+						<h2>What technology?</h2>
+						<p>We need to tether the Code base to the Documentation.</p>
+	 -->
+	<!-- 					<p>I had hoped we might be using Vue Bootstrap in conjunction with Vue Design System or Storybook. I might have to just create what I can myself</p> -->
+	<!-- 					<ol id="fragments">
+							<li class="fragment"><strong>Storybook</strong></li>
+							<li class="fragment"><strong>Vue Bootstrap</strong> - possibly best bet even just to get documentation of Bootstrap - but based on BS4</li>
+
+							<li class="fragment">Brad Frost - <strong>Style guide</strong></li>
+							<li class="fragment"><strong>Pattern Lab</strong> - useful but for later</li>
+						</ol>
+					</section> -->
+
+					<section>
+						<h2>Where to start creating tangibles?</h2>
+						<ol id="fragments">
+							<li>Users glossary list - Google Doc. See .odt and .xmind (particularly doc-tree)</li>
+							<li>Component Inventory list - including up to the size of Page - Google Doc</li>
+							<li>Crystalize Pages identified above and make them the defaults out of the box on install</li>
+							<li>Fuctionality Epics list - Google Doc</li>
+							<li>Styleguide - in what?</li>
+						</ol>
+					</section>
+				</section>
+
+				<section id="openapp-toolkit">
+					<h2>Why an Openapp Toolkit?</h2>
+					<p>Because we can address many of the previous issues in 1 go, including;</p>
+					<ol id="fragments">
+						<li>Supporting Designers Protoyping</li>
+						<li>Fast tracking work from Figma prototypes to working code</li>
+						<li>CSS - Tokens are mirrored between Figma Comnponents & SCSS Variables</li>
+						<li>Clean out the technical debt plaguing our current approach</li>
+						<li>Document design so system is maintainable</li>
+					</ol>
+				</section>
+
+				<section id="openapp-toolkit">
+					<h2>To support the Big Picture</h2>
+					<img src="images/documentation/big-picture.png" alt="" width="900">
+				</section>
+
+				<section>
+					<section id="saas-roadmap">
+						<h2>Saas project roadmap</h2>
+						<ol id="fragments">
+<!-- 							<li class="fragment">Identify the generic areas for Patterns and build a list - see Tonys list - Access, ...</li>
+							<li class="fragment">List Stories for main functions - abstracted: create an document, ...</li>
+							<li class="fragment">Identify the Patterns to support these - reference UI Patterns sights</li>
+							<li class="fragment">Create the Figma Components to support these where BS doesn't supply them</li>
+							<li class="fragment">Create BootstrapVue Components where the above don't already exist</li>
+							<li class="fragment">Develop Perceptual Patterns (restyle) for the Components so they don't look 'under designed' - in Figma and CSS</li>
+							<li class="fragment">Set up Storybook if only to use as a static reflection of a Styleguide to the developers/POs</li> -->
+							<li class="fragment">Identify generic Pattern areas, and list of functional stories within these, referencing UX Pattern libraries as we go - create an document, ...</li>
+							<li class="fragment">UX - Create the Figma Components to support these where BS doesn't supply them</li>
+							<li class="fragment">UI - Create BootstrapVue Components where the above don't already exist</li>
+							<li class="fragment">API Work so the Toolkit interfaces with the backend</li>
+							<li class="fragment">Internal - Sprint to tie it all together as a generic functioning system and do some aesthetic work so it doesn't look 'under designed'</li>
+							<li class="fragment">External - Repeat process again, this time at a more specific level to include what might only relate to SaaS Registry</li>
+						</ol>
+					</section>
+					
+<!-- 
+1 UX work to do to get key components covered (lots already done)
+2 UI work to do to have key components built (again this has already started)
+3 API work to be done to facilitate & support those key components
+4 Internal Project  - to bring those methods together in agile sprint
+5 External project - to bring those methods together in agile sprint -->
+
+
+
+
+
+<!-- 
+Identify the generic areas for Patterns and build a list - see Tonys list - Access, ...
+List Stories for main functions - abstracted: create an document, ...
+Identify the Patterns to support these - reference UI Patterns sights
+
+Internal - Develop Perceptual Patterns (restyle) for the Components so they don't look 'under designed' - in Figma and CSS
+ -->
+					<section>
+						<h2>Saas project roadmap</h2>
+						<ol id="fragments">
+							<li class="fragment">Repeat process again, this time at a more specific level to include what might only relate to SaaS Registry</li>
+						</ol>
+					</section>
+
+				</section>
+
+				<section>
+					<h2>Resources</h2>
+					<ul>
+						<li>Design Systems (purchased pdf) - Alla Kholmatova</li>
+						<li>The 2018 DSM Field Guide - Invision - Download?</li>
+						<li><a href="http://www.jessicawelikson.com/dsm-field-guide">dsm-field-guide</a></li>
+					</ul>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://slides.com">Try the online editor</a> <br>
+						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				slideNumber: true,
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					// { src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>

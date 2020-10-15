@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Clinical Insight Documentation Slides V 0.2</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    	<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- TOC-Progress plugin -->
+	<link rel="stylesheet" href="plugin/toc-progress/toc-progress.css">
+
+
+		<!-- Printing and PDF exports -->
+	<script>
+		if( window.location.search.match( /print-pdf/gi ) ) {
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = 'css/print/pdf.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		}
+	</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+<style>
+@media screen {
+	.hide h2 {
+		display: none;
+	}
+
+	.hide img {
+		width: 85%;
+	}
+
+	#toc-progress-footer {
+    	height: 14.5vh !important;
+	}
+
+.reveal .controls {
+    bottom: -5px;
+
+
+}
+
+@media print {
+
+}
+</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+
+
+				<section>
+					<section>
+						<h1>Clinical Insight</h1>
+						<h3>Overview of User Interface</h3>
+						<p>
+							<small>Created by <a href="#">Turlough McAnespy</a> <!-- / <a href="http://twitter.com/hakimel">@hakimel</a> --></small>
+						</p>
+					</section>
+<!-- 					<section>
+						<h2>Basement Level 1</h2>
+						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>That's it, time to go back up.</p>
+						<br>
+						<a href="#/2">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+						</a>
+					</section> -->
+				</section>
+
+				<section>
+					<section>
+						<h2>1 Pages Overview</h2>
+						<h3>Page Modes</h3>
+						<p>Pages in Clinical Insight can be classified as View or Edit and this dictates which page type to use.</p>
+						<ul>
+							<li><strong>View page</strong> - enables user to view a single object or multiple related objects.</li>
+							<li><strong>Action page</strong> - enables a user to add or edit a single main object or multiple related objects. Thses sit on a 'modal' level above the view pages & can only be accessed through the clicking of a 'Edit/Add' button. A user must commit a change (Save) or Cancel the action to return to the proceeding view page.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>1.1 View Pages elements</h2>
+						<ul>
+							<li><strong>Page-level title</strong> (e.g. Object banner on object page or h1 admin section) - consistant with any navigation links to the page</li>
+							<li><strong>Section level title</strong> - section within a page (Optional)</li>
+							<li><strong>Form object panel</strong> - encompasses entire form</li>
+							<li>Form object <strong>section panels</strong> - panel which sits within the form panel (Optional, + only ever 1 section panel deep)</li>
+							<li>Form object <strong>section titles</strong> - for further dividing forms into sections without the use of panels (Optional)</li>
+							<li><strong>Add/Edit Button</strong> to allow the user to open up objects in the Action page modal (Optional)</li>
+							<li><strong>Side Menu</strong> - acts as both tab + navigation menu to everything under the context banner</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>1.2 Action Pages elements</h2>
+						<ul>
+ 							<li><strong>Object banner</strong> - exists for every object</li>
+							<li><strong>Tabs</strong> to navigate to other sections of the object (Optional.)</li>
+							<li><strong>Form object section panel/s</strong> - reflect the structure of the View page in the Action page (Optional)</li>
+							<li><strong>Form object section titles</strong> - for further dividing forms into sections without the use of panels (Optional) </li>
+							<li><strong>Close button</strong> to allow the user to close the Action page modal</li>
+							<li><strong>Save button</strong> - initially inactive (paired with 'invalid until ...'' message)</li>
+							<li><strong>Section Menu</strong> - for anchor linking to sections in a long form</li>
+							<li><strong>Horizontal Tab - ???</strong> - </li>
+						</ul>
+					</section>
+
+					<section class="hide">
+ 						<h2>1.3 General Page layout</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout.png" alt="" style="">
+					</section>
+
+				</section>
+
+				<section>
+					<section class="hide">
+ 						<h2>2 View Page layout examples</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout1.png" alt="" style="">
+					</section>
+
+					<section class="hide">
+ 						<h2>2.1 Generic View Page layout</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout2.png" alt="" style="">
+					</section>
+
+					<section class="hide">
+ 						<h2>2.2 View Page - contracted side menu</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout3.png" alt="" style="">
+					</section>
+
+					<section class="hide">
+ 						<h2>2.3 View Page - Form example with section menu</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout4.png" alt="" style="">
+					</section>
+
+					<section class="hide">
+ 						<h2>2.4 Action page - layout with Modal</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout5.png" alt="" style="">
+					</section>
+
+					<section class="hide">
+ 						<h2>2.5 View Page - edit only a section</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout6.png" alt="" style="">
+					</section>
+
+					<section class="hide">
+ 						<h2>2.6 Action page - previous values</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout7.png" alt="" style="">
+					</section>
+
+					<section class="hide">
+ 						<h2>2.7 View Page - edit a section of Dashboard</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout8.png" alt="" style="">
+					</section>
+
+					<section class="hide">
+ 						<h2>2.8 Action page - tabs of other sections</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout9.png" alt="" style="">
+					</section>
+
+					<section class="hide">
+ 						<h2>2.9 View Page - admin page full width</h2>
+						<img width="" height="" data-src="images/ci-overview-ui/layout10.png" alt="" style="">
+					</section>
+				</section>
+
+
+
+				<section>
+					<section>
+						<h2>3 Page Types</h2>
+						<ul>
+							<li><strong>Landing Page</strong> - a page thats acts as an overview of a users view of the system (e.g. a cluster of information presented on a dashboard).</li>
+							<li><strong>Object Overview</strong> - when there is alot of information on an object a high-level summary of key info is appropriate (e.g. Dashboard, Table)</li>
+							<li><strong>Object Details</strong> - contains an exhaustive view of the object or element of the object.</li>
+							<li><strong>Primary Action</strong> - enables a user to add or edit a single main object or multiple related objects.</li>
+							<li><strong>Secondary Action</strong> - Contains a supplementary task directly related to the action page from which it originates and overlays.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>3.1 Landing page (View)</h2>
+						<p>A page thats acts as an overview of a users view of the system (a cluster of information presented on a dashboard). Functional Area.</p>
+					</section>
+
+					<section>
+						<h2>3.2 Object Overview (View)</h2>
+						<p>Sits as the top view of a single object when a high-level summary (macro) is appropriate. There can be only one per Object and the view should comprise of the minimum dataset to be clinically useful.</p>
+
+						<ul>
+							<li><strong>Dashboard</strong> is most appropriate where there are a number of concepts which it would be useful to get a overview of (e.g. Patients medical overview)</li>
+							<li><strong>Table list</strong> view is appropriate when there are alot of sub-objects but within 1 concept (e.g. hospitals within a country, patients within a hospital)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>3.3 Object Details (View)</h2>
+
+
+		<p>A second view which shows the full dataset for the reference</p>
+
+
+
+						<p>Contains an exhaustive (micro) view of the object. Sits as the top view of a single object when a high-level summary is not needed</p>
+						<p>There may be a number of Object Details pages which can be navigated to by the use of a menu (frequently a set of Tabs)</p>
+					</section>
+
+					<section>
+						<h2>3.4 Primary Action Page</h2>
+						<p>The Action Page takes the form of a Modal window which is sits in a layer above the rest of the User Interface. The use of a Modal forces the user to focus on the single Action (e.g. filling in a form) displayed within the Modal.</p>
+
+<!-- 						The modal window requires users to interact with it before they can return to operating on the parent application. -->
+
+						<p>Any upstream elements (navigation etc) can only be accessed by exiting the Action through clicking on an appropriate button - exit, save etc.</p>
+
+
+<!-- 						This layer is free of any navigation to other areas of the system and the user can only exit back to the previous layer.
+						<br> -->
+<!-- 						<a href="#/2">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+						</a> -->
+					</section>
+					<section>
+						<h2>3.5 Secondary Action Page</h2>
+						<p>Overlays the Action page from which it originates. This follows the same rules as the Primary Action Modal but is one step further removed from the main interface.</p>
+<!-- 						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p> -->
+					</section>
+
+				</section>
+
+
+				<section>
+					<section>
+					<h2>4 Objects</h2>
+					<p>The various pages allow us to navigate up and down a series of objects and object groups, and to step into an Edit mode (permission permitted) at any point along that continuum. Each object may have a group of other objects associated with it. For example the objects in this list, are associated with the item that appears immediately above them.</p>
+						<ul>
+							<li>Country</li>
+							<li>Hospital/Centre</li>
+							<li>Patient</li>
+							<li>Journey</li>
+							<li>Form</li>
+						</ul>
+					<p>Every object has an Object Banner and Icon to help with identification and reduce errors.</p> 
+<!-- 					<p>
+						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
+					</p> -->
+					</section>
+					<section>
+						<h2>4.1 View Page layout areas</h2>
+						<ul>
+							<li><strong>Header</strong>
+								<ol>
+									<li>System name/branding</li>
+									<li>Location - hospital, admin etc.</li>
+									<li>Logged in user</li>
+									<li>System areas menu - patients, admin, reports</li>
+								</ol>
+							</li>
+							<li><strong>Main</strong> - changes to reflect system area
+								<ol>
+									<li>Page-level Title</li>
+									<li>Left side menu</li>
+									<li>Main view area</li>
+								</ol>
+							</li>
+							<li><strong>Footer</strong></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>5 Components overview</h2>
+						<p>Each page is made up of a number of components. These can be broken into a number of different groupings</p>
+							<ul>
+								<li>Header Components</li>
+								<li>Navigation Components</li>
+								<li>Context Components</li>
+								<li>Content Components</li>
+								<li>Action Components</li>
+								<li>Footer Components</li>
+							</ul>
+					</section>
+
+					<section>
+						<h2>5.1 Header Components</h2>
+						<ul>
+							<li>System name/branding | Location</li>
+							<li>Username logged in link - change role, edit, log out</li>
+							<li>System area menu</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>5.2 Navigation Components</h2>
+						<ul>
+							<li><strong>Side Menu</strong> -
+The side menu provides the main navigation tool to access elements within an object (e.g. Patient, Hospital, System).</li>
+<!-- 							<li><strong>Object side menu</strong> - the outer-most menu on the left of the 'main' area of the page (Demographics, Journeys)</li> -->
+
+							<li><strong>Section Menu</strong> -
+A section menu sits inside a long Form (which requires scrolling to completely view).</li>
+
+<!-- 							<li>Form Object anchor menu - sits underneath a form Banner and links sections within the form</li> -->
+
+<!-- 							<li>Object vertical tab menu - links to different sections of an object. Each tab section requires its own independent save button so this is best used for independent sections (Better definition required here).</li> -->
+
+							<li><strong>Horizontal Tabs</strong> -
+These are useful when there are a number of similar sections in object/area which can be view/editted in independance</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>5.2a Navigation Components - Side Menu</h2>
+<strong>Side Menu</strong> -
+The side menu provides the main navigation tool to access elements within an object (e.g. Patient, Hospital, System). This needs to have a more sophisticated component than just a Vertial Tab menu as there will be a mix of different elements being accessed. For example the 'Demographics' section may be single constrained block of content. The 'Journey' section may contain an undefined number of Journeys each containing a bundle of Forms, createc on various dates by numrous different users. 
+					</section>
+
+					<section>
+						<h2>5.2b Navigation Components - Section Menu</h2>
+<strong>Section Menu</strong> -
+A section menu sits inside a long Form (which requires scrolling to completely view). Primarily it provides a way to quckly jump to sections further down the page/form (a la wikipedia), but can also be used to give feedback on form completion and validity.
+					</section>
+
+					<section>
+						<h2>5.2c Navigation Components - Horizontal Tabs</h2>
+<strong>Horizontal Tabs</strong> -
+These are useful when there are a number of similar sections in object/area which can be view/editted in independance of each other. This may be unsuitable for the navigation within a single long form, but be useful within settings in an admin area.
+					</section>
+
+
+
+
+
+
+					<section>
+						<h2>5.3 Context Components</h2>
+						<ul>
+							<li>Object Banner (Patient banner etc.)</li>
+							<li>Page Title<li>
+							<li></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>5.3 Context Banner</h2>
+
+						<ul>
+							<li>Make most prominent element in UI</li>
+							<li>At top of application window on View and Edit screens (both Primary and Secondary), in a fixed position unmovebale by user</li>
+							<li>Display banner across the width of the screen</li>
+							<li>Give more emphasis to the value rather than the label style</li>
+							<li>A deceased Patient has a substantially different style</li>
+							<li>Has 2 states - concise (default) and expanded</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>5.4 Action Components</h2>
+						These components are dealt with in detail in the next section. Fix it and then copy back here
+						<ul>
+							<li><strong>Form input fields</strong></li>
+							<li><strong>Floating Action bar</strong> - contains the Action buttons (error messages?)</li>
+							<li><strong>Form validation</strong> - </li>
+							<li><strong>Repeating concepts</strong> - e.g. add/edit a treatment of drugs</li>
+							<li><strong>Date/time picker</strong></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>5.5 Content Components</h2>
+						<ul>
+							<li><strong>Table - list</strong> -</li>
+							<li><strong>Table - grid</strong> -</li>
+							<li><strong>Table - paragraph</strong> -</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>5.6 Pagination</h2>
+						<ul>
+<!-- 							<li><strong>Table - list</strong> -</li> -->
+						</ul>
+					</section>
+
+					<section>
+						<h2>5.7 Misc Components</h2>
+						<ul>
+							<li><strong>Login-in</strong> - </li>
+							<li><strong>Date/Time</strong> - </li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>5.7 Footer Components</h2>
+The footer should display basic contact information.
+
+The footer helptext component can display supplemental information related to the page content that is helpful and of interest to a user but not central to the task in hand. When this optional component is used, it is displayed only on landing and object overview pages.
+
+This component can be divided into section, may include links to other relevent information and is completely non editable by the user.
+
+Footer Helpdesk Icon
+When clicked, will trigger the Helpdesk popup for engaging with the Helpdesk team.
+
+Footer Help text
+All parts of a footer
+
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>6 Action Components</h2>
+						<ul>
+							<li><strong>Form input fields</strong></li>
+							<li><strong>Floating Action bar</strong> - contains the Action buttons (error messages?)</li>
+							<li><strong>Form validation</strong> - </li>
+							<li><strong>Repeating concepts</strong> - e.g. add/edit a treatment of drugs</li>
+							<li><strong>Date/time picker</strong></li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>6.1 Action Components - Form inputs</h2>
+						<ul>
+							<li>The patient banner should always appear on (Patient) Action pages</li>
+							<li>Forms should be seperated into clear sections with one or more inputs in each section</li>
+							<li>Labels should be bolded to help differentiate from the values (sometimes values are long and would be hard to read if bolded). They should be a lighter colour than the default text colour to make them less prominent than the value text</li>
+							<li>Optional help text should be provided below the form element</li>
+							<li>Multi-page forms should be avoided when possible. A longer form with a section navigation aid is preferable</li>
+					</section>
+
+					<section>
+						<h2>6.2a Action Components - Button elements</h2>
+
+Each Action form should have at least 2 buttons including (preferably only) one Primary button
+
+						<ul>
+							<li><strong>Primary buttons</strong> - e.g. (Save/Save & Close)</li>
+							<li><strong>Secondary buttons - e.g for closing the Action page without saving edits</strong> -</li>
+							<li><strong>Link (tertiary) buttons</strong> -</li>
+						</ul>
+
+					</section>
+
+
+
+					<section>
+						<h2>6.2b Action Components - Button elements</h2>
+
+<p>Closing the form without saving should provide a pop-up warning message if any information is going to be lost.</p>
+
+<p>Expected Actions (especially) Primary buttons should be found to the right (e.g. Action bar) and other less expected buttons should be to the left of this, with sufficient padding make sure they aren't clicked by mistake.</p>
+
+<p>Tabs a la ppm+ styleguide. We don't edit on the level of Patient as that requires us to carry the menu for the Patient inside our Active page using up real estate. These menus would be rarely needed as you don't navigate away during filling in a form</p>
+
+					</section>
+
+
+
+					<section>
+						<h2>6.3 Action Components - Form validation</h2>
+						<ul>
+							<li><strong>Status</strong></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>6.4 Action Components - Workflow</h2>
+						<ul>
+							<li><strong>Workflow</strong></li>
+							<li><strong>Complete</strong></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>6.5 Action Components - Current owner</h2>
+						<ul>
+							<li><strong>Current owner</strong></li>
+							<li><strong>State</strong></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>6.6 Action Components - Query notes</h2>
+						<ul>
+							<li><strong>Status</strong></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>6.7 Action Components - Repeating concept - see below</h2>
+						<ul>
+<!-- 							<li><strong>Status</strong></li> -->
+						</ul>
+					</section>
+
+					<section>
+						<h2>6.8 Action Components - Date picker</h2>
+						<ul>
+<!-- 							<li><strong>Status</strong></li> -->
+						</ul>
+					</section>
+
+
+
+
+
+
+
+
+				</section>
+
+
+				<section>
+					<section>
+						<h2>7 Patterns</h2>
+
+						<ul>
+							<li><strong>Login-in</strong> - </li>
+							<li><strong>Add to Table</strong> - Repeating concepts - e.g. add/edit a treatment of drugs</li>
+							<li><strong>Date/time picker</strong> - </li>
+							<li><strong>Change View - Context switcher</strong> - </li>
+							<li><strong>Change View - List filter</strong> - </li>
+							<li><strong>Change View - View toggle</strong> - </li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>Table - Add to Table</h2>
+Add a new object inline (e.g. drug)
+Add a new object in new secondary action page (e.g. drug with a larger number of fields)
+					</section>
+
+					<section>
+						<h2>Change View - Context switcher</h2>
+The context switcher is a dropdown which provides a set of mutually exclusive selctions that when chosen will change the content on the page. Examples of where a context switcher may be useful include the changing of the Centre a manager with multiple rights has access to, or switching the date to see a previous form. A switch allows the user switch a set of information without leaving the view they are currently in.
+
+It may be inappropriate to use this component to switch to a different user.
+					</section>
+
+					<section>
+						<h2>Change View - List filter</h2>
+A list filter enables a user to refine the information that is displayed on a page or content region. 
+(e.g. Data table list filter)
+					</section>
+
+					<section>
+						<h2>Change View - View toggle</h2>
+A view toggle enables users to alternate between different views of a content region. The view toggle provides different views of the same information (e.g. Patient details provided in grid or list formt. A day, week, or month view of a single calendar.)
+					</section>
+
+				</section>
+
+
+
+				<section>
+					<section>
+						<h2>8 Form layout</h2>
+						Reuirements
+						<ul>
+							<li>De-couple the layout from the form elements</li>
+							<li>Have layouts being controlled at different levels (page, section, field block, label, field)</li>
+							<li>Allow fixed as well as reponsive layout classes</li>
+							<li>Allow indentation on the Form question to relate hierarchical relationships between questions</li>
+							<li>See OA Forms and OA Exmple Forms</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>9 CSS Components</h2>
+						In addition to the components that come with Bootstrap 3 we need
+						<ul>
+							<li>Context banner - (patient-info)</li>
+							<li>Callouts</li>
+							<li>Panels extended </li>
+							<li>Tabs vertical - temporary use while we switch to new style left menu</li>
+							<li>Section anchor menu - </li>
+							<li>Datepicker</li>
+
+						</ul>
+					</section>
+<!-- 					<section>
+						<h2>ccc</h2>
+					</section> -->
+				</section>
+
+
+
+				<!-- Example of nested vertical slides -->
+				<!-- 
+				<section>
+					<section>
+						<h2>Vertical Slides</h2>
+						<p>Slides can be nested inside of each other.</p>
+						<p>Use the <em>Space</em> key to navigate through all slides.</p>
+						<br>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 1</h2>
+						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>That's it, time to go back up.</p>
+						<br>
+						<a href="#/2">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section>
+
+				<section>
+					<h2>Slides</h2>
+					<p>
+						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+					</p>
+				</section>
+
+				<section>
+					<h2>Touch Optimized</h2>
+					<p>
+						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
+					</p>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Markdown support
+
+						Write content using inline or external Markdown.
+						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+
+						```
+						<section data-markdown>
+						  ## Markdown support
+
+						  Write content using inline or external Markdown.
+						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+						</section>
+						```
+					</script>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Fragments</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's different types of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment current-visible">current-visible</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+				</section>
+
+				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br>
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=slide#/transitions">Slide</a> -
+						<a href="?transition=convex#/transitions">Convex</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a>
+					</p>
+				</section>
+
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						reveal.js comes with a few themes built in: <br>
+
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section>
+
+				<section>
+					<section data-background="#dddddd">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Tiled Backgrounds</h2>
+						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
+						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+							<h2>Video Backgrounds</h2>
+							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+						</div>
+					</section>
+					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+						<h2>... and GIFs!</h2>
+					</section>
+				</section>
+
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
+					</p>
+					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						You can override background transitions per-slide.
+					</p>
+					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+				</section> -->
+<!-- 
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+				<section>
+					<h2>Marvelous List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Tabular Tables</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Value</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Apples</td>
+								<td>$1</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Lemonade</td>
+								<td>$2</td>
+								<td>18</td>
+							</tr>
+							<tr>
+								<td>Bread</td>
+								<td>$3</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Speaker View</h2>
+					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
+					<p>Press the <em>S</em> key to try it out.</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
+
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
+					<iframe src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+				</section>
+
+				<section>
+					<h2>Global State</h2>
+					<p>
+						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+						will be added as a class to the document element when the slide is open. This lets you
+						apply broader style changes, like switching the page background.
+					</p>
+				</section>
+
+				<section data-state="customevent">
+					<h2>State Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Take a Moment</h2>
+					<p>
+						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+					</p>
+				</section>
+
+				<section>
+					<h2>Much more</h2>
+					<ul>
+						<li>Right-to-left support</li>
+						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
+					</ul>
+				</section> -->
+
+<!-- 				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="http://slides.com">Try the online editor</a> <br>
+						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+					</p>
+				</section> -->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+	<script>
+
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Parallax scrolling
+			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+			// parallaxBackgroundSize: '2100px 900px',
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/search/search.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+				// TOC-Progress plugin
+				{ src: 'plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize(); toc_progress.create(); } }
+			]
+		});
+
+	</script>
+
+	</body>
+</html>

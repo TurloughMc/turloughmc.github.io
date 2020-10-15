@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Data Collection Template</h1>
+					<h3>Guide on Data Set Completion</h3>
+					<p>
+						<small>Created by Turlough McAnespy</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Document Purpose</h2>
+					<p class="fragment">The Data Set Collection document is intended for <strong>communicating the required Data Set for the Registry or Study being developed</strong>, and to act as a source of truth that the development can be tested against.</p>
+					<p class="fragment">As such it needs to be completed with rigour, to avoid ambiguity (as a collaboration between Client & OpenApp) & be <strong>kept up to data.</strong></p>
+
+<!-- 					<p>The dataset provides information relating to each field such as the type of data to be stored, for example, date, yes / no or number, as well as it's validation requirements and grouping.</p> -->
+
+<!-- 					<p>The dataset also contains information used to draw up the forms and core reports within the Registry or Study.</p> -->
+				</section>
+
+				<!-- 
+				<section>
+					<h2>Document Purpose</h2>
+					<p class="fragment">Each version (with a unique version number) that informs a development Sprint will be a Snapshot of the Dataset as agreed (Field by Field) at that time.</p>
+					<p class="fragment">Amendments my will managed in this document for an agreed number of iterations before we switch another document for the purpose of <strong>change requests</strong>.</p>
+				</section>
+
+				<section>
+					<h2>Data Collection Workflow 1</h2>
+					<ol>
+						<li class="fragment">OpenApp share their template with the supporting explanation of terms used</li>
+						<li class="fragment">Client sends their first version</li>
+						<li class="fragment">OpenApp returns the document (cleaned up if needed) looking for clarification if needed and confirming which fields they are happy with the definition of</li>
+						<li class="fragment">Client returns the document with clarifications and confirming which of the fields they are happy with the definition of</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Data Collection Workflow 2</h2>
+					<ol>
+						<li class="fragment">This process can be repeated until a version of the document is commited to for a Development Sprint</li>
+						<li class="fragment">Any future definition of un-agreed Dataset fields will be inluded in a future Sprint</li>
+						<li class="fragment">Changes to agreed fields may require a Change request and all that entails</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Data Collection Workflow Diagram</h2>
+					<h3>Image here</h3>
+				</section>
+
+				<section>
+					<h2>Name and format</h2>
+					<ul>
+						<li class="fragment">DocumentName-Project-Version - for example <strong>Data-Collection-Earco_v0.1</strong></li>
+						<li class="fragment">The document should be saved as a <strong>.xls</strong> so its is friendly to both Microsoft Excel and Libre/Open Office and there will be no need to created competing versions</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Spreadsheets</h2>
+					<p class="fragment">The first sheet should be used to summarise the Dataset described by the document and should be filled out by OpenApp. It should also contain a list of the Forms (as sheets) contained within</p>
+					<p class="fragment">The 2nd sheet contains Instructions to those filling out the Dataset Collection Templete and will contain a glossary of terms used</p>
+				</section>
+ -->
+
+<!-- break one -->
+
+				<section>
+					<section>
+						<h2>Spreadsheets</h2>
+						<ul>
+							<li class="fragment">Each of the sheets represents the data to be gathered by a particular form e.g. Enrolment form, Encounter form, End of Data Collection form etc</li>
+							<li class="fragment">Sheets can be added to accommodate other data gathering forms</li>
+							<li class="fragment">Sheets can be added to help manage communication, but these should be deleted as soon as they are no longer relevant</li>
+					</section>
+
+					<section>
+						<h2>Spreadsheets</h2>
+						<ul>
+							<li class="fragment">The form spreadsheets to be completed by the study manager are highlighted with <span class="fragment highlight-green">green tabs</span></li>
+							<li class="fragment">Spreadsheets for internal OpenApp use are highlighted with <span class="fragment highlight-blue">blue tabs</span>,</li>
+							<li class="fragment">while the help/reference spreadsheet has a white tab</li>
+						</ul>
+					</section>
+				<section>
+
+				<section>
+					<h2>Information style</h2>
+					<ul>
+						<li>The labels, values and help text should be written in Arial (or a similar Sans Serif font)</li>
+						<li>All instructions should be written in a format to clearly differentiate it from the text above - if not in a column of instruction then as <i style="font-style:italic">Italic</i> or <span style="font-family: 'Times New Roman', Times, serif;">Time New Roman</span></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Columns and Rows</h2>
+					<ul>
+						<li class="fragment"><strong>Each row on the spreadsheet is used to define an individual item of data</strong> (field) stored within the Registry or Study.</li>
+						<li class="fragment">The columns indicate the details for each field. The 'comment' attached to the heading of each column provides a brief explanation of it's use.</li>
+						<li>As some Data sets are more straight forward than others some of the columns are hidden by default and will only be displayed if it is deemed useful to do so</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Columns explained</h2>
+						<p>There are 5 general types of columns in Template;</p>
+						<ul>
+							<li class="fragment"><strong>Form Information Hierarchy</strong> - generally dealing with the field groupings</li>
+							<li class="fragment"><strong>Field attributes</strong> - the specific details for each field such as label, UI element type, constraints etc.</li>
+
+							<li>the term 'Business Rules' is usually used while discussing the following
+								<ul> 
+									<li>Display logic - the rules that govern when the fields are displayed</li>
+									<li>Validation - the rules that govern whether a field is in a valid state for saving the form</li>
+									<li>Verification - the rules that govern if a Automated Query is triggered on a field value that has been saved</li>
+								</ul>
+							</li>
+
+							<li class="fragment"><strong>Discussion</strong> - columns for supporting the discussion of the Dataset between the Client & OpenApp</li>
+							<li class="fragment"><strong>Agreement confirmation</strong> - 2 columns to allow us to track which fields can be put into a development Sprint for delivering</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Order of completion</h2>
+						<p>The form is typically created in 2 Sprint stages - first the fields are created and then rules governing Dispay logic, Validation and Verification are added. It makes most sense to complete the columns regarding Hierarchy and Field attributes first, as the completion of the rest of the columns are dependant on these being correct.</p>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Form Information Hierarchy</h2>
+						<p>There are 4 potential levels to the Form information hierarchy, only the first 2 are displayed by default;</p>
+						<ol>
+							<li>Section - </li>
+							<li>Sub-Section</li>
+							<li>Sub-Sub-Section</li>
+							<li>Sub-Sub-Sub-Section</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Section</h2>
+						<p>A form will frequently have sections containing groups datafields from similar thematic areas - for example - Spirometry,  Lab Tests, Radiology etc.</p>
+						<p>There is a Section navigation menu displayed on the left-hand side of a form.</p>
+						<p>If any of the Sections are optional, a User can select these Sections by clicking on the checkbox to the left Section name</p>
+					</section>
+
+					<section>
+						<h2>Sub-Section</h2>
+						<p>Where a Section is very large (for example, it is too large to fit entirely on a laptop screen), it should be broken down into further Subsections</p>
+					</section>
+
+					<section>
+						<h2>Sub-Sub-Section and Sub-Sub-Sub-Section</h2>
+						<p>Where they bring value in communicating the Form hierarchy it might be useful to also create further hierarchical groupings Sub-Sub-Sections and/or Sub-Sub-Sub-Sections. These should only be used when they deliver real value</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Field Attributes</h2>
+					<p>Each field has a set of attributes. Some of these are not relevant to every field but some of the most important include;</p>
+					<ul>
+						<li>Field Label - the text that will appear on screen and identifies the field</li>
+<!-- 						<li>Input</li> -->
+
+<!-- 						<li>Control - how the Field options are displayed.  For example, Radio buttons/checkboxes.  Radio buttons are normally used when there are less that 5 options and only one can be chosen.  Checkboxes are used when there are more that 5 options and/or more than one can be chosen.
+
+						Note:  Where Integer is shown that indicates a datafield than can record whole numbers.</li> -->
+
+						<li>Control - used to define the UI mechanism used to interact with the Field (ex: Text Box, Rich Text Box, Calendar, Radio Button, Check Box, Dropdown, Combo Box etc.)</li>
+
+						<li>Options - these are the options available to the User when the Control type contains multiple options as with a Radio button, Checkbox, Dropdown menu etc.</li>
+
+						<li>Autogenerated - it is important to know if a field is to be entered manually or is generated by calculating other entered values. A definition of how this is calculated needs to be defined in the xxx column</li>
+
+						<li>Float  - if a field is to record a floating-point (decimal) number then then number of decimal places should be recorded here with X’s used to indicate how many numbers are required. For instance XXX.XX would allow 3 numbers before the decimal point and 2 numbers after. It will not allow values greater than 999.</li>
+
+						<li>Units - it is important to state the Unit of measurement explicitly to create reliable Data</li>
+
+						<li>Ongoing - if this field needs to be copied over from one Encounter to the next then enter Yes in this column</li>
+
+						<li>Repeating Field - if this field will need to be filled in multiple times then it should be marked as a Repeating Field. Examples include Treatments, Hospitalisations etc.</li>
+
+
+						<li>Help Text - if a field needs explanatory text on screen, the text can be added in this column. Column is hidden by default</li>
+				</section>
+
+
+
+
+				<section>
+					<h2>Business Rules</h2>
+
+					<p>Business Rules come in a number of different models. Their is a column for business rules but these may be developed into a more specific column depending on thier nature;<p>
+
+					<ul>
+						<li>Edit Checks (Validation) - these return Validation Warning and Errors</li>
+						<li>Automated Query (Verification) - checks that return Validation Warnings might also trigger Automated Queries which will need to be addressed and closed by the Data Manager</li>
+						<li>Progressive Disclosures - some fields (Disclosed fields) will only display dependant on other fields being of a filled in and of a certain value</li>
+						<li>This or That pairings - if field A is empty then field B is required, if B is empty then field A is required</li>
+
+						<li>Ongoing?</li>
+
+						<li>Mutally Exclusive - ??</li>
+
+					<ul>
+				</section>
+
+
+
+
+				<section>
+					<h2>Validation Conditions</h2>
+						<li>Requiredness - this indicates whether a field must be completed before the form can be submitted - values to enter - Required, Expected or None</li>
+
+						<li>Range - the Data must sit inside the stated range for the field to be Valid (and Saveable)</li>
+
+						<li>Other Validation / Business rules - In addition to the Requirement rules, these rules check the input data to ensure it conforms with the data requirements of the system to avoid data errors. It can return a Warning or an Error</li>
+
+						<li>Warning or Error (Hard/Soft Check)</li>
+<!-- <li>8. Field check: The system compares the value you have entered with validations and Business Rules in the system. These comparisons can be what are known as "Hard Checks" or "Soft checks".
+With "Hard Checks" you must change the value you have entered before you are allowed to save the Form. 
+With "Soft Checks" you are asked to check the value you have entered, but may confirm that value, and then save the Form.</li> -->
+
+
+						<li>Validation Warning Messages</li>
+						<li>Validation Error Messages</li>
+
+<!-- 9. Field Validation Error Message:  The message that is shown if any data error is detected by the system. For example: a date of Encounter (Patient Visit) cannot be set for a future date. If the user enters a future date that case the system flags a message “At the time of entry, date was in the future. Please correct”. -->
+
+						<li>Automated Query - the Value entered may only trigger a Validation Warning and hence the data can be saved. This can also trigger an Automated Query requiring Verification - ???????????</li>
+
+					</ul>
+				</section>
+
+
+  
+
+				<section>
+					<h2>Display logic</h2>
+					<p>This refers to the conditions by which a field appears on the form or not. Examples of these may include;</p>
+					<ul>
+						<li></li>
+						<li>Disclosed Field: (Progressive Disclosure) a "dynamic" field that is dependent on the input from another field and is therefore not displayed on the screen unless unless that input entered</li>
+						<li>Assumptions;   In some cases, a datafield may only apply to certain patients.  For example, a  Patient under 12 may have a certainOnly  reference range that does not apply to Adult patients. Why is this not same as field before</li>
+					</ul>
+
+
+				</section>
+
+
+
+
+
+
+
+				<section>
+					<h2>Discussion</h2>
+					<ul>
+						<li>Assumptions	- ???????</li>
+						<li>Special Instructions</li>
+						<li>Historical Mapping (Reference Name):  The name of the Datafield in your old system if relevant.
+						<li>Comment - A column for Comments is provided in the Data Set Collection template to allow discussion to happen around the field in that row</li>
+					</ul>
+				</section>
+
+
+
+				<section>
+					<h2>Agreement confirmation</h2>
+					<p>This refers to the 2 columns labeled xxx and xxx. These 2 fields must confrim that both the Client and OpenApp are happy with the field as it is defined and that this field is ready to be added to the system in the development Sprint to follow</p>
+				</section>
+
+				<section>
+					<h2>Hidden Columns</h2>
+					<p>Unused data definition columns are hidden on some forms, for example, the Repeat and Ongoing fields (columns J & K) are hidden on the End of Data Collectin form.  Hidden can be columns can be Un-Hidden if they are required.</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

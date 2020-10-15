@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+<style>
+/*.container{
+    display: flex;
+}*/
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.col-5 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+
+.col-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-8 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+
+.row>.col, .row>[class^=col-] {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.2);
+}
+</style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>System Communication</h3>
+<!-- 					<p>"The number one principle in Jakob Nielsen’s 10 Heuristics of usability is ‘The visibility of System Status’" - NNGroup</p>
+				</section>
+
+				<section>
+					<h3>Purpose of this presentation</h3> -->
+					<p>"The number one principle in Jakob Nielsen’s 10 Heuristics of usability is ‘The visibility of System Status’" - NNGroup</p>
+				</section>
+
+				<section>
+					<h3>Questions we are trying to answer;</h3>
+					<ol>
+<!-- 						<li>What messaging do we need to support?</li> -->
+						<li><a href="#/factors">What are the Factors to consider with communication of system status?</a></li>
+						<li><a href="#/methods">What are the Communication Methods?</a></li>
+						<li><a href="#/components">What are the Components to support the communications?</a></li>
+<!-- 						<li><a href="#/">What are the ?</a></li> -->
+					<ol>
+				</section>
+
+				<section>
+					<section id="factors">
+						<h3>Key Factors</h3>
+						<p>The best way to communicate system status varies depending on several key factors:</p>
+						<ul>
+							<li class="fragment">The type of information being communicated</li>
+							<li class="fragment">The urgency of the information — how important it is that the user sees it immediately</li>
+							<li class="fragment">Whether the user needs to take action as a result of the information</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>This can be Abstracted to;</h3>
+						<ul>
+							<li class="fragment">Message scope from/to; Global v Contextual</li>
+							<li class="fragment">Triggered by; System Event v User Action</li>
+							<li class="fragment">Whether message should be; Disruptive v Non Disruptive <!-- (Red > Amber > Blue > Green) --></li>
+							<li class="fragment">Information prompt; Passive v Active</li>
+						</ul>
+					</section>
+<!-- 
+					<section>
+						<h3>3 Communication Methods</h3>
+						<ul>
+							<li>Validation</li>
+							<li>Notifications</li>
+							<li>Status Indicators</li>
+						</ul>
+					</section> -->
+				</section>
+
+
+				<section>
+					<section id="methods">
+						<h3>What are the Communication Methods?</h3>
+<!-- 						<p>There are identifiable rules but edge cases will braek the rule and also demand to be included in the rule set;</p> -->
+						<ul>
+							<li class="fragment"><strong>Indicators</strong> provide supplementary information about a dynamic piece of content or UI element. They are conditional - that is, they may appear or change under specific conditions. <!-- Contextual, Conditional and Passive. --></li>
+							<li class="fragment"><strong>Validations</strong> are tied to a user’s action or input, communicating whether the data just entered was incomplete or incorrect (or possibly correct). <!-- Contextual, Active --></li>
+							<li class="fragment"><strong>Confirmation</strong> - are you sure Dialog?</li>
+<!-- 							<li class="fragment"><strong>Notifications</strong> are <strong>mainly?</strong> focused on system-related events. </li> -->
+
+<!-- There is a gapping hole in the above definitions as there is no room for Confirmation Dialogs, instigated by the User but that are not by definition 'Errors'.
+
+The confirmation of a User action like adding a Favourite or something to a Basket (ie. Done by a User but not an error) is really considered a System Event whereby Google Acknowledgements are very similar to NNGroup Notifications. 
+Also no room 
+
+Notifications;
+ 	Contextual
+ 	Global
+ 	Passive
+	Action-required notifications
+
+
+
+-----------
+
+
+https://www.nngroup.com/articles/confirmation-dialog/
+
+ -->
+
+
+<!-- 							<li class="fragment">MATERIAL DESIGN - below aren't clearly covered above? </li> -->
+
+							<li class="fragment"><strong>Acknowledgements</strong> - active and passive</li>
+							<li class="fragment"><strong>Empty State</strong> - content has failed to load or sync</li>
+						<ul>
+					</section>
+
+
+<section>
+	<h3>Over overview table</h3>
+
+						<table style="font-size: small;">
+							<tr>
+								<th></th>
+								<th>SCOPE</th>
+								<th>PROMPT</th>
+								<th>TRIGGER BY</th>
+								<th>INTERUPTIVE</th>
+								<th>COMPONENT</th>
+							</tr>
+							<tr>
+								<th>Indicators</th>
+								<td>Contextual</td>
+								<td>Passive</td>
+								<td>User Action,<br />System Event</td>
+								<td>No</td>
+								<td>Badge, Pill</td>
+							</tr>
+							<tr>
+								<th>Validations</th>
+								<td>Contextual</td>
+								<td>Active</td>
+								<td>User Action</td>
+								<td>No</td>
+								<td>Alert</td>
+							</tr>
+							<tr>
+								<th>Confirmations</th>
+								<td>Contextual</td>
+								<td>Active</td>
+								<td>User Action</td>
+								<td>No</td>
+								<td>Modal Dialog</td>
+							</tr>
+							<tr>
+								<th>Acknowledgement - Action-required</th>
+								<td>Global, Contextual</td>
+								<td>Active</td><!-- <td>Active</td>-->
+								<td>System Event</td>
+								<td>Yes</td>
+								<td>Modal Dialog</td>
+							</tr>
+							<tr>
+								<th>Acknowledgement - Alert</th>
+								<td>Contextual</td>
+								<td>Passive</td>
+								<td>System Event</td>
+								<td>No</td>
+								<td>Alert</td>
+							</tr>
+							<tr>
+								<th>Acknowledgement - Passive</th>
+								<td>Global, Contextual</td>
+								<td>Passive</td>
+								<td>System Event</td>
+								<td>No</td>
+								<td>Snackbar</td>
+							</tr>
+
+
+<!-- these are as above -->
+
+<!-- 							<tr>
+								<th>Active Notifications</th>
+								<td>Global, <br />Contextual</td>
+								<td>Active</td>
+								<td>System Event</td>
+								<td></td>
+								<td></td>
+							</tr>
+
+							<tr>
+								<th>Passive Notifications</th>
+								<td>Global, <br />Contextual</td>
+								<td>Passive</td>
+								<td>System Event</td>
+								<td></td>
+								<td></td>
+							</tr> -->
+
+<!-- but also this one - Empty State -->
+
+							<tr>
+								<td>Empty State</td>
+								<td>Contextual</td>
+								<td>Passive ?</td>
+								<td>System Event</td>
+								<td>No</td>
+								<td>Empty State</td>
+							</tr>
+
+<!-- and Transactional Email and Confirmation Messages -->
+<!-- https://www.nngroup.com/articles/transactional-and-confirmation-email/
+
+Tansaction and Comfirmation
+
+Success at database System State change
+Confirmation of Completion
+
+Request an Account
+Account is Confirmed -->
+						</table>
+
+					</section><!-- full listing of Methods -->
+<!-- 
+					<section>
+						<h3>3 Methods Summarised</h3>
+						<table style="font-size: smaller;">
+							<tr>
+								<th></th>
+								<th>SCOPE</th>
+								<th>PROMPT</th>
+								<th>TRIGGER</th>
+							</tr>
+
+							<tr>
+								<th>Notifications</th>
+								<td>Global, <br />Contextual</td>
+								<td>Passive,<br />Active</td>
+								<td>System Event</td>
+							</tr>
+
+							<tr>
+								<th>Validations </th>
+								<td>Contextual</td>
+								<td>Active</td>
+								<td>User Action</td>
+							</tr>
+
+							<tr>
+								<th>Indicators</th>
+								<td>Contextual</td>
+								<td>Passive</td>
+								<td>User Action,<br />System Event</td>
+							</tr>
+
+						</table> -->
+
+<!--  			 	| SCOPE					| ACTION/NO ACTION  | TRIGGER	 		|
+ 			 	------------------------------------------------------------------------------------------
+Notifications 	| Global or Contextual	| Passive or Action	| System Event		| - *system*-related
+----------------
+Validations 	| Contextual			| Action 			| User action		| - user’s action or input
+----------------
+Indicators  	| Contextual			| Passive 			| User action or System event	| - conditional
+
+
+
+Notifications - 
+------------------------------------------------
+Global or Contextual, Passive or Action, System | Non Modal or Modal (Action Required)
+
+Nonintrusive passive notification = Toast
+
+Examples:
+Item was saved
+Tasks
+Item was added to Cart
+
+Intrusive = Modal (requires Action)
+
+
+Validations
+------------------------------------------------
+Contextual, Action, | Non Modal
+
+
+
+Indicator - Status
+------------------------------------------------
+Contextual, Passive, Conditional | Non Modal
+
+-----------------------
+Form Saved? Toast or Alert?
+
+
+
+Components suitable
+----------------------------
+Toast - Appropriate for Passive notifications
+Modal - Notification (Validation) requiring Action
+
+Alerts - Validation
+
+------------------------------------------
+Badge - indicator
+ -->
+<!--  					</section> -->
+
+					<section>
+						<h3>Examples 1</h3>
+						<table style="font-size: smaller;">
+							<tr>
+								<th></th>
+								<th>SCOPE</th>
+								<th>PROMPT</th>
+								<th>TRIGGER</th>
+							</tr>
+
+							<tr>
+								<th>Validations </th>
+								<td>Contextual</td>
+								<td>Active</td>
+								<td>User Action</td>
+							</tr>
+
+							<tr>
+								<th></th>
+								<td colspan="3">
+									<ul>
+										<li>Please enter a valid email address</li>
+										<li>Your Passwords match!</li>
+<!-- 										<li>Status: Completed</li> -->
+									</ul>
+								</td>
+							</tr>
+
+							<tr>
+								<th>Indicators</th>
+								<td>Contextual</td>
+								<td>Passive</td>
+								<td>User Action,<br />System Event</td>
+							</tr>
+
+							<tr>
+								<th></th>
+								<td colspan="3">
+									<ul>
+										<li>2 for price of 1</li>
+										<li>Share price is down 2%</li>
+										<li>Status: Completed</li>
+									</ul>
+								</td>
+							</tr>
+
+						</table>
+ 					</section>
+
+					<section>
+					<h3>Examples 2</h3>
+						<table style="font-size: smaller;">
+							<tr>
+								<th></th>
+								<th>SCOPE</th>
+								<th>PROMPT</th>
+								<th>TRIGGER</th>
+							</tr>
+
+							<tr>
+								<th>Notifications</th>
+								<td>Global, <br />Contextual</td>
+								<td>Passive,<br />Active</td>
+								<td>System Event</td>
+							</tr>
+
+							<tr>
+								<th></th>
+								<td colspan="3">
+								<p>Passive</p>
+									<ul>
+										<li>New Stories (have been added to your feed)</li>
+										<li>The item has been added to your favourites</li>
+										<li>The item has been deleted</li>
+										<li>An update is available for Creative Colud</li>
+									</ul>
+								<p>Active</p>
+									<ul>
+										<li>Updates available - do you want to install?</li>
+									</ul>
+								</td>
+							</tr>
+
+						</table>
+ 					</section>
+
+
+					<section>
+						<h3>Image Examples 1</h3>
+						<table style="font-size: smaller;">
+							<tr>
+								<th></th>
+								<th>SCOPE</th>
+								<th>PROMPT</th>
+								<th>TRIGGER</th>
+							</tr>
+
+							<tr>
+								<th>Validations </th>
+								<td>Contextual</td>
+								<td>Active</td>
+								<td>User Action</td>
+							</tr>
+
+							<tr>
+								<th></th>
+								<td colspan="3">
+
+<!-- 									<ul>
+										<li>Please enter a valid email address</li>
+										<li>Your Passwords match!</li>
+									</ul> -->
+									<img src="images/messages/1_notification.png" alt="" width="">
+									<img src="images/messages/3_notification.png" alt="" width="">
+								</td>
+							</tr>
+
+							<tr>
+								<th>Indicators</th>
+								<td>Contextual</td>
+								<td>Passive</td>
+								<td>User Action,<br />System Event</td>
+							</tr>
+
+							<tr>
+								<th></th>
+								<td colspan="3">
+<!-- 									<ul>
+										<li>2 for price of 1</li>
+										<li>Share price is down 2%</li>
+										<li>Status: Completed</li>
+									</ul> -->
+								</td>
+							</tr>
+
+						</table>
+ 					</section>
+
+					<section>
+						<h3>Image Examples 2</h3>
+						<table style="font-size: smaller;">
+							<tr>
+								<th></th>
+								<th>SCOPE</th>
+								<th>PROMPT</th>
+								<th>TRIGGER</th>
+							</tr>
+
+							<tr>
+								<th>Notifications</th>
+								<td>Global, <br />Contextual</td>
+								<td>Passive,<br />Active</td>
+								<td>System Event</td>
+							</tr>
+
+							<tr>
+								<th>Passive</th>
+								<td colspan="3">
+								<img src="images/messages/2_notification.png" alt="Passive" width="">
+<!-- 							<img src="images/messages/4_notification.png" alt="" width=""> -->
+<!-- 									<ul>
+										<li>New Stories (have been added to your feed)</li>
+										<li>The item has been added to your favourites</li>
+										<li>The item has been deleted</li>
+										<li>An update is available for Creative Colud</li>
+									</ul> -->
+								</td>
+							</tr>
+
+							<tr>
+								<th>Active</th>
+								<td colspan="3">
+								<img src="images/messages/5_notification.png" alt="Active" width="">
+<!-- 									<ul>
+										<li>Updates available - do you want to install?</li>
+									</ul> -->
+								</td>
+							</tr>
+						</table>
+					</section>
+
+
+
+
+
+
+
+
+
+
+
+
+					<section>
+					<H3>Sound til here.</H3>
+					<P>Rejig above with new table and examples</P>
+ 					</section>
+<!-- 
+					<section>
+						<h3>Summarised</h3>
+						<table style="font-size:smaller;">
+							<tr>
+								<th>TRIGGER</th>
+								<th colspan="2">SYSTEM EVENT</th>
+								<th colspan="2">USER ACTION</th>
+							</tr>
+							<tr>
+								<th></th>
+								<th>ACTION</th>
+								<th>PASSIVE</th>
+								<th>ACTION</th>
+								<th>PASSIVE</th>
+							</tr>
+							<tr>
+								<td>GLOBAL</td>
+								<td>Notifications</td>
+								<td>Notifications</td>
+								<td>-</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>CONTEXTUAL</td>
+								<td>Notifications</td>
+								<td>Notifications,<br/>
+								Indicator</td>
+								<td>Validation</td>
+								<td>Indicator</td>
+							</tr>
+						</table>
+
+					</section>
+ -->
+<!-- 					<section>
+						<h3>Summarised</h3>
+						<table style="font-size:smaller;">
+							<tr>
+								<th>TRIGGER</th>
+								<th colspan="2">SYSTEM EVENT</th>
+								<th colspan="2">USER ACTION</th>
+							</tr>
+							<tr>
+								<th></th>
+								<th>ACTION</th>
+								<th>PASSIVE</th>
+								<th>ACTION</th>
+								<th>PASSIVE</th>
+							</tr>
+							<tr>
+								<td>GLOBAL</td>
+								<td>Notifications</td>
+								<td>Notifications</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>CONTEXTUAL</td>
+								<td>Notifications</td>
+								<td>Notifications,<br/>
+								Indicator</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>SPECIFIC/FIELD</td>
+								<td></td>
+								<td></td>
+								<td>Validation</td>
+								<td>Indicator</td>
+							</tr>
+						</table>
+
+					</section> -->
+<!-- 
+					<section>
+						<h3>Diagrams</h3>
+						<table style="font-size:smaller;">
+							<tr>
+								<th>TRIGGER</th>
+								<th colspan="2">SYSTEM EVENT</th>
+								<th colspan="2">USER ACTION</th>
+							</tr>
+							<tr>
+								<th></th>
+								<th>ACTION</th>
+								<th>PASSIVE</th>
+								<th>ACTION</th>
+								<th>PASSIVE</th>
+							</tr>
+							<tr>
+								<td>GLOBAL</td>
+								<td>Notifications</td>
+								<td>Notifications</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>CONTEXTUAL</td>
+								<td>Notifications</td>
+								<td>Notifications,<br/>
+								Indicator</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>SPECIFIC/FIELD</td>
+								<td></td>
+								<td></td>
+								<td>Validation</td>
+								<td>Indicator</td>
+							</tr>
+						</table>
+
+					</section>
+ -->
+					<section>
+						<section>
+							<h3>Material Design</h3>
+							<p>Break the Notifications (not Indicators or Validation) types of message into 2 types;
+							<ul>
+								<li>Confirmation - Contextual, Active, Intrusive. Delivered by a Component it calls 'Alert Dialog' (ie. much like Action-required notifications)</li>
+								<li>Acknowledgement - which can be delivered by a variety of Components depending on Urgency level, Inclusion of an action to correct a problem and Duration on screen (transient, dismissable, or both)</li>
+							</ul>
+						</section>
+					</section>
+
+<!--
+So what we are saying is that the break is
+
+Indicator
+
+Validation
+
+Confirmation - Confirmation (you instigated it and it has Context known)
+
+Acknowledgement Notification - acknowledgement notifies the user about system actions occurring
+
+These have a number of different types;
+
+-->
+
+
+
+
+
+					<!-- how do we translate to   Material Table into whats above 
+					-->
+<!-- 
+
+							<th class="mdc-data-table__header-cell">Component</th>
+
+
+							<th class="mdc-data-table__header-cell">Urgency</th>
+
+							<th class="mdc-data-table__header-cell">Content</th>
+							<th class="mdc-data-table__header-cell">Behavior</th>
+ -->
+<!--					
+Passive vs. requiring a user action
+-->
+
+
+<!-- 							<th class="mdc-data-table__header-cell">2 dismiss</th> -->
+<!-- 
+Global vs. contextual: Related to a global system event or to a particular page element
+
+Triggered by user action vs. system event
+-->
+				</section>
+
+				<section>
+					<section id="components">
+						<h3>Components needed</h3>
+						<p>There are a number of different UI Components using names and functionality interchangeably. They are generally summarised below;</p>
+<!-- 						<ul>
+							<li>Badges and Pills - </li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul> -->
+					</section>
+
+					<section id="x">
+						<h3>Material Design</h3>
+						<p>x</p>
+						<table class="mdc-data-table__table" style="font-size:small">
+							<thead>
+							<tr class="mdc-data-table__header-row">
+							<th class="mdc-data-table__header-cell">Component</th>
+							<th class="mdc-data-table__header-cell">Urgency</th>
+							<th class="mdc-data-table__header-cell">Content</th>
+							<th class="mdc-data-table__header-cell">Behavior</th>
+							<th class="mdc-data-table__header-cell">2 dismiss</th>
+							</tr>
+							</thead>
+							<tbody class="mdc-data-table__content"><tr class="mdc-data-table__row">
+							<td class="mdc-data-table__cell">Snackbar</td>
+							<td class="mdc-data-table__cell">Low</td>
+							<td class="mdc-data-table__cell">Informational</td>
+							<td class="mdc-data-table__cell">Transient &amp; dismissable</td>
+							<td class="mdc-data-table__cell">0-1</td>
+							</tr>
+							<tr class="mdc-data-table__row">
+							<td class="mdc-data-table__cell">Alert</td>
+							<td class="mdc-data-table__cell">Medium</td>
+							<td class="mdc-data-table__cell">Correct a problem; <br>Awareness of state</td>
+							<td class="mdc-data-table__cell">Persistent, non-blocking, <br>& dismissable</td>
+							<td class="mdc-data-table__cell">1-2</td>
+							</tr>
+							<tr class="mdc-data-table__row">
+							<td class="mdc-data-table__cell">Dialog</td>
+							<td class="mdc-data-table__cell">High</td>
+							<td class="mdc-data-table__cell">Require a choice; <br>Acknowledge</td>
+							<td class="mdc-data-table__cell">Persistent, blocking <br>(interruptive)</td>
+							<td class="mdc-data-table__cell">1-2</td>
+							</tr>
+							<tr class="mdc-data-table__row">
+							<td class="mdc-data-table__cell">Empty State</td>
+							<td class="mdc-data-table__cell">Medium</td>
+							<td class="mdc-data-table__cell">Informational</td>
+							<td class="mdc-data-table__cell">Persistent, blocking</td>
+							<td class="mdc-data-table__cell">0-2</td>
+							</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section id="x">
+						<h3>Foundation</h3>
+						<p>x</p>
+						<ul>
+							<li>Badge - Indicator</li>
+							<li>Label - Indicator</li>
+							<li>Callout - Non Changing, Passive, Contextual (its an Alert?)</li>
+							<li>Reveal > Modal + Toast</li>
+						</ul>
+					</section>
+
+					<section id="x">
+						<h3>Bootstrap</h3>
+						<p>x</p>
+						<ul>
+							<li>Badge/Pill</li>
+							<li>Toast</li>
+							<li>Alert</li>
+							<li>Modal </li>
+						</ul>
+					</section>
+
+					<section id="x">
+						<h3>Apple</h3>
+						<p>x</p>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</section>
+
+
+				</section>
+
+<!-- 				<section>
+					<section>
+						<h3>What are the different type of Alerts (abstract)?</h3>
+						<ul>
+							<li>Contextual Alerts - Users need to be aware of important information related to their current activity.</li>
+							<li>Global Alerts - Users need to be aware of important information related to the system.</li>
+						<ul>
+					</section>
+
+					<section>
+						<h3>Contextual Alerts Description</h3>
+						<ul>
+							<li>Contextual alerts are positioned above or below the area or form they relate to</li>
+							<li>They are often triggered by a user interaction</li>
+							<li>They can be closable and can have other action buttons or links</li>
+							<li>Alerts with low importance (info or success) can close automatically after a small amount of time (20 seconds?)</li>
+							<li>Alerts with high importance (warning or danger) should not close automatically, unless the situation has been resolved/changed in some other way</li>
+						<ul>
+					</section>
+
+					<section>
+						<h3>Contextual Alerts Types</h3>
+						<ul>
+							<li>Info alerts should be used when there are tips or information that a user can benefit from</li>
+							<li>Success alerts should be used when an action was performed successfully</li>
+							<li>Warning alerts should be used when an action is out of the ordinary or might not be desired</li>
+							<li>Danger alerts should be used when the system has failed to perform an action, or when the user has made an error</li>
+						<ul>
+					</section>
+
+					<section>
+						<h3>System notifications Description</h3>
+						<ul>
+							<li>System notifications appear in in the top right corner of the screen</li>
+							<li>They are usually triggered by events unrelated to the user’s interactions
+							<li>They can be closable and can have other action buttons or links</li>
+							<li>Notifications with low importance (info or success) can close automatically after 20 seconds (if desired)</li>
+							<li>Notifications with high importance (warning or danger) should not close automatically, unless the situation has been resolved in some other way
+Optional. A message footer could be appropriate to further emphasize action buttons in system notifications</li>
+						<ul>
+					</section>
+
+					<section>
+						<h3>System notifications Types</h3>
+						<ul>
+							<li>Info notifications can be used for general messages that aren’t particularly critical</li>
+							<li>Success notifications can be used for positive messages that don’t have a context to associate it with</li>
+							<li>Warning notifications can be used for messages that likely require attention</li>
+							<li>Danger notifications can be used for critical messages that require immediate attention</li>
+						<ul>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>What are the different methods we need to do that?</h3>
+						<ul>
+							<li>Contextual Alerts - these are possiblybly non modal (they exist within the same plain as the UI the User is working with). But what of interuptions?</li>
+							<li>System Alerts - These must be modal (the come in above the UI), as they relate to things that are happening else-where</li>
+							<li>What of form field feedback?</li>
+						<ul>
+					</section>
+
+
+				</section>-->
+
+
+
+				<section>
+					<h3>In Summary for Toolkit</h3>
+					<ul>
+						<li>Errors on a Detail view should give a summary of Error issues at the top or above the Save button, as well as inline with the individual fields.</li>
+						<li>Deletions should use a Toast or a Modal > Toast depending on whether the delete is significant or not</li>
+					<ul>
+				</section>
+
+
+				<section>
+					<h3>Resources</h3>
+					<ul>
+						<li><a href="https://www.nngroup.com/articles/indicators-validations-notifications/">nngroup.com - Indicators, Validations, and Notifications: Pick the Correct Communication Option</a></li>
+
+						<li><a href="https://www.patternfly.org/v4/design-guidelines/usage-and-behavior/alerts-and-notifications">patternfly - alerts-and-notifications</a></li>
+
+						<li><a href="https://www.carbondesignsystem.com/patterns/notification-pattern/">Carbon - notification-pattern</a></li>
+
+						<li><a href="https://uxplanet.org/toast-notification-or-dialog-box-ae32ad53106d">Toast v Dialog Box</a></li>
+
+						<li><a href="https://uxdesign.cc/toasts-or-snack-bars-design-organic-system-notifications-1236f2883023">Toasts or snack bars? — designing organic notifications</a></li>
+
+						<li><a href="https://uspto.github.io/designpatterns/1.x/docs/components/alerts.html#system-notifications">uspto Alert Patterns</a></li>
+
+					</ul>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

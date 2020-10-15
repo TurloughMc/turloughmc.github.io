@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<link rel="stylesheet" href="css/layout.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>REQUIRES A MAJOR EDIT</h3>
+				</section>
+
+
+				<section>
+					<h3>Purpose of this presentation</h3>
+					<p>To address the following questions;</p>
+				</section>
+
+				<section>
+					<ul>
+						<li>What are the fundamentals building blocks that support User Interfaces in UI Design?</li>
+						<li>How can these be put to use buidling a Framework for addressing differing UI challenges, and on different devices?</li>
+						<li>What differences are there between what can be done on different devices and what approaches can be employed to address the challenges presented?</li>
+					<ul>
+				</section>
+
+				<section>
+					<section>
+						<h1>1X, 1Y, 1Z</h1>
+						<p>The smallest interface along the X and Y axis (Mobile), plus one level on the Z axis</p>
+					</section>
+
+					<section>
+						<h3>Create</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col-8">
+									<img src="images/figma-ui/01-Modal-Create.png" alt="" width="">
+								</div>
+
+								<div class="col">
+									<ol>
+										<li>Object Title</li>
+										<li>Object Content</li>
+									</ol>
+								</div>
+							</div>
+						</div>				
+
+					</section>
+
+					<section>
+						<h3>Read</h3>
+						<img src="images/figma-ui/02-Modal-Read.png" alt="" width="">
+					</section>
+
+					<section>
+						<h3>Update</h3>
+						<img src="images/figma-ui/03-Modal-Update.png" alt="" width="">
+					</section>
+
+					<section>
+						<h3>Delete</h3>
+						<img src="images/figma-ui/04-Modal-Delete.png" alt="" width="">
+					</section>
+
+					<section>
+						<h3>Summarise 1X, 1Y, 1Z</h3>
+						<ol>
+							<li>Object with full CRUD cycle</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>1X, 1Y, 2Z</h1>
+						<p>If the initial screen can be supported in a Modal, the additional functionality can be provided in a Non Modal screen to pair with this.</p>
+					</section>
+
+					<section>
+						<h3>Non Modal Screen</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/figma-ui/05-Non-Modal.png" alt="" width="">
+								</div>
+
+								<div class="col-8">
+									<ol>
+										<li>Primary Context - System</li>
+										<li>Primary Navigation</li>
+										<li>Primary Title - Active Nav Link</li>
+										<li>Primary Content - Master List</li>
+										<li>+ Modal Detail Title</li>
+										<li>+ Modal Detail Content</li>
+									</ol>
+								</div>
+							</div>
+						</div>				
+
+					</section>
+
+<!-- 					<section>
+
+						<div class="container">
+						  <div class="row">
+						    <div class="col">
+						      1 of 3
+						    </div>
+						    <div class="col-6">
+						      2 of 3 (wider)
+						    </div>
+						    <div class="col">
+						      3 of 3
+						    </div>
+						  </div>
+						  <div class="row">
+						    <div class="col">
+						      1 of 3
+						    </div>
+						    <div class="col-5">
+						      2 of 3 (wider)
+						    </div>
+						    <div class="col">
+						      3 of 3
+						    </div>
+						  </div>
+						</div>
+
+					</section> -->
+
+<style>
+/*img {
+  max-width: 99%;
+  max-height: 99%;
+  height: auto;
+}*/
+</style>
+
+					<section>
+						<h1>Modal Pairing</h1>
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/figma-ui/06-Modal-Pairing.png" alt="" height="60%">
+								</div>
+
+								<div class="col-6">
+									<p>Flip in and out of Modal view to go from Master list to Detail and back</p>
+								</div>
+							</div>
+						</div>				
+
+					</section>
+
+					<section>
+						<h3>Summarise 1X, 1Y, 2Z</h3>
+						<ol>
+							<li>Modal = Detail Object with full CRUD cycle</li>
+							<li>List = Access Multiple Detail Objects</li>
+							<li>Nav = Multiple Types of Object</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>3X, 2Y, 2Z</h1>
+						<p>If the screen is a large Desktop, the UI displayed above can be displayed without the need to use Modals (while still supporting the option)</p>
+					</section>
+
+					<section>
+						<h3>Desktop - single Context</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/figma-ui/07-Desktop.png" alt="" width="">
+								</div>
+
+								<div class="col-6">
+									<ol>
+										<li>Primary Context - System</li>
+										<li>Primary Navigation</li>
+										<li>Pr'y Title - Active Nav Link</li>
+										<li>Pr'y Content - Master List</li>
+										<li>+ Detail Title</li>
+										<li>+ Detail Content</li>
+										<li>Breadcrumb</li>
+									</ol>
+								</div>
+							</div>
+						</div>				
+					</section>
+
+					<section>
+						<h3>Summarise 3X, 2Y, 2Z</h3>
+						<ol>
+							<li>List = Multiple Detail Objects</li>
+							<li>Nav = Multiple Types of Object</li>
+							<li>Breadcrumb to show where User is on the hierarcy</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>2X, 2Y, 2Z + Context Banner Reset</h1>
+						<p>When we display content further down the hierarchy we might want to make that very transparent but also to reclaim the space for the UI to provide navigation more specific to the level we are looking at. A Context banner we allow us to do that, communicating the scope employed and letting the User know that everything below (Content & Navigation is relevant to that Context). It also makes more sense to speak the Primary Context as the specific one (as we need to design Mobile first).</p>
+					</section>
+
+					<section>
+						<h3>Desktop - with Context Banner</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/figma-ui/08-Desktop-Context.png" alt="" width="">
+								</div>
+
+								<div class="col-6">
+									<ol>
+										<li>Primary Context</li>
+										<li>Primary Navigation</li>
+										<li>Primary Title</li>
+										<li>Pr'y Content - List</li>
+										<li>+ Detail Title - Active Nav Link</li>
+										<li>+ Detail Content - List</li>
+										<li>Secondary Context - System</li>
+										<li>Secondary Navigation</li>
+										<li>Breadcrumb</li>
+									</ol>
+								</div>
+							</div>
+						</div>				
+					</section>
+
+					<section>
+						<h3>Summarise 3X, 2Y, 2Z + Context Banner Reset</h3>
+						<ol>
+							<li>List = Multiple Detail Objects</li>
+							<li>Nav = Multiple Types of Object</li>
+							<li>Breadcrumb to show where User is on the hierarcy</li>
+						</ol>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h1>1X, 1Y, 1Z Context Switching</h1>
+						<p>Reset as you step down to different ojects/scoping levels along the hierarchy
+					</section>
+
+					<section>
+						<h3>1X, 1Y, 1Z Context Switching</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/figma-ui/09-Switch-Context.png" alt="" width="">
+								</div>
+
+								<div class="col-6">
+									<p>A mobile device can only show 1 context at one time and a User is forced to Switch between Contexts using a menu (Hamburger or otherwise)</p>
+								</div>
+							</div>
+						</div>				
+					</section>
+
+					<section>
+						<h3>1X, 1Y, 1Z Context Switching</h3>
+
+						<p>The menu might remain the same  - Centre A switch to Centre B</p>
+
+						<p>OR change depending on usage - Data Entry switched to Data Manager</p>	
+					</section>
+
+					<section>
+						<h3>1X, 1Y, 1Z Context Material Layers</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/figma-ui/10-Context-Material-Layer.png" alt="" width="">
+								</div>
+
+								<div class="col-6">
+									<p>Another option is to do as Material design does and employ Material levels at which to reset</p>
+								</div>
+							</div>
+						</div>				
+					</section>
+
+					<section>
+						<h3>1X, 1Y, 1Z Context Switching</h3>
+						<ol>
+							<li>Ability to switch Context in 2 clicks</li>
+
+							<li>OR Ability to step up and down endlessly in 1 clicks (Material Design was a clever paradigm shift)</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>3X, 2Y, 2Z + Context Banner as Filter set (think Amazon)</h1>
+						<p>A Context banner will allow us to do that, communicating the scope employed and letting the User know that everything below (Content & Navigation is relevant to that Context)</p>
+					</section>
+
+					<section>
+						<h3>Context as Filter</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/figma-ui/11-Context-as-Filter.png" alt="" width="">
+								</div>
+
+								<div class="col-6">
+									<ol>
+										<li>Primary Context as a Summary of Filters</li>
+										<li>Primary Context filter options</li>
+										<li>Primary Context Type</li>
+										<li>Primary Content - List based on filter</li>
+										<li>Secondary Context - System</li>
+										<li>Secondary Navigation</li>
+										<li>Breadcrumb</li>
+									</ol>
+								</div>
+							</div>
+						</div>				
+					</section>
+
+					<section>
+						<h3>Summarise 3X, 2Y, 2Z + Context Banner as Filter</h3>
+						<ol>
+							<li>List = Filtered Objects</li>
+							<li>Filter rather than nav</li>
+							<li>Breadcrumb to show where on the hierarcy the filter is applied</li>
+						</ol>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h1>Mobile with Context as Filter</h1>
+						<p></p>
+					</section>
+				</section>
+
+
+
+				<section>
+					<section>
+						<h3>Mobile Pattern</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/ux-colours/1-Mobile-UI.png" width="" height="">
+								</div>
+
+								<div class="col-6">
+									<ol style="margin-left:60px;">
+										<li>Primary Context</li>
+										<li>Primary Navigation</li>
+										<li>Primary Title - Active Nav Link</li>
+										<li>Primary Content - List</li>
+	<!-- 									<li>Detail Title - Active Nav Link</li>
+										<li>Detail Content - List</li>
+										<li>Secondary Context - System</li>
+										<li>Secondary Navigation</li>
+										<li>Breadcrumb</li> -->
+									</ol>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+					<section>
+						<h3>Expand to Desktop 1</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/ux-colours/2-Desktop-UI-Full.png" width="" height="">
+								</div>
+
+								<div class="col-6">
+									<ol style="margin-left:60px;">
+										<li>Primary Context</li>
+										<li>Primary Navigation</li>
+										<li>Primary Title - Active Nav Link</li>
+										<li>Primary Content - List</li>
+	<!-- 									<li>Detail Title - Active Nav Link</li>
+										<li>Detail Content</li>
+										<li>Secondary Context - System</li>
+										<li>Secondary Navigation</li>
+										<li>Breadcrumb</li> -->
+									</ol>
+								</div>
+							</div>
+						</div>	
+					</section>
+
+					<section>
+						<h3>Expand to Desktop 2</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/ux-colours/3-Desktop-UI-Full.png" width="" height="">
+								</div>
+
+								<div class="col-6">
+									<ol style="margin-left:60px;">
+										<li>Primary Context</li>
+										<li>Primary Navigation</li>
+										<li>Primary Title - Active Nav Link</li>
+										<li>Primary Content - List</li>
+										<li>Detail Title - Active Nav Link</li>
+										<li>Detail Content</li>
+<!-- 										<li>Secondary Context - System</li>
+										<li>Secondary Navigation</li>
+										<li>Breadcrumb</li> -->
+									</ol>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Relate back to Mobile</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/ux-colours/4-Mobile-UI.png" width="" height="">
+								</div>
+
+								<div class="col-6">
+									<ol style="margin-left:60px;">
+										<li>Primary Context</li>
+										<li>Primary Navigation</li>
+										<li>Primary Title - Active Nav Link</li>
+										<li>Primary Content - List</li>
+										<li>Detail Title - Active Nav Link</li>
+										<li>Detail Content</li>
+<!-- 										<li>Secondary Context - System</li>
+										<li>Secondary Navigation</li>
+										<li>Breadcrumb</li> -->
+									</ol>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Expand on Desktop 3</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/ux-colours/5-Desktop-UI-Full.png" width="" height="">
+								</div>
+
+								<div class="col-6">
+									<ol style="margin-left:60px;">
+										<li>Primary Context</li>
+										<li>Primary Navigation</li>
+										<li>Primary Title - Active Nav Link</li>
+										<li>Primary Content - List</li>
+										<li>Detail Title - Active Nav Link</li>
+										<li>Detail Content</li>
+										<li>Secondary Navigation</li>
+										<li>Secondary Title - Active Nav Link</li>
+										<li>Breadcrumb</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Expand on Desktop 4</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/ux-colours/6-Desktop-UI-Full.png" width="" height="" style="margin-right:20px;">
+								</div>
+
+								<div class="col-6">
+									<ol style="margin-left:60px;">
+										<li>Primary Context</li>
+										<li>Primary Navigation</li>
+										<li>Primary Title - Active Nav Link</li>
+										<li>Primary Content - List</li>
+										<li>Detail Title - Active Nav Link</li>
+										<li>Detail Content</li>
+										<li>Secondary Navigation</li>
+										<li>Secondary Title - Active Nav Link</li>
+										<li>Breadcrumb</li>
+										<li>Tertiary Context</li>
+										<li>Tertiary Navigation - Role</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Relate back to Mobile again</h3>
+
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img src="images/ux-colours/7-Mobile-UI.png" width="" height="">
+								</div>
+
+								<div class="col-6">
+									<ol style="margin-left:60px;">
+										<li>Primary Context</li>
+										<li>Primary Navigation</li>
+										<li>Primary Title - Active Nav Link</li>
+										<li>Primary Content - List</li>
+										<li>Detail Title - Active Nav Link</li>
+										<li>Detail Content</li>
+										<li>Secondary Navigation</li>
+										<li>&nbsp;</li>
+										<li>&nbsp;</li>
+										<li>&nbsp;</li>
+										<li>Tertiary Navigation - Role</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				</section>
+
+
+
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

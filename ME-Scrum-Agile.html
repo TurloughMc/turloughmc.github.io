@@ -1,0 +1,419 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+    	<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+
+
+				<section>
+					<h2>Five core components of UX</h2>
+<!-- 					<p><img style="background-color: #fff;" src="images/me-scrum-agile/waterfall_method.png" alt="">
+					</p> -->
+
+<!-- 					<h3>1. Finding the right problem first</h3> -->
+					<ul>
+						<li class="fragment">Information Architecture (IA)</li>
+						<li class="fragment">Interaction Design</li>
+						<li class="fragment">Usability</li>
+						<li class="fragment">Share/test/feedback</li>
+						<li class="fragment">Prototyping</li>
+						<li class="fragment">Visual Design</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Generic UX Design Workflow</h2>
+<!-- 					<p><img style="background-color: #fff;" src="images/me-scrum-agile/waterfall_method.png" alt="">
+					</p> -->
+
+<!-- 					<h3>1. Finding the right problem first</h3> -->
+					<ul>
+						<li class="fragment"><strong>Concept, brainstorm, gather info</strong></li>
+						<li class="fragment"><strong>Wireframe/Design</strong></li>
+						<li class="fragment">Prototype</li>
+						<li class="fragment">Share/test/feedback</li>
+						<li class="fragment">Iterate</li>
+						<li class="fragment"><strong>Build</strong></li>
+					</ul>
+				</section>
+
+
+
+<!-- 				<section>
+					<h1>Agile meets Design</h1>
+					<h3>A Presentation</h3>
+					<p>
+						<small>Created by <a href="http://hakim.se">Turlough McAnespy</a></small>
+					</p>
+				</section> -->
+
+				<section>
+					<img src="images/me-scrum-agile/Waterfall.png" alt="">
+				</section>
+
+				<section>
+					<img src="images/me-scrum-agile/Agile.png" alt="">
+				</section>
+
+				<section>
+					<img src="images/me-scrum-agile/Design-thinking-1.png" alt="">
+				</section>
+
+				<section>
+					<img src="images/me-scrum-agile/Design-thinking-2.png" alt="">
+				</section>
+
+				<section>
+					<img src="images/me-scrum-agile/Design-thinking-3.png" alt="">
+				</section>
+
+				<section>
+					<img src="images/me-scrum-agile/Design-thinking-4.png" alt="">
+				</section>
+
+				<section>
+					<h2>Design Thinking</h2>
+<!-- 					<p><img style="background-color: #fff;" src="images/me-scrum-agile/waterfall_method.png" alt="">
+					</p> -->
+
+					<h3>1. Finding the right problem first</h3>
+					<ul>
+						<li class="fragment">A project often begins with objectives that are actually solutions</li>
+						<li class="fragment">We need to step out of these outcome assumptions, and start by uncovering the real problems, their root causes, and how people currently deal with them</li>
+					</ul>
+				</section>
+
+				<section>
+<!-- 					<h3>Design Thinking</h3> -->
+<!-- 					<p><img style="background-color: #fff;" src="images/me-scrum-agile/waterfall_method.png" alt="">
+					</p> -->
+
+					<h3>2. Divergent & convergent thinking</h3>
+					<ul>
+						<li class="fragment">The design thinking process is ultimately a divergent and convergent thinking process</li>
+						<li class="fragment">understand people and their problems, and then translate findings into one or a few problem statements</li>
+						<li class="fragment">To find the best solution, a cross-disciplinary group first brainstorm a variety of potential solutions</li>
+						<li class="fragment">Through evaluation, comparison, and consolidation, a limited number of solutions are selected for prototyping and testing</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h3>3. Iterative process</h3>
+					<ul>
+						<li class="fragment">There are no perfect solutions, only trade-offs. Iterations are indispensable. Prototyping and testing uncover the issues and gaps in the initial solution, and drive design thinkers to make refinements or develop new solutions. In this process, design thinkers learn more about the audience and may go back to redefine the problems.</li>
+					</ul>
+
+<!-- 					<h3>4. Human-Centered Design as the foundation</h3> -->
+<!-- 					<ul>
+						<li class="fragment">The foundation of design thinking is Human-Centered Design</li>
+					</ul> -->
+				</section>
+
+<!-- 				<section>
+					<h3>Waterfall</h3>
+					<p><img style="background-color: #fff;" src="images/me-scrum-agile/waterfall_method.png" alt="">
+					</p>
+
+					<ol style="margin-top: -30px; padding-top: 0;">
+						<li class="fragment">Discover</li>
+						<li class="fragment">Design</li>
+						<li class="fragment">Develop</li>
+						<li class="fragment">Test</li>
+					</ol>
+				</section> -->
+
+				<section>
+					<h3>Waterfall</h3>
+					<p>Limitations of Waterfall in Openapp:
+						<ul>
+							<li>Client frequently doesn't know or can't articulate what they want</li>
+							<li class="fragment">We often jumped straight to Develop as a Surrogate for Discover meaning:
+								<ol>
+									<li class="fragment">A Developer is tied up coding for longer as some of his work is on the wrong solution</li>
+									<li class="fragment">There is scar tissue from Developing the wrong Design and it never gets fixed</li>
+									<li class="fragment">The parameters of the spec are not sketched out early in the project and this leads to issues late in the project timeframe as some Client expectations are not being met</li>
+								</ol></li>
+							<li>Some of the original spec will prove to be irrelevent as more is discovered in the Development of the project</li>
+						</ul>
+					</p>
+				</section>
+
+<!-- 				<section>
+					<h2>Agile</h2>
+					<p><img style="background-color: #fff;" src="images/me-scrum-agile/agile_method-01.png" alt="">
+					</p>
+
+					<p>Same steps but iteritive</p>
+				</section>
+ -->
+				<section>
+					<h2>Agile</h2>
+
+					<p>Potential advantages of using Agile in Openapp
+						<ul>
+							<li class="fragment">We can begin Development without a well developed spec (value test before large commitment)</li>
+							<li class="fragment">We can Discover what the Client wants through Client and Team Collaboration</li>
+							<li class="fragment">We can define the outer Parameters of the entire project as User Stories (not detail specs), leading to less variance on expectations late in projects</li>
+							<li class="fragment">We have a mechanism for changing direction and making use of new knowledge to maximise business value</li>
+						</ul>
+					</p>
+				</section>
+
+				<section>
+					<h2>Agile</h2>
+
+					<p>Potential dangers of using Agile in Openapp
+						<ul>
+							<li class="fragment">We accept the lack of requirement Definition without properly harnessing Collaboration / Conversation to gain the knowledge we need</li>
+							<li class="fragment">Or we continue to deeply spec upfront (like Waterfall) and organise the project around Scrum - one clashes with the other and we can end up with disadvantages of both</li>
+							<li class="fragment">With no fixed place for Design it gets squeezed out between a high spec (no freedom) and tight schedule (no time)</li>
+						</ul>
+					</p>
+				</section>
+
+
+				<section>
+					<h3>How we should employ Agile?</h3>
+
+					<p>
+						<ul>
+							<li class="fragment">Pragmatically - some projects/components will have a need for alot of Documentation, some won't. Ditto Design innovation etc. Ruthless distinction is paramount</li>
+							<li class="fragment">We should formalise better to improve communication within the Team - we should all have predictable access to updated Project spec docs which give a good summary of most improvement aspects of project</li>
+							<li class="fragment">Projects should have a period of Discovery before first Development Scrums begin</li>
+						</ul>
+					</p>
+				</section>
+
+
+				<section>
+					<h3>How we should employ Agile?</h3>
+
+					<p>
+						<ul>
+							<li class="fragment">These Conversations should be led by User Stories even if this needs to be followed up by a fully formed and signed off spec. In the absence of Personas, Interviews and proper User testing - the Stories will at least encourage some User empathy and encourage Outcome over Output</li>
+							<li class="fragment">This type of Sprint 0 should also be considered for necessary technical requirements that don't necessarily benefit from some aspects of the Agile process. UI Designer may have little us in a discussion about database setup.</li>
+						</ul>
+					</p>
+				</section>
+
+				<section>
+					<h3>How we should employ Agile?</h3>
+
+					<img src="images/me-scrum-agile/ux_scrum.jpg" alt="">
+
+<!-- 					<p>
+						<ul>
+							<li class="fragment">Pra</li>
+						</ul>
+					</p> -->
+				</section>
+
+				<section>
+					<h2>Agile Manifesto</h2>
+					<h3>4 Values</h3>
+					<ol>
+						<li class="fragment"><strong>Individuals & Interactions</strong> Over Processes & Tools</li>
+						<li class="fragment"><strong>Working Software</strong> Over Comprehensive Documentation</li>
+						<li class="fragment"><strong>Customer Collaboration</strong> Over Contract Negotiation</li>
+						<li class="fragment"><strong>Responding to Change</strong> Over Following a Plan</li>
+					</ol>
+
+				</section>
+				<section>
+					<h2>Agile Methodology</h2>
+					<h3>3 Focal Points</h3>
+					<ol>
+						<li class="fragment">Focus on the <strong>Individual</strong> with testable <strong>narratives</strong></li>
+						<li class="fragment">Frontload Value</li>
+						<li class="fragment">Promote Outcomes (does it help user) rather than Output (quantity of software)</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+
+						<h3>1. Output rather than Outcomes</h3>
+						<p><img src="images/me-scrum-agile/the-blue-button-moment-low.png" alt="">
+						</p>
+						</section>
+
+						<section>
+
+						<h3>2. Outcomes rather than Output</h3>
+						<p><img src="images/me-scrum-agile/the-blue-button-moment-high.png" alt="">
+						</p>
+
+					</section>
+				</section>
+
+				<section>
+					<h2>User Stories</h2>
+					<p>User Stories should never be Specs - they should be small enough to fit on a Card, should primarily drive a Collaboration (Conversation) and be verifiable through Confirmation. If additional Specs are required these should be written after a suitable amount of Collaboration has taken place.</p>
+
+					<ol>
+						<li class="fragment">As a "<strong>User</strong>" (Persona better still)</li>
+						<li class="fragment">I want to "<strong>Do Something</strong>"</li>
+						<li class="fragment">To "<strong>Derive a Reward</strong>"</li>
+					</ol>
+
+				</section>
+
+				<section>
+					<h3>User Stories - Project Planning</h3>
+					<p>An advantage of user stories is that they can be used readily in project planning for the following reasons;</p>
+
+					<ol>
+						<li class="fragment">They are written so that each can be given an estimate of how difficult or time–consuming it will be to develop</li>
+						<li class="fragment">Are implemented in a single iteration of an agile project</li>
+						<li class="fragment">Easier to prioritise than a "The system shall..."</li>
+						<li class="fragment">They can be written quickly to sketch out the overall parameters of a project without having to contain specific details yet to be worked out</li>
+					</ol>
+
+				</section>
+
+				<section>
+					<h3>User Stories are not Use Cases</h3>
+					<p>A Use case is a generalised description of a set of interactions between the system and one or more actors, where an actor is either a user or <strong>another system</strong>.</p>
+
+					<ol>
+						<li class="fragment">they are less limited in scope - this means they are extensive, but less manageable in project planning - they often span iterations</li>
+						<li class="fragment">Use cases are more prone to including details of the ui - focusing too early on the software implementation rather than on business goals - to its detriment</li>
+					</ol>
+
+				</section>
+
+
+				<section>
+
+					<ol>
+						<li>the purpose of the Use case is to document an agreement between the customer and the development team</li>
+						<li class="fragment">User stories are written to facilitate release and iteration planning, and to serve as placeholders for conversations about the users’ detailed needs (pre agreement)</li>
+						<li class="fragment">Use case briefs are intended to live on for the life of a product, User Stories are discarded after use</li>
+						<li class="fragment">Use cases are generally written as the result of an analysis activity <span class="fragment">, while User stories are written as notes that can be used to initiate analysis conversations</span></li>
+					</ol>
+
+				</section>
+
+				<section>
+					<h2>Spec for Shire dashboard</h2>
+					<p>The conversation with the client frequently takes the form of the type of document below. This tends to result in an Output - frequently a list or table which while fullfilling an agreed spec doesn't truly address the requirements of the user.</p>
+					<p>
+
+					<div style="width:40%; float:left;" class="fragment"><p><img src="images/me-scrum-agile/spec.png" alt="">
+					</p></div>
+					<div style="width:20%; float:left;"><h2>=</h2></div>
+					<div style="width:40%; float:right;" class="fragment"><p><img src="images/me-scrum-agile/adregistry.png" alt="">
+					</p></div>
+
+				</section>
+
+				<section>
+					<h2>Spec for Shire dashboard</h2>
+					<p>At a guess - I worked from the premise that a typical User might want to see any correlation between drug prescription, compliance and patient well being. <span class="fragment">This should be framed as a User Story so the <span class="fragment highlight-red">Who, What and Why</span> are obvious to all stakeholders.</span></p>
+				</section>
+
+				<section>
+					<p><img src="images/me-scrum-agile/BDR-Patient-Dashboard.png" alt="">
+					</p>
+				</section>
+
+				<section>
+					<h2>Personas</h2>
+					<p>For CFRI / Tracker project - having focussed on the details of a set of fields little thought has been given to who will be using the system long term and what the likely obstacles to up-take will be</p>
+
+					<p>A result of this has left us designing for a Registry, when many of our users are expecting a tool to help with Clinical work</p>
+				</section>
+
+				<section>
+					<h3>Clinical Research Associate Barry</h3> 
+					<p>38 years old - has extensive exprience with registry database systems. Barry is very familier with the potential advantages of having an extensive database available for research purposes and has created a initial Registry dataset from filling in Patients information from the previously existing Clinical tool in Beaumont hostpital</p>
+				</section>
+
+				<section>
+					<h3>Radiologist Susan</h3>
+					<p>27 years old. Susan is quite computer literate and enjoys being able to record the Encounter details of her CF Patients in the basic Clinical System in Beaumont hospital. She welcomes the idea of moving to a new more sophisticated tool to replace the system she has been working with but is expecting it to work as an aid to her Clinical work as well as acting as a Registry</p>
+				</section>
+
+				<section>
+					<h3>Radiologist Mary</h3>
+					<p>52 years old. Based in Crumlin Hospital Mary fills in the sections of a the CF Encounter form in paper. She has heard her colleagues talking about Computerised Clincial Systems in Beaumont, but really doesn't think she will have time to fill the forms in twice</p>
+				</section>
+
+ 				<section>
+					<h3>INVEST</h3>
+					<p>The INVEST mnemonic as a reminder of the characteristics of a good quality Product Backlog Item (commonly written in user story format)</p>
+
+					<ul>
+						<li class="fragment"><strong>Independent</strong> - should be self-contained, in a way that there is no inherent dependency on another PBI.</li>
+						<li class="fragment"><strong>Negotiable</strong> - not explicit contracts and should leave space for discussion.</li>
+						<li class="fragment"><strong>Valuable</strong> - A PBI must deliver value to the stakeholders.</li>
+						<li class="fragment"><strong>Estimable</strong> - You must always be able to estimate the size of a PBI.</li>
+						<li class="fragment"><strong>Small</strong> - PBIs should not be so big as to become impossible to plan/task/prioritize with a certain level of accuracy.</li>
+						<li class="fragment"><strong>Testable</strong> - The PBI or its related description must provide the necessary information to make test development possible.</li>
+					</ul>
+
+				</section> 
+
+				<section>
+					<h2>Glossary</h2>
+
+					<ul>
+						<li><strong>Epic</strong> - Large User Story usually holding group of smaller User Stories</li>
+						<li><strong>User Story</strong> - Unit of work defined form the point of view of Who, What & Why, intended to promote discussion and collaboration</li>
+						<li><strong>(Sub) Task</strong> - One of the Chunks of work required to allow User Story to happen - Frequently done by one individual (database, bit of UI, etc.) and not of business value on its own</li>
+						<li><strong>INVEST</strong> - stands for a set of criteria used to assess the quality of a user story. If the story fails to meet one of these criteria, the team may want to reword it.</li>
+						<li><strong>Personas</strong> - synthetic biographies of fictitious users of the future product.</li>
+						<li><strong>Three C's</strong> - "Card, Conversation, Confirmation" is a formula that captures the components of a User Story.</li>
+						<li><strong></strong> - </li>
+					</ul>
+
+				</section>
+
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

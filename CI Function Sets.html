@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<!-- 				<section>
+					<h1>SMA Global</h1>
+					<h3>A Presentation</h3>
+					<p>
+						<small>Created by <a href="mailto:turlough.mcanespy@openapp.ie">Turlough McAnespy</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>The Vision</h2>
+					<p>SMA Global project is built around the concept of multiple <span class="fragment highlight-blue"><strong>Individual Patient Registries</strong></span> (Tier 1) using different applications, populating an <br /><span class="fragment highlight-blue"><strong>Aggregated Patient Registry</strong></span> (Tier 2).</p>
+					<p>The central pool of data provided by this SMA aggregated database, will make it possible to perform different queries for research purposes.</p>
+				</section> -->
+
+				<section>
+<!-- 					<section>
+						<h2>Registries? Gathering Data</h2>
+						<p>The Tier 1 Registries can include;</p> 
+						<ol>
+							<li>Extrenal Instances</li>
+							<li>SMArtCARE Instance</li>
+							<li><span class="fragment highlight-blue">Separated SMA Global Instances</span></li>
+							<li><span class="fragment highlight-blue">Default SMA Global Instance</span></li>
+						</ol>
+					</section> -->
+
+
+					<section>
+						<h2>Function Sets</h2>
+
+						<ol>
+							<li><span class="fragment highlight-blue">Collect Patient Data</span></li>
+							<li><span class="fragment highlight-blue">Manage Data</span></li>
+							<li><span class="fragment highlight-blue">Manage Registry Setup</span></li>
+							<li><span class="fragment highlight-blue">Run Research Study</span></li>
+							<li><span class="fragment highlight-blue">Manage Registry Users + Centres</span></li>
+							<li><span class="fragment highlight-blue">Administrate System</span></li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>The Hierarchy</h2>
+
+						<ol>
+							<li><span class="fragment highlight-blue">Global Registry</span></li>
+							<li><span class="fragment highlight-blue">Country Registry</span></li>
+							<li><span class="fragment highlight-blue">Centre</span></li>
+							<li><span class="fragment highlight-blue">Patient</span></li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>User Roles Matrix</h2>
+
+						<ol>
+							<li><span class="fragment highlight-blue">User</span></li>
+							<li><span class="fragment highlight-blue">Roles</span></li>
+							<li><span class="fragment highlight-blue">User with Multiple roles</span></li>
+							<li><span class="fragment highlight-blue">Access to different Function sets</span></li>
+							<li><span class="fragment highlight-blue">Access to different level and sites within the System Hierarchy</span></li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>How Interface relates these concepts</h2>
+
+						<ol>
+							<li><span class="fragment highlight-blue">System Administrator</span></li>
+							<li><span class="fragment highlight-blue">Registry Manager</span></li>
+							<li><span class="fragment highlight-blue">Centre Manager</span></li>
+							<li><span class="fragment highlight-blue">Patient Carer</span></li>
+						</ol>
+					</section>
+
+
+
+
+
+
+					<section>
+						<h2>Data Gathering - Centres</h2>
+						<p>An Individual SMA group (Registry) could use the SMA Global Application in order to directly contribute to the SMA Global Database.</p>
+
+						<ol>
+							<li>A Registry might have a <span class="fragment highlight-blue">Number of Centres / Hospitals</span> contributing to it</li>
+							<li>Or it may be a <span class="fragment highlight-blue">Single Centre Registry</span></li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>Data Gathering - Platforms</h2>
+						<p>The Data contributed from these Tier 1 Registries may be input from a number of different sources. These include;</p>
+						<ol>
+							<li><span class="fragment highlight-blue">Registry Application</span> - Patient data can be collected by <span class="fragment highlight-blue">Clinicians</span> & analysed by the Registry Manager</li>
+							<li><span class="fragment highlight-blue">Patient Portal</span> - through which <span class="fragment highlight-blue">Patients</span> can request access to the Registry and submit PROMs ???????</li>
+							<li><span class="fragment highlight-blue">Physio Portal</span> - access to the <span class="fragment highlight-blue">Physio</span> section of the Dataset</li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>Data Gathering - User Roles</h2>
+						<p>The Roles involved with the Data Gathering Tier 1 Registry will include;</p>
+						<ol>
+							<li><span class="fragment highlight-blue">Centre Data Entry</span> - Clinician / Nurse</li>
+							<li><span class="fragment highlight-blue">Physio Data Entry</span></li>
+							<li><span class="fragment highlight-blue">Self-Enroled Patient</span>  PROMs Data Entry</li>
+							<li><span class="fragment highlight-blue">Registry Manager - Analyses</span></li>
+							<li><span class="fragment highlight-blue">Centre Manager - xxx</span></li>
+							<li></li>
+						</ol>
+					</section>
+
+
+				</section>
+
+				<section>
+
+
+<!-- 					<section>
+						<h2>Data Gathering - User Roles 2</h2>
+						<p>... and depending on the particular setup of the Registry may also include xxx</p>
+					</section> -->
+
+<!-- 					<section>
+						<h2>Data Validation</h2>
+							<p>Data Validation happens 3 three ways</p>
+							<ol>
+								<li><span class="fragment highlight-blue">Realtime Automated Validation</span></li>
+								<li><span class="fragment highlight-blue">System Generated Queries</span></li>
+								<li><span class="fragment highlight-blue">Manually Generated Queries using Descrepancy notes</span></li>
+							</ol>
+					</section>
+					<section>
+						<h2>Data Validation</h2>
+						<p>Elaborate on the concept of how it gets to lockable?</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Data Locking</h2>
+					<p>This happens when ...</p>
+				</section>
+
+				<section>
+					<h2>Data Recieving</h2>
+					<p></p>
+				</section> -->
+
+
+
+
+				<section>
+					<h2>Clinical Insight Functionality Sets</h2>
+					<ol>
+						<li><span class="fragment highlight-blue">Administration of the Clinical Insight System</span> - Database creation, Building the Forms in HTML</li>
+						<li><span class="fragment highlight-blue">Managing the Registry Users and Centres</span></li>
+						<li><span class="fragment highlight-blue">Recording of Patient Data</span></li>
+						<li><span class="fragment highlight-blue">Verifying and Locking of Data</span></li>
+						<li><span class="fragment highlight-blue">Managing the Data</span></li>
+						<li><span class="fragment highlight-blue">Managing of Studying / Researching against Data</span></li>
+					</ol>
+				</section>
+
+
+					<section>
+					<h2>The System Interface - Header</h2>
+					<ol>
+						<li><span class="fragment highlight-blue">System name</span> - the name of the System sits top left and may be accompanied with an appropriate menu</li>
+						<li><span class="fragment highlight-blue">Domain</span> - the Scope the User has within the System - National/Centre/Organisation etc.</li>
+						<li><span class="fragment highlight-blue">User link</span> - identifying the User and providing a link to additional links to do with that User</li>
+						<li><span class="fragment highlight-blue">Function menu</span> - this provides options for the main branches of functionality provided by the System - Data Entry, Study Management, Service Desk</li>
+					</ol>
+					</section>
+
+<!-- 					<section>
+						<h2>System name</h2>
+						<p></p>
+					</section> -->
+
+					<section>
+						<h2>Domain</h2>
+						<p>The Domain avalilable to a logged in User might be the entire System, a single Country, a Centre or in the case of Self Enrolment may be a the Patient Data under the control Patient Carer.</p>
+
+						<p>The Domain is different from the Context in that there may be multiple Contexts within a single Domain (thinks Centres in a Country or Patients within a Centre, Patients within a single Carers care). This means that the initial Context might match the Domain (a Carers sees an overview of all their Patients) but can Navigate down to a single Patient to focus on just one.</p>
+					</section>
+
+					<section>
+						<h2>User link</h2>
+						<ul>
+							<li>Confirms who is logged in</li>
+							<li>Allows user to reset password</li>
+							<li>Define settings for that user</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Function menu</h2>
+						<p>Assuming that a particular User has the ability to do a number of different types of work - Data Entry, Data Management Administration etc. then they need a menu to switch between these</p>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Context</h2>
+						<p>Where the Domain scopes the parameters of what a User can explore within the System, the Context is what the User is actually looking at. When the User logs in the Context will be the top level of the Domain itself, but as he/she navigates down to more specific levels - Country > Centre > Patient, the conext changes</p>
+					</section>
+					<section>
+						<h2>Context Banner</h2>
+						<p>Is an interface object which allows the User to be sure of the Context the are looking at when the Navigate around the Registry. So for example this will display a Patients Name or ID</p>
+						<p>To be intuitive this needs to act consistantly with a heuristic model of the real world.</p>
+						<p>WTF?</p>
+						<p>The Context might be a Hotel, a Floor, a corridor, a room, a wardrobe. You can explore within the context more specifically (a wardrobe within a room). But to explore upwards (different room) or more generally (wardrobe in a different room) requires you to change context.</p>
+					</section>
+					<section>
+						<h2>Context Menu</h2>
+						<p>This provides a Menu to different areas of the Data for a given Context. For a Patient give might provide links to a Baseline form, a list of Encounters, End Study etc.</p>
+					</section>
+				</section>
+
+
+				<!-- Example of nested vertical slides -->
+<!-- 				<section>
+					<section>
+						<h2>3a</h2>
+						<p>Slides can be nested inside of each other.</p>
+						<p>Use the <em>Space</em> key to navigate through all slides.</p>
+						<br>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>3b</h2>
+						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+					</section>
+					<section>
+						<h2>3c</h2>
+						<p>That's it, time to go back up.</p>
+						<br>
+						<a href="#/2">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section> -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

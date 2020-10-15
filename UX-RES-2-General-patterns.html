@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+<!-- 
+Need to refine the narrative - first Modality > Reclamation > Back to Modality
+
+2 types of screen
+Modals > What are they > When to use
+
+Modal by Reclaiming the screen (resolving master / detail without Modalising everything even on large screens)
+
+
+
+How to handle Master / detail on Mobile screens
+
+The challenge we have in this instance is support a Master/Detail for Section within the Patient Record (Meds/Allergies/Problems) and also a Master/Detail of the items within those.
+
+But the truth is we would also need to support the concept the Patient himself/herself also being a Detail from a higher up Master.
+
+The move to Mobile says we can't support more than one of these on the screen at any one time. Mobile first says start here. So what are the options?
+
+0. Master sits above
+1. Master sits above - maybe Detail only openning when Master closes and vice versa
+2. Carousel as Master / Detail on small items
+2. Master sits off screen as Hamburger
+3. Master reduces size as an Icon menu
+4. Animates in and out from side as interacted with
+5. Nest another sub Master list into the active Master item. Click Allergies to see Allergies detail (was summary or list doesn't matter). A sub Master list displays within the active list item
+6. 
+7. Materialize these and have as many layers as you need - this seems like why Material Design was invented
+  
+-->
+
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+ 				<section>
+					<h3>General UX Patterns</h3>
+					<p>Purpose of Presentation - to look at the main patterns used in Users Interface Design with a view to summarise the most useful for building a UX Toolkit</p>
+					<ul>
+						<li><a href="#/master">Master > Detail</a></li><!-- move down the list -->
+						<li><a href="#/master-wizard">Master Wizard</a></li><!-- move down the list -->
+						<li><a href="#/overlay-definitions">Overlay Definitions</a></li>
+						<li><a href="#/paradigm-shift">Paradigm Shift</a></li>
+						<li><a href="#/">Master > Detail as Modal screen</a></li>
+						<li><a href="#/2-types">Modal v Non-Modal screens</a></li>
+						<li><a href="#/navigation">Navigation</a></li>
+
+						<li><a href="#/delete">Delete</a></li>
+					</ul>
+				</section>
+
+<!-- 				<section>
+					<h1>Broad UX Principles</h1>
+					<h3>Ideas around Modals & Menus to create a Useable, Responsive interface</h3>
+					<p>
+						<small>Created by <a href="http://openapp.ie">Turlough McAnespy</a></small>
+					</p>
+				</section> -->
+
+ 				<section>
+ 					<section id="master">
+						<h1>Master detail</h1>
+						<p>This is widely found (see Gmail below) UI Pattern which can act as a work horse Pattern in our set of solutions</p>
+					</section>
+
+ 					<section>
+						<h2>Gmail Master > Detail</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/1_master-view.png">	
+					</section>
+
+ 					<section>
+						<h2>Gmail Master > Edit</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/2_master-edit.png">	
+					</section>
+
+ 					<section>
+						<h2>Gmail Master > Modal</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/3_master-edit-modal.png">
+					</section>
+
+
+				</section>
+
+				<section>
+					<section id="master-wizard">
+						<h2>Master Detail Wizard</h2>
+						<p>The Master - Detail could amended to behave as a Wizard whereby the active row is the active Step of the Wizard.</p>
+						<img width="800" data-src="images/ux-principles/master-detail/8_master-detail-wizard.gif">
+					</section>
+
+					<section>
+						<h2>Master Detail Wizard</h2>
+						<p>The Master - Detail could amended to behave as a Wizard whereby the active row is the active Step of the Wizard.</p>
+						<img width="800" data-src="images/ux-principles/master-detail/9_wizard-error-reported.png">
+					</section>
+				</section>
+<!-- 				<section>
+					<h1>Mobile Patterns</h1>
+					<ul>
+						<li>Header - what is this app?, where am I?</li>
+						<li>Primary Menu (based on Context) - Where can I go? - Account - Patient - Survey</li>
+						<li>Drill down</li>
+						<li>Secondary Menu - Where can I go?</li>
+						<li>Dashboard - overview of Patient / Account</li>
+						<li>Notifications</li>
+						<li>Create/Update</li>
+						<li>Read</li>
+						<li>Delete</li>
+						<li>List</li>
+						<li>Detail</li>
+						<li>Enrol/Survey Form</li>
+						<li>Survey summary</li>
+						<li>Context with other Patients data</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Mobile Patterns</h1>
+					<ul>
+						<li>https://unitid.nl/androidpatterns/uap_pattern/action-bar - Header - what is this app?, where am I?</li>
+						<li>https://unitid.nl/androidpatterns/uap_pattern/tab-bar - Primary Menu (based on Context) - Where can I go? - Account - Patient - Survey</li>
+						<li>https://unitid.nl/androidpatterns/uap_pattern/data-drill-down - Drill down</li>
+						<li>Secondary Menu - Where can I go?</li>
+						<li>https://unitid.nl/androidpatterns/uap_pattern/dashboard-categories - https://unitid.nl/androidpatterns/uap_pattern/dashboard-features - Dashboard - overview of Patient / Account</li>
+						<li>Notifications</li>
+						<li>Create/Update</li>
+						<li>Read</li>
+						<li>Delete</li>
+						<li>List</li>
+						<li>Detail</li>
+						<li>https://unitid.nl/androidpatterns/uap_category/getting-input - https://unitid.nl/androidpatterns/uap_pattern/stepping - https://unitid.nl/androidpatterns/uap_pattern/horizontal-scrolling-page-indicators - Enrol/Survey Form</li>
+						<li>https://unitid.nl/androidpatterns/uap_pattern/scrollable-rows - Survey summary</li>
+						<li>Context with other Patients data</li>
+					</ul>
+				</section> -->
+
+
+
+
+
+
+				<section>
+
+					<section id="overlay-definitions">
+						<h1>The Old Paradigm</h1>
+					</section>
+
+					<section>
+						<h2>Overlay definitions</h2>
+					</section>
+<!-- 
+					<section>
+						<h2>Aim of this Slide block</h2>
+						<h3>Provide a Roadmap and set of definitions to allow us (UX designery people) to create UI that is fundamentally sound</h3>
+						<p>OR</p>
+						<ul>
+							<li>What would Don and Jacob do?</li>
+							<li>What would Google do?</li>
+							<li>What would Jesus do?</li>
+						</ul>
+					</section> -->
+<!-- 
+					<section>
+						<h3>What is the definition of an Overlay?</h3>
+
+						<ul>
+							<li><a href="https://www.nngroup.com/articles/popups/">NNGroup - popups</a></li>
+							<li><a href="https://uxplanet.org/modality-the-one-ux-concept-you-need-to-understand-when-designing-intuitive-user-interfaces-e5e941c7acb1">One UX Concept</a></li>
+							<li><a href="https://uxplanet.org/modal-vs-page-a-decision-making-framework-34453e911129">Decision Making Framework</a></li>
+						</ul>
+					</section> -->
+
+					<section>
+						<h3>NNGroup definition of a Page</h3>
+
+						<ul>
+							<li>NNGroup - "popup (also known as an overlay or popover)" is a window or dialog that appears on top of the page content with 2 dimensions = Interactivity + Dimmedness</li>
+							<li>The key distinction of a "popup" is that it is existing on a layer above the "background content"</li>
+							<li>The background content will have the main navigation and is considered the 'page'</li>
+<!-- 							<li>In this definition a peace of Material can be considered a 'Modal' 'Non Dimmed' popup on steroids</li>
+							</li>And the Jira hide menu button is sharing most of the key characteristics without creation of an additional layer</li> -->
+						</ul>
+					</section>
+
+					<section>
+						<h2>General Definitions</h2>
+						<ul>
+							<li><strong>Dialogue</strong>: “conversation” between the system and the user</li>
+							<li><strong>Mode</strong>: A special state of the system in which there is s somewhat different user interface. Each mode may come with different actions</li>
+							<li><strong>Overlay</strong>: A content box that is displayed on top of (and is noticeably smaller on a Desktop screen) another page</li>
+							<li><strong>Scrim/Lightbox</strong>: A temporary treatment that can be applied to surfaces for the purpose of making content on the surface less prominent</li>
+							<li><strong>Modal</strong>: The content on the page is disabled until the user explicitly interacts with the overlay</li>
+							<li><strong>Non-modal</strong>: Users can still interact with the background content (eg. clicking links or buttons) while the overlay remains visible</li>
+						</ul>
+<!-- 						<p>https://uxplanet.org/modal-vs-page-a-decision-making-framework-34453e911129</p> -->
+					</section>
+
+					<section>
+						<h3>Norman-Nielson 2 axis Diagram</h3>
+						<ul>
+							<li>Visual Dimming 2 Non</li>
+							<li>Modal 2 Nonmodal (>Interactivity)</li>
+						</ul>
+						<img src="images/ux-principles/modals/norman-nielson-modal.jpeg" alt="" width="">
+					</section>
+
+					<section>
+						<h3>A Problem: rich amount of functionality & smaller screens don't easily co-exist</h3>
+						<ul>
+							<li>Traditional solution 1: Insist on larger screens</li>
+							<li>Traditional solution 2: Insist on limited functionality/content</li>
+<!-- 							<li>New Solution: Embrace the 3rd dimension al la Material Design</li> -->
+						</ul>
+					</section>
+
+				</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<section>
+<!-- 					<section id="2-types">
+						<h3>Exploring Modality (including MD pages)</h3>
+
+						<p>This strand divides between Modal and Non Modal which doesn't dovetail with NNGroups diagram, only part of it.</p>
+					</section> -->
+
+					<section id="paradigm-shift">
+						<h1>Paradigm shift</h1>
+					</section>
+
+
+
+	 				<section>
+						<h3>Master detail on small screens</h3>
+						<p>Without adaption it is inappropriate for use on smaller screens, where the leveraging of Modality is much more useful Pattern</p>
+						<p>Mobile first is an approach suggesting the only way to design for mobile is by addressing mobile early</p>
+					</section>
+
+					<section>
+						<h2>Large</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/1_master-detail_a.png">
+					</section>
+
+					<section>
+						<h2>Small</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/1_master-detail_b.png">
+					</section>
+
+					<section>
+						<h2>Large 3D</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/2_master-detail-large.png">
+					</section>
+
+					<section>
+						<h2>Small 3D</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/3_master-detail-small.png">
+					</section>
+
+					<section>
+						<h2>Responsive Small Phone</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/4_master-detail-responsive-360.png">
+					</section>
+
+					<section>
+						<h2>Responsive Tablet</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/5_master-detail-responsive-839.png">
+					</section>
+
+					<section>
+						<h2>Responsive Desktop</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/6_master-detail-responsive-1280.png">
+					</section>
+
+					<section>
+						<h2>Microsoft</h2>
+						<p>This implementation of 2 layer Master > Detail is creating a layer in non-modular way - ie the main navigation sits in place to be interacted with when needed. This illustrates that Master > Detail could behave inside of a single 'Mode'.</p> 
+						<img width="800" data-src="images/ux-principles/master-detail/123.gif">
+					</section>
+
+
+
+
+
+
+
+
+
+					<section>
+	  					<h3>Design</h3>
+	  					<video width="640" height="" controls>
+	  					  <source src="images/ux-principles/modals/elevation-hero.mp4" type="video/mp4">
+	  					</video>
+						<p>https://medium.com/@manuel.vonau/what-happened-to-material-designs-beautiful-transitions-a0a10d5f4e54</p>
+					</section>
+
+					<section>
+						<h3>The New Problem: best practice says use Overlays/Modals sparingly;</h3>
+						<ul>
+							<li>Distil why this does not apply to Material Design when its entire paradigm is based on Overlays</li>
+<!-- 							<li>Untangle the multitude of different use cases for Overlays</li> -->
+							<li>Take what we need from Material Design but with having to ditch Bootstrap entirely</li>
+						</ul>
+					</section>
+
+					<section id="2-types">
+
+						<h2>Types of Screen</h2>
+						<p>Regardless of presentation and appropriateness of use, there are two fundamental types of screens in user interfaces *. These are found on the right and left hand side of the diagram above.</p>
+						<br>
+						<ol>
+							<li class="fragment">Non-Modal (Non Overlay) Screens</li>
+							<li class="fragment">Modal (Overlay) Screens</li>
+						</ol>
+						<span class="fragment"><p><small>* - Almost</small></p></span>
+					</section>
+
+					<section id="2-types">
+
+						<h2>The Model adjusted for Mobile screens</h2>
+						<img src="images/ux-principles/modals/norman-nielson-modal.jpeg" alt="" width="">
+					</section>
+
+
+					<section>
+						<h2>Non Modal Screens</h2>
+						<p>The most distinct visual indicator for Non-Modal Screens is the visibility of the navigation.</p>
+						<p class="fragment">Non-Modal Screens allow users to jump back and forth at the primary navigation level even if they happen to be on a subpage.</p>
+					</section>
+
+
+ 					<section>
+						<h2>Modal Screens</h2>
+						<p>On the other hand, a Modal Screen requires users to <strong>close the window before being able to use the primary navigation again</strong> (by clicking “Save” or “Cancel” for example).</p>
+					</section>
+
+<!--  					<section>
+						<h2>Modal Screens</h2>
+						<h3>THIS CONFUSES - AS IT DOESN'T NEATLY SIT WITH THE NNGROUP DIAGRAM, BUT THE IDEA OF MODALITY IS STILL CONSISTANT THROUGHOUT - THERE NEEDS TO BE A DISMISS BEFORE INTERACTIVITY ON PREVIOUS TASK IS RESUMED</h3>
+						<ol>
+							<li>Fullscreen Modal Views (1)</li>
+							<li class="fragment">Popups (2)</li>
+							<li class="fragment">Pop-Overs (3)</li>
+							<li class="fragment">Lightboxes (4)</li>
+							<li class="fragment">Alerts/Notifications</li>
+							<li class="fragment">(Multi-step) Dialogs</li>
+						</ol>
+					</section> -->
+
+
+
+ 					<section>
+						<h2>Modal Screens</h2>
+						<p>So Modal Screens aren't limited to the Modal Components found in UI toolkits but rather they are any screen which prevent a User interacting with <!-- the clickable elements of the UI in  --> 
+						the lower layer</p>
+						<p class="fragment"><strong>“creates a mode that disables the main window, but keeps it visible with the modal window as a child window in front of it. Users must interact with the modal window before they can return to the parent application” — Wikipedia.</strong></p>
+					</section>
+
+ 					<section>
+						<h2>Modal Screens</h2>
+						<p>Most Modal Screens — especially on desktop applications — can be easily identified, because they visually overlay the main window.</p>
+						<p class="fragment">However, screen estate on mobile devices is limited, which is why many modal screens on mobile devices take up the entire screen.</p>
+						<p class="fragment">We must deal with Modals in a way that when our applications transition between desktops to mobiles they do so in a way that is coherent in the UI and codebase.</p>
+					</section>
+
+ 					<section>
+						<h2>When to use Modal Screens</h2>
+						<p>Use Modal Screens for self-contained processes, use Non-Modal Screens for everything else.</p>
+						<p class="fragment">A “self-contained process” is every action that has a clear start and endpoint to it.</p>
+					</section>
+
+ 					<section>
+<!-- 						<h2>When to use Modal Screens</h2> -->
+						<img width="600" data-src="images/ux-principles/Modal-flow-example.png">
+					</section>
+
+ 					<section>
+						<h2>When not to use Modal Screens</h2>
+						<blockquote>
+							&ldquo;Consider creating a modal context only when it’s critical to get someone’s attention, when a task must be completed or abandoned to continue using the app, or to save important data.&rdquo;
+						</blockquote>
+					</section>
+
+ 					<section>
+						<h2>When to use Modal Screens</h2>
+						<p>In the example above I have suggested the use of a Modal when editing an item but not when you are only viewing the item. Depending on the specific details (gallery items etc.) this may not always be the correct approach.</p>
+
+						<p class="fragment">The most important thing is to recognise a distinction between your modal and non-modal views and try to create a consistant approach that is modular and scalable.</p>	
+					</section>
+
+ 					<section>
+						<h2>Reclaiming the screen v creating a Modal</h2>
+						<p>The approach (with Tonys Alopecia demo) used so far has done something a bit different but still largely compatible with what has been documented above. That is to reclaim the screen real estate where there is a significant space available.</p>	
+					</section>
+
+ 					<section>
+						<h2>Gmail Master > Detail</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/1_master-view.png">	
+					</section>
+
+ 					<section>
+						<h2>Gmail Master > Edit</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/2_master-edit.png">	
+					</section>
+
+ 					<section>
+						<h2>Gmail Master > Modal</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/3_master-edit-modal.png">
+					</section>
+
+ 					<section>
+						<h2>Gmail Large Modal</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/4_master-edit-modal-large.png">	
+					</section>
+
+				</section>
+
+
+
+
+
+
+
+
+
+
+
+
+				<section>
+
+
+<!-- 					<section>
+						<h3>Mapping Modality Across Components</h3>
+						<p>MD Overlay Components v MD Pages rather than Overlay Screens v Non Overlays Screens</p>
+						<img src="images/ux-principles/modals/Mapped-against-Material-Design.jpeg" alt="" width="">
+					</section> -->
+
+<!-- 					<section>
+						<h3>Ryan Neufelds definition of a Page</h3>
+						<p>I think its safe to say this article is useful but if focussed on MD and make the distinction between MD Overlays and MD Pages rather than Overlays and Non Overlays</p>
+						<ul>
+							<li>Article is entitled Modal vs Page</li>
+							<li>Does he mean Popup (any) when saying Modal</li>
+							<li>The Language of Modals - Dialog (dialogue), Mode, Overlay, Scrim/Lightbox, Modal</li>
+							<li>Currently fitting Sebastians</li>
+							<li>Then brings in NNGroup to explain types of Modals</li>
+							<li>Then re-diagrams this against Material Design components still reffering to all of them as Modals but having the top of the tree as an Overlay (Note: a MD Alert is an Overlay)</li>
+							<li>Then goes back to language of Page v Modal for the final Diagram but still leaving open that a Page might be Material Page !</li>
+						</ul>
+					</section> -->
+
+<!--
+MOVE
+ 					<section>
+						<h3>Fabian Sebastians definitions</h3>
+
+						<ul>
+							<li>There are Modal Screens & Non-Modal Screens</li>
+							<li>Modal Screens = Fullscreen Modal Views, Popups, Pop-Overs, Lightboxes, Alerts/Notifications, (Multi-step) Dialogs</li>
+							<li>A Sebastion 'Modal Screen' is what is on the xx side of the NNGroup diagram'</li>
+							<li>A Sebastion 'Popup' is a NNGroup sub type component of the 'Popup' category</li>
+							<li>Confused enough yet?</li>
+						</ul>
+					</section> -->
+
+
+
+<!-- Dialog (dialogue), Mode, Overlay, Scrim/Lightbox, Modal, -->
+
+
+
+<!-- 
+					<section>
+						<h2>Modal Component Best practice</h2>
+						<p>There are general rules widely excepted;</p>
+						<ul>
+							<li>Don't use them lightly</li>
+							<li>Don't put much content in them</li>
+							<li>Don't use multiple steps</li>
+							<li>Try to avoid using overlays for mobile designs</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Material</h3>
+
+						<ul>
+							<li>How do we square Popover=Bad with Material=Good? This must be based in another key dimension = Interuption V Focus</li>
+							<li>The Paradigm shift to Material design is only achievable when one sees beyond the 'Popovers are bad' and recognise why they are bad</li> 
+							<li>A well designed piece of Material is typically isolating a new layer of UI away from the one underneath not to break the Users focus from the task they were doing but to allow them to focus on a new task or a least a more specific part of the task. Common sense must recognise one from the other</li>
+							<li>The question then becomes about priorities of Task switching - does switching Tasks now make it easier for the User to do what they want to do</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>But this is based on a very tight scope of what a Modal page / component is</h2>
+						<p>If not Modals, how do these relate to  Modals?</p>
+						<ul>
+							<li>Fullscreen Modal Views (1)</li>
+							<li>Popups (2)</li>
+							<li>Pop-Overs (3)</li>
+							<li>Lightboxes (4)</li>
+							<li>Notifications (5)</li>
+							<li>(Multi-step) Dialogs (6)</li>
+							<li>Layer of Material</li>
+							<li>Switch off menus </li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h3>Comments on above</h3>
+						<p>Makes distinction on Overlay instead of Modal</p>
+						<p>That is simply to say that one we use Overlay and Non Overlay, with the term Page (from ) meaning its Non Overlay?</p>
+						<p>Should there be a break between Sheet and Snackbar (Scrim - No Scrim, Modal - Non Modal)</p> 
+						<ul>
+							<li></li>
+						</ul>
+						<p>
+						“[A modal window] creates a mode that disables the main window, but keeps it visible with the modal window as a child window in front of it. Users must interact with the modal window before they can return to the parent application” — Wikipedia
+						Most Modal Screens — especially on desktop applications — can be easily identified, because they visually overlay the main window: This is true for popups that fade out the main window in the background, popover menus and popover dialogs, lightboxes, alerts, …
+						However, screen estate on mobile devices is limited, which is why many modal screens on mobile devices take up the entire screen. They no longer keep the underlying main window visible and therefore make it harder to distinguish them from Non-Modal Screens
+
+						Minimize the use of modality. Generally, people prefer to interact with apps in nonlinear ways. Consider creating a modal context only when it’s critical to get someone’s attention, when a task must be completed or abandoned to continue using the app, or to save important data. — Apple
+
+
+						We toyyed with using a supercharged version of Modality as a form of Context resetting. The unusualness of this is anchored in the fact we are building deeper in information architecture than we probably should but if we use Asana typ tabbing this may not be necessary.
+						</p>
+
+					</section> -->
+
+					<section>
+						<img src="images/ux-principles/modals/modal-framework.png" alt=""  style="height:700px;">
+					</section>
+
+				</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<section>
+ 					<section id="navigation">
+						<h2>Navigation</h2>
+						<p>- the most distinct visual indicator of a Non Modal screen is the visibility of the navigation. Which should tell us 3 things.</p>
+
+						<ul>
+							<li class="fragment">Where am I?</li>
+							<li class="fragment">Where else can I go?</li>
+							<li class="fragment">What will I find when I get there?</li>
+						</ul>
+					</section>
+
+ 					<section>
+						<h2>Approaches to Navigation</h2>
+						<p>Where we need to scale our navigation options we should probably use Primary and Secondary navigation menus. This will allow us to balance the need between having as much transparency as possible, without surrendering all our screen space to the navigation.</p>
+
+					</section>
+
+ 					<section>
+						<h2>Approaches to Navigation</h2>
+						<p>An example of this approach is the way in which Apple and Google introduced Tab menus on their mobile interfaces creating a small but Primary navigation which is always in view on Non Modal Screens.</p>
+						<p class="fragment">Other navigation options are found on the Secondary nav menu accessed through the hamburger menu.</p>
+						<p class="fragment">On a smaller Desktop/Tablet view a reasonable in between stage would seem to be where a Primary side menu reduces in size and appears as icons (Wordpress, Gitlab etc.)</p>	
+					</section>
+
+ 					<section>
+ 						<h2>Collapseable Primary Menu</h2>
+						<img width="600" data-src="images/ux-principles/WPT-0007-029.jpg">
+					</section>
+
+ 					<section>
+ 						<h2>Collapseable Secondary Menu</h2>
+						<img width="600" data-src="images/ux-principles/collapsible-menu.png">
+					</section>
+
+ 					<section>
+ 						<h2>Desktop</h2>
+						<img width="600" data-src="images/ux-principles/Navigation-example-1.png">
+						<ol>
+							<li>Application Title - Where am I?</li>
+							<li>Secondary Menu - Where can I go?</li>
+							<li>Context - Where am I?</li>
+							<li>Breadcrumbs - Where am I?</li>
+							<li>Primary Menu (based on Context) - Where can I go?</li>
+							<li>Context Banner - Where am I?</li>
+						</ol>
+					</section>
+
+ 					<section>
+ 						<h2>Wide Tablet</h2>
+						<img width="600" data-src="images/ux-principles/Navigation-example-2.png">
+					</section>
+
+ 					<section>
+ 						<h2>Mobile</h2>
+						<img width="600" data-src="images/ux-principles/Navigation-example-3.png">
+
+						<ol>
+							<li>Application Title - Where am I?</li>
+							<li>Secondary Menu - Where can I go?</li>
+							<li>Primary Menu (based on Context) - Where can I go?</li>
+						</ol>	
+					</section>
+					
+				</section>
+
+
+
+
+				<section>
+					<section id="delete">
+						<h3>3 Dot Delete</h3>
+						<img width="600" data-src="images/ux-principles/delete/3-dot-delete.png">
+						<p>This puts the delete 'button/link' under a 3 dot dropdown menu.</p>
+						<ul>
+							<li>Doesn't facilitate batch delete</li>
+							<li>Functionality is scaleable</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Progressive disclose - batch delete</h3>
+						<img width="600" data-src="images/ux-principles/delete/master-detail-progressive-disclosure.png">
+
+						<p>This discloses functionality (like delete) on the list row only when a object is selected.</p>
+					</section>
+
+					<section>
+						<h3>Progressive disclose - batch delete</h3>
+						<ul>
+							<li>Supports batch delete</li>
+							<li>Functionality is scaleable</li>
+							<li>There may need to be a delete button for the Parent and another one for Children selected</li>
+							<li>If the delete is located on Master (to facilitate batch selection) then this shouldn't also be on the Detail</li>
+							<li>If the Master isn't visible on a Modal view then these buttons must be found in that view</li>
+						</ul>
+					</section>
+				</section>
+
+
+
+
+
+
+
+
+
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://uxplanet.org/modality-the-one-ux-concept-you-need-to-understand-when-designing-intuitive-user-interfaces-e5e941c7acb1">One ux concept you need to understand</a> <br>
+						- <a href="https://uxplanet.org/tab-bars-are-the-new-hamburger-menus-9138891e98f4">Tab bars are the new hamburger menus</a> <br>
+						- <a href="https://www.nngroup.com/articles/hamburger-menus/">www.nngroup.com/articles/hamburger-menus</a> <br>
+
+
+<!-- 						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a> -->
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

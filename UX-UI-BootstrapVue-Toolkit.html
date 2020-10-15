@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+				<h2>Aim of the Presentation</h2>
+				<h4>To answer the following questions;</h4>
+ 				<ul>
+					<li><a href="#/bootstrapvue">What are we trying to achieve with BootstrapVue Toolkit</a></li>
+					<li><a href="#/additional">What is our approach to additional Components needed in the Toolkit?</a></li>
+					<li><!-- <a href="#/"> -->The importance of keeping the code and Figma in sync<!-- </a> --></li>
+					
+					<li><a href="#/ux-patterns">Analysis of the current Components from a UX Patterns point of view</a></li>
+
+					<li><a href="#/bespoke">What our approach is building our own bespoke Components</a></li>
+					<li><a href="#/bem">What is BEM</a></li>
+					<li><!-- <a href="#/"> -->Approach to theming<!-- </a> --></li>
+					<li>Issues with the markup as is - .rows x 2 etc.</li>
+					<li><a href="#/form-markup">Form markup</a></li>
+					<li><a href="#/context">Form markup</a></li>
+					<li>Approach to navigation on a deep info hierarchy</li>
+<!-- 					<li>Hamburgers menus</li>
+					<li>Breadcrumbs</li>
+					<li>Readable forms</li>
+					<li>Dashboards</li> -->
+				</ul>
+ 				</section>
+
+				<section id="bootstrapvue">
+					<section>
+						<h2>Aim of BootstrapVue Toolkit</h2>
+						<p>The aim of this project is to see how far we can get by using disciplined Componentisation leveraging BootstrapVue as the basis of a toolkit to develop new projects.</p>
+					</section>
+
+					<section>
+						<h2>Entropy</h2>
+						<p>One of the chief tasks is to prevent the degradation of the toolkit through the general contributions of work to the codebase (basically prevention of Entropy)</p>
+					</section>
+				</section>
+
+				<section id="additional">
+					<section>
+						<h2>Approach 2 Additional Components</h2>
+						<p>So we should only be adding in additional Components where they are needed and where we do we should have a clear and defined usage case.</p>
+					</section>
+
+					<section>
+						<h2>Through Plugins</h2>
+						<p>So it important we ask questions like - is the addition of Sweet Alert plugin </p>
+						
+						<p><img src="images/bootstrap-vue/sweetalert.png" alt="" width="400"></p>
+
+						<ul id="fragments">
+							<li class="fragment">good?</li>
+							<li class="fragment">or bad?</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Or Through the creation of our own</h2>
+	<!-- 					<p>So it important we ask questions like - is the addition of Sweet Alert plugin </p>
+						
+						<p><img src="images/bootstrap-vue/sweetalert.png" alt="" width="400"></p>
+
+						<ul id="fragments">
+							<li class="fragment">good?</li>
+							<li class="fragment">or bad?</li>
+						</ul> -->
+					</section>
+
+					<section>
+						<h2>Component Clarity of Purpose</h2>
+						<p>At the very least we should be clear;</p> 
+						
+						<ul>
+							<li class="fragment">what a Component is</li> 
+							<li class="fragment">what it is for</li>
+							<li class="fragment">what it isn't for</li>
+						</ul>
+
+<!-- 						<p>Also each UI Component (as in tangible UI element) needs to exist in both Figma and in the Code</p> -->
+					</section>
+
+					<section>
+						<h2>Re-useability</h2>
+<!-- 						<p>We need to document from a UX Pattern what Patterns the Components in BootstrapVue should support and why these fall short (or not) and justify the use of a new Component like Sweet Alert.</p>  -->
+						
+						<p>Its all well and good building a system which does something but if it isn't useful for re-use its completely useless.</p>
+
+						<p>Each UI Component (as in tangible UI element) needs to exist in both Figma and in the Code</p>			
+
+					</section>
+				</section>
+
+				<section id="ux-patterns">
+
+					<section>
+						<h2>Analyse BootstrapVue Components</h2>
+						<p>We need to document from a <a href="https://ui-patterns.com/patterns" target="_blank">UX Patterns</a> <a href="http://welie.com/patterns/" target="_blank">point of view</a>, what Patterns the Components in BootstrapVue should support and why these fall short (or not) and justify the use of a new Component like Sweet Alert.</p> 
+					</section>
+
+					<section>
+						<h2>BootstrapVue Alert</h2>
+						<p>Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.</p>
+						<p><em>TMAC: Dismissable but inline. Suitable for forms.</em></p>
+					</section>
+
+					<section>
+						<h2>BootstrapVue Toast</h2>
+						<p>Push notifications to your visitors with a toast, a lightweight and easily customizable alert message.</p>
+						<p><em>TMAC: Timed and dismissable.</em></p>
+					</section>
+
+					<section>
+						<h2>BootstrapVue Modal</h2>
+						<p>Modals are streamlined, but flexible dialog prompts. They support a number of use cases from user notification to completely custom content and feature a handful of helpful sub-components, sizes, variants, accessibility, and more.</p>
+						<p><em>TMAC: As a Warning this is disruptive, it prevents further progress until it is addressed, so isn't suitable for general feedback. As a 'Modal' paradigm for creating and navigating content it is like a single layer of Material Design 'Material'.</em></p>
+					</section>
+
+					<section>
+						<h2>V Sweet alert</h2>
+						<p>A beautiful replacement for warning modals + success, error messages.</p>
+						<p><em>TMAC: These are Modal in nature.</em></p>
+					</section>
+
+					<section>
+						<h2>TBC</h2>
+						<p><a href="http://styleguide.openapp.ie/ux_ci_patterns/?p=264">Messaging</a></p>
+					</section>
+
+				</section>
+
+				<section id="bespoke">
+
+					<section>
+						<h2>Bespoke Components</h2>
+						<p>In the current system we have a bespoke Component (UI anyway) with a class .patient-data</p>
+						<ol>
+							<li class="fragment">It doesn't exist as a Figma Component</li>
+							<li class="fragment">Its not necessarily about a Patient</li>
+							<li class="fragment">And if it was it isn't for the Data, its primarily for Navigation - what am I looking at - ie Context)</li>
+							<li class="fragment">Its not Modular - the styling of the Component exists on the level of the Layout .row, which means the concerns aren't separated and removal of the Context would break the layout</li>
+							<li class="fragment">Its not Modular - in the sense that the presence of the 2nd Hamburger menu should be designed to work alongside but not be dependant on the .context Component</li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>Component (class) Naming</h2>
+						<p>We need a Convention (BEM) for naming the Components, so we give hints about how elements interrelate</p>
+
+						<ul>
+							<li class="fragment">.patient-data = BAD</li>
+							<li class="fragment">.context AND .context--patient = BETTER</li>
+						</ul>
+					</section>
+
+
+					<section id="bem">
+					  <h2>BEM</h2>
+
+						<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media media--right"</span><span class="nt">&gt;</span>
+						  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media__img"</span><span class="nt">&gt;</span>
+						    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"cats.gif"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+						  <span class="nt">&lt;/div&gt;</span>
+						  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media__body"</span><span class="nt">&gt;</span>
+						    Now you've got a hint that I belong to
+						    the media block when reading HTML
+						  <span class="nt">&lt;/div&gt;</span>
+						<span class="nt">&lt;/div&gt;</span>
+						</pre>
+					<!--   <aside class="notes">
+					    <ul>
+					      <li> Keeps specificity low as usually you're only defining a single class</li>
+					      <li>Reduces cognitive load as you can easily see what base object a
+					        sub-element belongs to</li>
+					    </ul>
+					  </aside> -->
+					</section>
+
+
+					<section>
+						<h2>Component re-using</h2>
+						<p>BUT notwithstanding that we need to target Context as a unique javascript Component (#context ?)</p>
+
+						<p>before we go too far down the road of developing an anatomy for .context > .context__title and .context__body etc.</p>
+
+						<p>we should consider re-using exisitng Components like Card</p>
+					</section>
+
+					<section>
+						<h2>Card for Context Component</h2>
+
+						<pre><code data-line-numbers="3,8-10">
+
+						<div id="context" class="card card--context card--context--patient">
+						  <div class="card-body">
+						    <h5 class="card-title">Patrick Murphy</h5>
+						    <h6 class="card-subtitle mb-2 text-muted">Disease Type blah blah</h6>
+						    <p class="card-text">Some quick example text to bulk of the context's content.</p>
+						  </div>
+						</div>
+
+						</code></pre>
+						<p>Here </p>
+					</section>
+<!-- These need to be Modular - if there is no need for a Context, the Context Component will not appear. -->
+
+				</section>
+
+
+
+				<section id="form-markup">
+					<section>
+						<h2>Things to consider</h2>
+						<ul>
+							<li>Making use of BootstrapVue to deliver flexibility & consistancy</li>
+							<li>Keeping the Form Acesssible</li>
+							<li>Read mode - does it make sense to use just use 'readonly'</li>
+							<li>If not what would the elements + classes be</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Markup as is</h2>
+						<ul>
+							<li>h5</li>
+							<li>p</li>
+						</ul>
+						<p>This is straightforward but makes any other layout impossible. Also why h5? It untethers the size/font/style of the label text from the main font size, without bringing any Semantic/Accessibility advantage. H and P should probably contrast by default.</p>
+						<p>If this approach was to be pursued it would be better to use modifiers of the  tag</p>
+						<p>Not pairing on the same line is extremely restrictive spacewise and may be a mistake</p>
+					</section>
+
+					<section>
+						<h2>Option 1: Accessible Readonly Forms (as in really)</h2>
+						<p>The problem with read-only text and accessibility arises from the the way the screen readers interact with forms in Web pages.</p>
+
+						<p>If you use an unattached form label, or an element that is not inside a form, the browser won't see it. But when a screen reader encounters a form it switches into “forms mode.” In this mode the screen reader will only read the form input elements and any corresponding labels. If additional plain text is inserted between two form elements, the screen reader will skip over the plain text and go directly to the next form input field.</p>
+
+						<p>So the right way to go is to use form elements.</p>
+
+<!-- Accessible Read-only Forms - https://web.archive.org/web/20150112063412/http://www.msfw.com/accessibility/techniques/readonlyforms.aspx -->
+
+<!-- How To Display Read-Only (or Non-Editable) Parts of a Form - https://web.archive.org/web/20151013001401/http://accessibility.oit.ncsu.edu/blog/2012/01/12/how-to-display-read-only-or-non-editable-parts-of-a-form/ -->
+					</section>
+
+					<section>
+						<h2>Option 2: Use modifed P tags or DL tag</h2>
+						<p>These need to be relateable through a screen reader.</p>
+						<p>Downside is that the BS Vue Form layout will be lost to us.</p>
+					</section>
+
+					<section>
+						<h2>Markup as should be</h2>
+<!-- 						<ul>
+							<li>Making use of BootstrapVue to deliver flexibility & consistancy</li>
+							<li>Keeping the Form Acesssible</li>
+							<li>Read mode - does it make sense to use just use 'readonly'</li>
+							<li>If not what would the elements + classes be</li>
+						</ul> -->
+					</section>
+
+				</section>
+
+
+				<section id="context">
+					<section>
+						<h2>Context banner</h2>
+						<p>What are we talking about?</p>
+
+						<ul>
+<!-- 							<li>Ma</li> -->
+<!-- 							<li>Keeping the Form Acesssible</li>
+							<li>Read mode - does it make sense to use just use 'readonly'</li>
+							<li>If not what would the elements + classes be</li> -->
+						</ul>
+					</section>
+
+ 					<section>
+						<h2>Navigation</h2>
+						<p>Navigation - Which should tell us 3 things.</p>
+
+						<ul>
+							<li class="fragment">Where am I?</li>
+							<li class="fragment">Where else can I go?</li>
+							<li class="fragment">What will I find when I get there?</li>
+						</ul>
+					</section>
+
+ 					<section>
+ 						<h2>BootstrapVue Example</h2>
+						<img width="400" data-src="images/bootstrap-vue/context-2.png">
+						<p>Not the cleanest implementation but;</p>
+						<ul>
+							<li>Top Nav says I'm at 'Components'</li>
+							<li>Side Nav says I'm at 'Badge' which is under 'Components'</li>
+							<li>Title says I'm at 'Badges'</li>
+							<li>Breadcrumbs says I'm at 'Badges' which is under 'Components' which are under 'Docs' which is 1st level under the top level 'Home'</li>
+						</ul>
+					</section>
+
+ 					<section>
+ 						<h2>Useful take aways</h2>
+
+						<ul>
+							<li class="fragment">The main content area of a page/view should have a title</li>
+							<li class="fragment">Navs should reflect the choices made to get where you are</li>
+							<li class="fragment">Some Nav can be contextual - the Components only display in Side Nav when the User clicks to go to the Components in the Top Nav</li>
+							<li class="fragment">Breadcrumbs can be extremely useful but as they inform users of their location in relation to the entire sites hierarchy, they expose/enforce a hierarchy when we might may not always want to do so. Top Nav has links 'Doc' and 'Components' - Breadcrumbs shows that one is child of the other in the hierarchy whether we want it to or not</li>
+							<li class="fragment">There can be only one hierarchy in a Breadcrumb. What if we want to filter/scope in a non hierarchical way or support more than 1 hierarchy (for example years v countries)?</li>
+							<li class="fragment">When there is room to do so the Patterns above are all useful</li>
+						</ul>
+					</section>
+
+
+
+ 					<section>
+ 						<h2>Why use a Context Component</h2>
+						<p></p>
+						<ul>
+							<li class="fragment">Filtering along non hierarchical scope which doesn't fit with a Breadcrumb</li>
+							<li class="fragment">With a deep hierarchy (or smaller) the page becomes overwhelmed with Navigation - the Context makes the scope (you're not longer looking at the entire system) transparent while allowing the other Navigation Components to be dropped off the UI</li>
+						</ul>
+					</section>
+
+ 					<section>
+ 						<h2>Order of priority</h2>
+						<p></p>
+						<ul>
+							<li class="fragment">0 Main page content</li>
+							<li class="fragment">6 Main page Context (in and out of Modals)</li>
+							<li class="fragment">1 Application Title</li>
+							<li class="fragment">3 Secondary Context xxx</li>
+							<li class="fragment">5 Navigation for the specific</li>
+							<li class="fragment">2 Navigation for the general</li>
+							<li class="fragment">4 Breadcrumbs - hierarchical context</li>
+						</ul>
+					</section>
+
+General (Application) Context >
+Secondary Menu >
+
+Context Switch
+
+Primary Context >
+Primary Menu >
+Primary Title
+
+Specific Context/Title (as would be used in a Modal or Material Design, and over, and over ...)
+
+Design Mobile 1st and work backwards
+
+Modal > Non Modal > Tablet > Desktop
+
+
+
+
+ 					<section>
+ 						<h2>Order of priority</h2>
+						<img width="400" data-src="images/ux-principles/Navigation-example-1.png">
+						<ol>
+<!-- 							<li class="fragment">Main page content</li>-->
+						</ol>
+					</section>
+
+ 					<section>
+ 						<h2>Desktop</h2>
+						<img width="400" data-src="images/ux-principles/Navigation-example-1.png">
+						<ol>
+							<li>Content</li>
+							<li>Context Banner - Where am I?</li>
+							<li>Application Title - Where am I?</li>
+							<li>Context - Where am I?</li>
+							<li>Primary Navigation (based on Context) - Where can I go?</li>
+							<li>Secondary Navigation - Where can I go?</li>
+							<li>Breadcrumbs - Where am I?</li>
+						</ol>
+					</section>
+
+				</section>
+
+				<section id="context">
+
+ 					<section>
+						<h2>Approaches to Navigation</h2>
+						<p>Where we need to scale our navigation options we should probably use Primary and Secondary navigation menus, where the Secondary isn't necessarily always visable. This will allow us to balance the need between having as much transparency as possible, without surrendering all our screen space to the navigation.</p>
+					</section>
+
+ 					<section>
+						<h2>Primary & Secondary Navs</h2>
+						<p>An example of this approach is the way in which Apple and Google introduced Tab menus on their mobile interfaces creating a small but Primary navigation which is always in view on Non Modal Screens.</p>
+						<p class="fragment">Other navigation options are found on the Secondary nav menu accessed through the hamburger menu.</p>
+					</section>
+
+ 					<section>
+						<h2>Extent of Navs options</h2>
+						<p>The functionality/links available must be tailored for the device the design is intended to support</p>
+						<p class="fragment">So on a smaller Desktop/Tablet view a reasonable in between stage would seem to be where a Primary side menu reduces in size and appears as icons (Wordpress, Gitlab etc.)</p>	
+					</section>
+
+ 					<section>
+ 						<h2>Collapseable Primary Menu</h2>
+						<img width="400" data-src="images/ux-principles/WPT-0007-029.jpg">
+					</section>
+
+ 					<section>
+ 						<h2>Collapseable Secondary Menu</h2>
+						<img width="400" data-src="images/ux-principles/collapsible-menu.png">
+					</section>
+
+ 					<section>
+ 						<h2>Desktop</h2>
+						<img width="400" data-src="images/ux-principles/Navigation-example-1.png">
+						<ol>
+							<li>Application Title - Where am I?</li>
+							<li>Secondary Menu - Where can I go?</li>
+							<li>Context - Where am I?</li>
+							<li>Breadcrumbs - Where am I?</li>
+							<li>Primary Menu (based on Context) - Where can I go?</li>
+							<li>Context Banner - Where am I?</li>
+						</ol>
+					</section>
+
+ 					<section>
+ 						<h2>Wide Tablet</h2>
+						<img width="400" data-src="images/ux-principles/Navigation-example-2.png">
+					</section>
+
+ 					<section>
+ 						<h2>Mobile</h2>
+						<img width="400" data-src="images/ux-principles/Navigation-example-3.png">
+
+						<ol>
+							<li>Application Title - Where am I?</li>
+							<li>Secondary Menu - Where can I go?</li>
+							<li>Primary Menu (based on Context) - Where can I go?</li>
+						</ol>	
+					</section>
+					
+				</section>
+
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://slides.com">Try the online editor</a> <br>
+						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				slideNumber: true,
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					// { src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>

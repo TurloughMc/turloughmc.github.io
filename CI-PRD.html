@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+
+	 				<section>
+	 				<h2>Responsiveness in CI</h2>
+	 				<p>I not saying that the Responsiveness of the system isn't fit for purpose - but maybe its not.</p>
+	 				<ul>
+	 					<li>we haven't done any testing with real users</li>
+	 					<li class="fragment">we don't have any devices</li>
+	 					<li class="fragment">thats been ok to date but Patient recorded forms means it has to actually work properly</li>
+	 					<li class="fragment">there is an overlap with the other projects that suggests what we do for SmartCare might be useful for CTF and INPDR</li>
+	 				</ul>
+					</section>
+
+	 				<section>
+	 				<h2>Other projects</h2>
+
+	 				<ul>
+	 					<li>I would like to have the compiler create a 2nd version of the form with clean markup for single column layouts - just slapping some more hacked style is never going to work well</li>
+
+	 					<li class="fragment">And a clean stylesheet so I can reverse the colours out and give the user options to make the UI work for them</li>
+
+	 					<li class="fragment">And present the questions one by one on suitable forms</li>
+	 				</ul>
+					</section>
+
+					<section>
+						<img width=""  data-src="images/ci-prd/SMAtrCARE-1.png">
+					</section>
+
+					<section>
+						<img width="1220"  data-src="images/ci-prd/screenshots-responsive/1_14px.png">
+					</section>
+
+					<section>
+						<img width="1220"  data-src="images/ci-prd/screenshots-responsive/6_16px-modal-single-question.png">
+					</section>
+
+					<section>
+						<img width="1220"  data-src="images/ci-prd/1-BCMFF-Patient-Portal.png">
+					</section>
+
+					<section>
+						<img width="1220"  data-src="images/ci-prd/2-BCMFF-Patient-Portal.png">
+					</section>
+
+					<section>
+						<img width="1220"  data-src="images/ci-prd/4-BCMFF-Patient-Portal.png">
+					</section>
+
+					<section>
+					<p>
+						<img width=""  data-src="images/ci-prd/Form-Radio-custom.png">
+					</p>
+					<p>That would suggest that we style (for example) radio buttons to be resizeable, change colour and remain readable to screen readers</p>
+					</section>	
+
+					<section>
+					<ul>
+						<li>Bootsrap 3 was released in 2013 and worked finished on it in 2016. I could get a 5 year old plugin to replace the radio buttons and allow them to change colour, but they aren't going to be accessible.</li>
+
+						<l1 class="fragment">Bootstrap 5 is being released this year</l1>
+
+						<li class="fragment">BootstrapVue does this out of the box</li>
+
+						<li class="fragment">There is a real chance we are just going to dump more technical debt on put of technical debt and end up supporting poor solutions</li>
+					</ul>
+					</section>
+
+					<section>
+					<p>
+						<img width=""  data-src="images/ci-prd/Form-Radio.png">
+					</p>
+					<p>
+						<img width=""  data-src="images/ci-prd/Form-Radio-markup.png">
+					</p>
+					<p>This the markup that is most accessible to screen reader - radio buttons wrapped in a fieldset, one label per button and associated with</p>
+					</section>
+
+					<section>
+					<p>
+						<img width=""  data-src="images/ci-prd/smartcare-markup.PNG">
+					</p>
+					<p>This is our markup today - orphan label, </p>
+					</section>
+
+
+
+<!-- 
+				<section>
+					<h1>Patient Recorded Registries +</h1>
+					<h3>Infrastructure needed</h3>
+					<p>
+						<small>Created by <a href="http://hakim.se">Turlough McAnespy</a></small>
+					</p>
+				</section>
+
+
+
+				<section>
+					<h2>Introduction</h2>
+					<p>There are a number of overlapping requirements for some upcoming projects that we need to address in a coherent way. These are around the areas of <span class="fragment"><strong>users ability to access the system</strong>,</span> <span class="fragment"><strong>useability</strong></span> <span class="fragment">and <strong>device support,</strong></span> <span class="fragment">but can generally be filed under a broad term of <strong>Accessibility</strong>.</span></p>
+
+					<p class="fragment">It will be a major waste of effort to create only short-term bespoke solutions that we can't re-use on similar projects coming up.</p>
+				</section>
+
+				<section>
+					<h2>Projects considered</h2>
+					<ul>
+						<li class="fragment">CTF Patient Recorded</li>
+						<li class="fragment">INPDR Patient Recorded</li>
+						<li class="fragment">SMArtCARE Patient Portal</li>
+						<li class="fragment">SMArtCARE Physio CTFs +</li>
+						<li class="fragment">SaaS Registry</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Accessibility</h2>
+					<p>When it comes to the area of Accessibility it will be too onerous to try to deliver a System that delivers the most Accessible experience to all users. 
+
+					<p class="fragment">We need to approach this task as a longer term project and add to the what is there bit by bit, as it is appropriate to do do, while ensuring the foundations are in place from the start.</p>
+
+					<p class="fragment">It also needs to be recognised that making the system more Accessible for one type of user will frequently have benefits for other users.</p>
+				</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<section>
+					<section>
+						<h2>Different Types of problems</h2>
+
+						<p class="fragment">This area is best understood when broken down into a number of smaller areas;</p>
+						<ul>
+							<li class="fragment">Useability</li>
+							<li class="fragment">Visual impairment</li>
+							<li class="fragment">Auditory impairment</li>
+							<li class="fragment">Motor impairment</li>
+							<li class="fragment">Cognitive impairment</li>
+							<li class="fragment">Limitations of Technology</li>
+						</ul>
+					</section>
+
+	 				<section>
+						<h2>Useability</h2>				
+						<p>Patient Entered Data needs to be as "user friendly" as possible. Health professionals are starved of the systems available to them and will make do with what they get. Patients will not use the systems at all if they find it difficult to work with</p>
+					</section>
+
+	 				<section>
+						<h2>Visual impairment</h2>
+						<p>There are a number of different areas to consider around visual impairment</p>
+
+						<ul>
+							<li class="fragment">Low vision</li>
+
+							<li class="fragment">Colour blindness (colour vision deficiency, or CVD) affects approximately 1 in 12 men (8%) and 1 in 200 women in the world</li>
+
+							<li class="fragment">Blindness</li>
+
+
+						</ul>
+					</section>
+
+	 				<section>
+						<h2>Auditory impairment</h2>
+						<p>This is not something that affects the system
+						</p>
+					</section>
+
+	 				<section>
+						<h2>Motor impairment</h2>
+						<p>Difficult to use a keyboards or mouse
+						</p>
+					</section>
+
+	 				<section>
+						<h2>Cognitive impairment</h2>
+						<ul>
+							<li>Learning difficulties (including <a href="https://www.dyslexia.ie/information/computers-and-technology/making-information-accessible-dyslexia-friendly-style-guide/" target="_blank">Dyslexia</a> - estimated that between 5-10% of the population has dyslexia, but this number can also be as high as 17%)</li>
+							<li class="fragment">Poor memory (including Dementia)</li>
+							<li class="fragment">Photosensitive seizures (including Epilepsy)</li>
+						</ul>
+					</section>
+
+	 				<section>
+						<h2>Illiteracy</h2>
+						<p>17.9% or about 1 in 6, Irish adults are at or below level 1 on a five level literacy scale</p>
+					</section>
+
+	 				<section>
+						<h2>Limitations of Technology</h2>
+						<ul>
+							<li class="fragment">Physical Size of Screen</li>
+							<li class="fragment">Resolution of Screen</li>
+							<li class="fragment">Software</li>
+						</ul>
+
+					</section>
+				</section>
+ -->
+<!-- 
+
+				<section>
+	 				<section>
+						<h2>Approaches to addressing requirements - abstract</h2>
+
+					</section>
+
+	 				<section>
+						<h2>Design approach</h2>
+						<ul>
+							<li class="fragment">Semantic structure and meaning</li>
+							<li class="fragment">Typography and component resizing</li>
+							<li class="fragment">Colour contrast (with options)</li>
+							<li class="fragment">Responsiveness</li>
+						</ul>
+					</section>
+
+	 				<section>
+						<h2>Technology</h2>
+						<ul>
+							<li class="fragment">Standards-compliant Semantic HTML5 - gives context to screen readers</li>
+							<li class="fragment">Aria - a set of attributes to help enhance the semantics of a web site or web application to help assistive technologies, such as screen readers for the blind</li>
+							<li class="fragment">HTML5Shiv - The HTML5Shiv is a JavaScript workaround to enable styling of HTML5 elements in versions of Internet Explorer prior to version 9</li>
+						</ul>
+					</section>
+
+	 				<section>
+						<h2>Useability</h2>
+
+						<p>While it is difficult to verify what constitutes "user friendly" without extensive user testing - it is achieved through focusing on a number of different design attributes;</p>
+
+						<ul>
+							<li class="fragment"><strong>Simple</strong>. A user-friendly interface is not overly complex, and provides quick access to common functions.</li>
+
+							<li class="fragment"><strong>Clean</strong>. A good user interface is well-organized, making it easy to locate options without too much visual noise creating more cognitive load to the user than is necessary.</li>
+						</ul>
+					</section>
+	 				<section>
+						<ul>
+							<li><strong>Intuitive</strong>. In order to be user-friendly, an interface must be make sense to the average user and should require minimal explanation for how to use it.</li>
+
+							<li class="fragment"><strong>Consistant</strong>. By employing popular user patterns that are both consistant within the system and with other popular applications found in the wider digital enviroment, we limit the amount of cognitive dissonance suffers by the user.</li>
+
+							<li class="fragment"><strong>Reliable</strong>. An unreliable product will cause undue frustration for the user. We ensure that our Patient Registry is reliable and does not malfunction or crash.</li>
+						</ul>
+					</section>
+
+				</section>
+ -->
+
+<!-- 
+ 				<section>
+
+	 				<section>
+						<h2>Design approach</h2>
+					</section>
+
+	 				<section>
+						<h2>Semantic structure & meaning</h2>
+						<p>Semantic structure and meaning (html) will be independent of the "look and feel" (css style).</p> 
+
+						<ul>
+							<li class="fragment">Use tables for tabular data, not for layout</li>
+							<li class="fragment">Use headings correctly to organize the structure of information</li>
+							<li class="fragment">Include proper alt text for images</li>
+							<li class="fragment">Give your links unique and descriptive names</li>
+						</ul>
+
+					</section>
+
+	 				<section>
+						<h2>Typography</h2>
+						<ul>
+							<li class="fragment"><strong>Font resizing</strong> - </li>
+							<li class="fragment"><strong>Justified text</strong> - Users with cognitive disabilities can find justified text difficult to read and as a result any/all text is styled to completely avoid this issue.</li>
+							<li>Font (Open Sans) optimized for the web and mobile interfaces, with excellent legibility characteristics in its letterforms</li>
+						</ul>
+					</section>
+
+	 				<section>
+						<h2>Component resizing</h2>
+						<ul>
+							<li><strong>Relative (percentage) widths</strong> should be used instead of absolute units to allow the user to minimize horizontal scrolling while leaving some flexibility with screen magnification</li>
+
+							<li class="fragment"><strong>Screen Magnifiers</strong> - text will be displayed using actual text rather through images of text.</li>
+						</ul>
+					</section>
+
+
+	 				<section>
+						<h2>Responsiveness</h2>
+						<p>Responsive design is the approach that suggests that design should respond to the user’s behavior and environment based on screen size, platform and orientation.</p>
+
+						<p>The practice consists of a mix of flexible grids and layouts, images and an intelligent use of CSS media queries.</p>
+
+					</section>
+
+	 				<section>
+						<h2>Colour contrast (+ options)</h2>
+						<ul>
+							<li class="fragment"><strong>Colour blindness</strong> - no important information can be conveyed through the use of colours alone, that may be difficult to percieve by users with color vision deficiency</li>
+
+							<li class="fragment"><strong>Low Vision</strong> - content must be displayed with a significant amount of colour contrast and generous font & element size, and allow the user to configure as required</li>
+						</ul>
+					</section>
+
+
+
+
+
+
+
+
+
+					<section>
+						<h2>Technology</h2>
+
+						<p>Without the use of additional software for addressing accessibility, there is a limit to what is achievable in practice, unless user impairment is relatively mild.</p>
+					</section>
+
+					<section>
+						<h2>Standards-compliant Semantic HTML5</h2>
+
+						<p>Standards-compliant Semantic HTML5 which is easier to navigate with screen readers, supplemented by ARIA.</p>
+
+						<p class="fragment"><strong>Ensure that all content can be accessed with the keyboard alone in a logical way</p>
+					</section>
+
+					<section>
+						<h2>Aria</h2>
+
+						<ul>
+							<li class="fragment"><strong>Standards-compliant Semantic HTML5</strong> is easier to navigate with screen readers, supplemented by ARIA. We need a (Vue?) ARIA module to provide support for common ARIA attributes that convey state or semantic information about the application for users of assistive technologies, such as screen readers.</li>
+
+							<li class="fragment"><strong>WAI-ARIA</strong> - Web Accessibility Initiative – Accessible Rich Internet Applications is a set of attributes to help enhance the semantics of a web site or web application to help assistive technologies, such as screen readers for the blind, make sense of certain things that are not native to HTML
+
+
+					</section>
+
+
+				</section>
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- 				<section>
+	 				<section>
+						<h2>Accessibility Testing</h2>
+
+						<ul>
+							<li class="fragment">Code Scanning</li>
+							<li class="fragment">Visual Review</li>
+							<li class="fragment">Manual Testing with Screen Readers</li>
+							<li class="fragment">Testing with Other Tools</li>
+							<li class="fragment">Human Testing</li>
+						</ul>
+
+						<a href="https://www.ogcio.gov.hk/en/our_work/community/web_mobileapp_accessibility/promulgating_resources/handbook/five_test_techniques/index.html" target="_blank">Five test techniques</a>
+
+					</section>
+
+	 				<section>
+						<h2>Code Scanning</h2>
+
+						<ul>
+							<li><a href="http://www.powermapper.com/products/sortsite/ads/acc-accessibility-testing/?gclid=CjwKEAjw7ZHABRCTr_DV4_ejvgQSJACr-YcwOtbsLYaKW_pTHkCnxGqFwIALq_oNMmrgl8oK1IgOohoCiQXw_wcB" target="_blank">Powermapper SortSite</a> to check against Web Content Accessibility Guidelines (WCAG) 2.0.</li>
+							<li>AChecker</li>
+							<li>WAVE - https://addons.mozilla.org/en-US/firefox/addon/wave-accessibility-tool/</li>
+							<li>Total Validator</li>
+						</ul>
+
+						<p>WCAG 2.0 has 3 levels of adherence. 'A' is the easiest to pass but even Angular UI and Bootstrap 3 both fail.</p>
+					</section>
+
+	 				<section>
+						<h2>Visual Review</h2>
+
+						<ul>
+							<li><a href="http://webaim.org/resources/contrastchecker/">Contrastchecker</a></li>
+							<li><a href="http://www.456bereastreet.com/archive/200709/10_colour_contrast_checking_tools_to_improve_the_accessibility_of_your_design/" target="_blank">Colour contrast checking</a></li>
+							<li><a href="https://chrome.google.com/webstore/detail/color-contrast-analyzer/dagdlcijhfbmgkjokkjicnnfimlebcll?hl=en" target="_blank">Colour Contrast Analyser</a>
+						</ul>
+					</section>
+
+	 				<section>
+						<h2>Manual (OpenApp) Testing with Screen Readers</h2>
+							<ul>
+								<li>JAWS</li>
+								<li>NVDA</li>
+								<li>VoiceOver</li>
+								<li>Windows Light</li>
+</ul>
+					</section>
+
+
+	 				<section>
+						<h2>Testing with Other Tools</h2>
+							<ul>
+								<li>ZoomText Magnifier</li>
+								<li>Dragon NaturallySpeaking</li>
+							</ul>
+					</section>
+
+	 				<section>
+						<h2>Human User testing</h2>
+						<p>The most thorough approach to ensure web accessibility is to test a website with persons with various disabilities to learn what areas are difficult for them to access. As this testing method requires more time and resources, it is best to first undertake the above four types of testing methods to rectify as many web accessibility issues as possible, and then use human testing at later stages of a project to uncover more subtle issues.</p>
+					</section>
+
+				</section> -->
+
+
+<!--  //////////////////////////////////////////// CLINICAL INSIGHT //////////////////////////////////////////// -->
+
+ 				<section>
+	 				<section>
+						<h2>Clinical Insight Solutions</h2>
+
+						WCAG 2.0 has 3 levels of adherence. 'A' is the easiest to pass but even Angular UI and Bootstrap 3 both fail.
+
+						We have a challenge with the progressive disclosure fields
+						Image uploads before saving
+						Validation is invoked on page loading not Touch
+						Colours - check colour blind (rag)
+						Font sizes + Margins - bumping these up could cause issues with the Form layouts and we will see less on screen
+						Provide better alt tags
+						Require better format on tables
+					</section>
+
+	 				<section>
+						<h2>Useability</h2>
+
+						<p>Cleaned down interface for Patient Portal which allows us to have a much cleaner and lighter UI tailored for devices likely to be used by Patients.</p>
+
+						<p>This should be built from the ground up rather than be version of our standard interface with bits switched off/styled out.</p>
+
+					</section>
+
+
+	 				<section>
+						<h2>Responsiveness</h2>
+						<p>What our applications do?</p>
+						<p>CFView resizes down to Tablet size with retracting menu.
+						<p>Phone app responds to different sizes.</p>
+					</section>
+
+	 				<section>
+						<h2>Responsive is difficult</h2>
+						<p>We need to design and plan better before we code</p>
+						<p>We need to accept that elements are flexible</p>
+					</section>
+
+				</section>
+
+
+
+
+
+
+<!-- 			<section>
+					<section>
+						<h2>Vertical Slides</h2>
+						<p>Slides can be nested inside of each other.</p>
+						<p>Use the <em>Space</em> key to navigate through all slides.</p>
+						<br>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 1</h2>
+						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>That's it, time to go back up.</p>
+						<br>
+						<a href="#/2">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section>
+
+				<section>
+					<h2>Slides</h2>
+					<p>
+						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="https://slides.com" target="_blank">https://slides.com</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down the <strong>alt</strong> key (<strong>ctrl</strong> in Linux) and click on any element to zoom towards it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Click again to zoom back out.
+					</p>
+					<p>
+						(NOTE: Use ctrl + click in Linux.)
+					</p>
+				</section>
+
+				<section>
+					<h2>Touch Optimized</h2>
+					<p>
+						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
+					</p>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Markdown support
+
+						Write content using inline or external Markdown.
+						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+
+						```
+						<section data-markdown>
+						  ## Markdown support
+
+						  Write content using inline or external Markdown.
+						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+						</section>
+						```
+					</script>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Fragments</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's different types of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p>
+							<span style="display: inline-block;" class="fragment fade-right">fade-right, </span>
+							<span style="display: inline-block;" class="fragment fade-up">up, </span>
+							<span style="display: inline-block;" class="fragment fade-down">down, </span>
+							<span style="display: inline-block;" class="fragment fade-left">left</span>
+						</p>
+						<p class="fragment fade-in-then-out">fade-in-then-out</p>
+						<p class="fragment fade-in-then-semi-out">fade-in-then-semi-out</p>
+						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
+					</section>
+				</section>
+
+				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br>
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=slide#/transitions">Slide</a> -
+						<a href="?transition=convex#/transitions">Convex</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a>
+					</p>
+				</section>
+
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						reveal.js comes with a few themes built in: <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section>
+
+				<section>
+					<section data-background="#dddddd">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code class="hljs html">&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Tiled Backgrounds</h2>
+						<pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
+						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+							<h2>Video Backgrounds</h2>
+							<pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+						</div>
+					</section>
+					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+						<h2>... and GIFs!</h2>
+					</section>
+				</section>
+
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
+					</p>
+					<pre><code class="hljs javascript">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						You can override background transitions per-slide.
+					</p>
+					<pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+				</section>
+
+				<section data-background-iframe="https://hakim.se" data-background-interactive>
+					<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<h2>Iframe Backgrounds</h2>
+						<p>Since reveal.js runs on the web, you can easily embed other web content. Try interacting with the page in the background.</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code class="hljs" data-trim data-line-numbers="4,8-11">
+import React, { useState } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+					</code></pre>
+					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+				<section>
+					<h2>Marvelous List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Tabular Tables</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Value</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Apples</td>
+								<td>$1</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Lemonade</td>
+								<td>$2</td>
+								<td>18</td>
+							</tr>
+							<tr>
+								<td>Bread</td>
+								<td>$3</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">The nice thing about standards is that there are so many to choose from</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Speaker View</h2>
+					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
+					<p>Press the <em>S</em> key to try it out.</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
+
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
+					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+				</section>
+
+				<section>
+					<h2>Global State</h2>
+					<p>
+						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+						will be added as a class to the document element when the slide is open. This lets you
+						apply broader style changes, like switching the page background.
+					</p>
+				</section>
+
+				<section data-state="customevent">
+					<h2>State Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Take a Moment</h2>
+					<p>
+						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+					</p>
+				</section>
+
+				<section>
+					<h2>Much more</h2>
+					<ul>
+						<li>Right-to-left support</li>
+						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
+					</ul>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://slides.com">Try the online editor</a> <br>
+						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+					</p>
+				</section> -->
+
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

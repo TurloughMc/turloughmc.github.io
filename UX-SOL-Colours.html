@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<link rel="stylesheet" href="css/layout.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h3>Colours</h3>
+					<p>The aim of this presentation is to clarify our strategy in terms of colour usage within the interface.</p>
+					<p>See Desktop / Inspiration</p>
+				</section>
+
+				<section>
+					<h2>Summary of Options</h2>
+
+					<ul>
+						<li><strong>Separate - Background + Header + Side Menu</strong></li>
+						<li>Grey + Black + White = Good + use Card for Content.</li>
+						<li>Grey + Black + Black = Good + use Card for Content</li>
+						<li>White + Black + Black = A little harsh and less good for mobile</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h3>Colour what?</h3>
+						<ol>
+							<li>What you can click - links and table rows</li>
+							<li>What we want you to click</li>
+							<li>What you have clicked</li>
+							<li>Where you are</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Approach</h3>
+						<ol>
+							<li>Links = BLUE and table rows = FONT COLOUR</li>
+							<li>PRIMARY BUTTON or ACCENT COLOUR (preferred for variation)</li>
+							<li>What you have clicked = PRIMARY COLOUR</li>
+							<li>Where you are = FONT COLOUR</li>
+							<li class="fragment">unless its exceptually important = ACCENT</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Approach</h3>
+
+						<table style="font-size: smaller;">
+							<thead>
+							  <tr>
+							    <th style="width:200px;">Thing</th>
+							    <th>Colour</th>
+							    <th style="width:50px;"></th>
+							    <th>Notes</th>
+							  </tr>
+							</thead>
+						  <tr>
+						    <td>Header+side menu</td>
+						    <td>Primary</td>
+						    <td><span style="display: block; background-color:#006400;">&nbsp;</span></td>
+						    <td>This can be a range of colours but must retain enough contrast for white</td>
+						  </tr>
+						  <tr>
+						    <td>Links</td>
+						    <td>Blue</td>
+						    <td><span style="display: block; background-color:blue;">&nbsp;</span></td>
+						    <td>Compatible version, + Underline or Bold</td>
+						  </tr>
+						  <tr>
+						    <td>Lists/Rows</td>
+						    <td>Grey</td>
+						    <td><span style="display: block; background-color:grey;">&nbsp;</span></td>
+						    <td>Background rollover</td>
+						  </tr>
+						  <tr>
+						    <td>Click prompt</td>
+						    <td>Primary or Accent?</td>
+						    <td><span style="display: block; background-color:orange;">&nbsp;</span></td>
+						    <td>Depends on Primary, SCSS can manage</td>
+						  </tr>
+						  <tr>
+						    <td>Clicked menu</td>
+						    <td>Darker Primary</td>
+						    <td><span style="display: block; background-color:#006400; opacity: 0.3;">&nbsp;</span></td>
+						    <td>All selections clear on white or Primary + contrasts white</td>
+						  </tr>
+						  <tr>
+						    <td>Clicked tab</td>
+						    <td>Primary</td>
+						    <td><span style="display: block; background-color:#006400; opacity: 0.3;">&nbsp;</span></td>
+						    <td>In an effort to make nav selections the same consistant colour - this will work on Primary, White and light grey of canvas</td>
+						  </tr>
+						  <tr>
+						    <td>Where u are</td>
+						    <td>Typography</td>
+						    <td><span style="display: block; background-color:grey;">&nbsp;</span></td>
+						    <td>-</td>
+						  </tr>
+						  <tr>
+						    <td>Context Banner</td>
+						    <td>Title/Icon in Accent</td>
+						    <td><span style="display: block; background-color:orange;">&nbsp;</span></td>
+						    <td>-</td>
+						  </tr>
+						</table>
+					</section>
+				</section>
+
+				<section>
+
+					<section>
+						<h3>Teal Example 1</h3>
+						<img src="images/ux-colours/11a-Desktop-Teal.png" width="" height="">
+					</section>
+
+					<section>
+						<h3>Teal Example 2</h3>
+						<img src="images/ux-colours/11a-Desktop-Teal.png" width="" height="">
+					</section>
+
+					<section>
+						<h3>Teal Example 3</h3>
+						<img src="images/ux-colours/12-Mobile-Teal.png" width="" height="">
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h3>Not exported yet?</h3>
+					</section>
+
+					<section>
+						<h3>Orange Example 1</h3>
+						<img src="images/ux-colours/11a-Desktop-Orange.png" width="" height="">
+					</section>
+
+					<section>
+						<h3>Orange Example 2</h3>
+						<img src="images/ux-colours/11a-Desktop-Orange.png" width="" height="">
+					</section>
+
+					<section>
+						<h3>Orange Example 3</h3>
+						<img src="images/ux-colours/12-Mobile-Orange.png" width="" height="">
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>Accessibility & Colour</h3>
+						<ol>
+							<li>Material colours are too heavily linked to Google branding, we shouldn't use them</li>
+							<li>The colour chart linked in resources below are probably agnostic enough</li>
+							<li>We should create a set of rules to limit useage of whatever colour set we use to prevent some Accessibility issues from the off - identify a palette set for which is contrast friendly</li>
+							<li>Material design use a white on Primary and black on Secondary pairing, for now I'm suggesting we always go with white and dark </li>
+							<li>Create a set of pairings for Notification Icons - measures off Red v Orange and Up Green V Down Red</li>
+							<li>Colours need a back-up of signals for the colour blind - traffic lights most obviously - circle, triangle, octadecimal</li>
+						</ol>
+					</section>
+				</section>
+
+
+
+				<section>
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://htmlcolorcodes.com/color-chart/">Color-chart</a> <br>
+						- <a href="https://webaim.org/resources/contrastchecker/">Contrastchecker</a>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

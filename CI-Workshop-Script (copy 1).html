@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- 
+https://duchenne.openappregistry.com/
+
+USERNAME
+doctor_1 Open@_dmd1 (is admin)
+
+# 1 centre - crap dashboard - 10 patients - 
+reports - only demographics
+
+current patients - DMD-011, 09, Simba - 10
+will hit problems adding data
+
+Sections that are ok - 
+Sections not - RAG not working, adverse events, avoid airways
+
+adding new?
+
+Probably just best to show the first First encounter in edit mode and compare against the dataset in excel.
+
+
+- - - - - - - - - - - - - - - - - - - - - - - -
+https://jrc-demo.openappregistry.com/insight/
+
+USERNAME
+Clinician Open@_jrc1
+data_manager Open@_jrc1
+
+admin Open@_jrc1
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - -
+THINGS TO DO
+
+For the weekend - bring home machine - read docs - draw diagrams and think about how to communicate Centre permissions, Queries, Validation
+
+Get a memory stick and backup all useful docs
+
+Write a script for Data Manager
+
+Get these slides on your phone
+
+See if demos work outside Openapp
+-->
+
+
+
+<section>
+	<section>
+	<h3>Introduction</h3>
+	My name is Turlough McAnespy, I am the lead User Experience designer at OpenApp and I have alone with me Andressa Pereira, one the the product owners on the Clinical Insight project here at OpenApp.</section>
+
+
+	<section>
+	<h3>Introduction</h3>
+	OpenApp was founded in 2002 and now have 45 staff. We are a leader in the eHealth industry with deep experience in international projects and whole lifecycle management.</section>
+
+	<section>
+	<h3>Introduction</h3>
+	Clinical Insight is a platform which we have developed, aimed at building bespoke Registries tailored for different diseases.</section>
+
+	<section>
+	<h3>Introduction</h3>
+	It has gone through a number versions developing through projects we have completed for the ECFS - European Cystic Fibrosis Society, INOR Irish National Orthopaedic Register and a Phase IV Observational study in 8 countries for Vertex, among others</section>
+
+	<!-- CPMS for ERNs. Collaboration across 900 expert centres -->
+
+	<section>
+	<h3>Introduction</h3>
+	Last year we worked on a Registry for Smartcare in Germany to build a system to collect real-life outcome data of Patients with spinal muscular atrophy, which I assume you are aware.</section>
+
+	<section>
+	<h3>Introduction</h3>
+	We also began some work on an SMA Registry which as never completed.</section>
+</section>
+
+<section>
+
+	<section>
+	<h3>Clinical Insight</h3>
+	Before demoing the system I'm going to show you a diagram of the functionality of the Clinical Insight system in the bigger picture of the requirements of the project.
+	</section>
+
+	<section>
+	<h3>Clinical Insight</h3>
+	So I'm going to begin by giving a demo of the Clinical Insight system to give a brief oversight of the functionality available.
+	</section>
+
+	<section>
+	<h3>Clinical Insight</h3>
+	I'll begin by logging in.</section>
+	<!-- Typically user will will only see this screen once, where they can configure their Two Factor Authentication and continue into the system. -->
+
+	<section>A Data Entry user will typically be taken to the Centre overview page for the centre to which they belong. The Centre object is the main artefact to which the security of the system is modeled around.</section>
+</section>
+
+<section>
+	<section>You can of course belong to a number of Centres or be at a management level above a Centre such as a National level group of Centres but for the sake of the demo I'm going to go through the scenario of a user having access to a single Centre.</section>
+
+	<section>The Centre has a Centre banner to identify your orientation if at all in doubt.</section>
+
+	<section>On the left hand side we a number of tabs to display areas within a Centre. We begin on the Centre dashboard where we are able to see an overview of the Centre from the viewpoint of a Centre Data Entry user. The Dashboard can be configured to show lots of different reports and lists, but typically we'd find things like Recent activity, number of Patients enrolled, volume and quality of Data collected etc.</section>
+
+	<section>At the bottom we have a set of configurable FAQs for Data Entry users.</section>
+
+	<section>And above a list of canned reports which are configured to best tell us about the particular disease or structure we are dealing with.</section>
+
+	<section>In addition to the canned reports we have an ability to provide bespoke reports through a rule builder component, so that if there is data in the database we can output a report against it.</section>
+
+	<section>If we move up to the Forms tab we can see an overview list of completed forms by type. In this demo I'm looking at the JRC dataset and I can see which Patient it belongs to, the Validation level it conforms to - some forms have some Warnings on them, a form state and whether the forms have been Frozen or Locked by a Monitor or Data Manager.</section>
+
+	<section>Then we get to the Patient list for the Centre. Here we have some Patients that have been Enroled in the Centre. The Dataset for this demo is Joint Research Centre but I will show you the Duchenne Dataset in a few moments.</section>
+</section>
+
+<section>
+	<section>Enrol a Patient</section>
+
+	<section>To Enrol a new Patient to the Registry we would click the Enrol Patient button on the right and fill out a Enrolment form which has openned.</section>
+
+	<section>We are defining a number of the fields as Required here and in the Insight system that means that we can't continue and Save the form until data has been entered in these fields.</section>
+
+	<section>We also have category of presence check we call Expected which may be a better choice depending on what behaviour we went from the system. The Expected field also displays a visual Visual Validation Warning and raises a Descrepancy Note Query. Crucially though it doesn't stop the user saving her Data and continuing.</section>
+
+	<section>The Identifying Data is modeled to be only read by then within the Patients own Centre. Any users seeing this Data outside of that context will only see Pseudonymised or Anonymised data, depending on the use case. We have a number different options here and we can configure to diferent requirements - GUID, UPID and a few others that may be relevant to your registry and what you may want to do.</section>
+
+	<section>Billy Murphy</section>
+
+	<section>Now now have a Patient ID for this particular Patient and we move on to provide Consent.</section>
+
+	<section>There are multiple Consents defined here - typically these are to Save the Data, Use the Data and Share the Data, but we can configure to requirements and go as granular as needed. Consent is considered dynamic and can be changed at any time.</section>
+
+	<section>So here we have the Patient represented in the system. Again there is a context banner to clarify which Patient we are looking at and this Patient is identified by Name when permitted and by ID not.</section>
+
+	<section>Again we have a menu down the left hand side giving us access to different Data defing the Patient within the system.</section>
+
+	<section>There is a Patient summary Dashboard at the top of the menu, giving key data about the Patient. Various charts, graphs and lists are available for configuration here.</section>
+
+	<section>Working from the bottom up I have a link for the Patients Identity entered in tghe Enrolment form.</section>
+
+	<section>Further up I have a Consent management page which is dealing with the Consent for a single Study.</section>
+
+	<section>One up again brings me to a Studies enroled in page which will allow us to Enrol in additional Studies where the option exists. This might for example be a sub-study based on Patients of a certain age.</section>
+
+	<section>I move up again to the Data Collection tab which contains a table listing the the Data Collection forms that have been filled in or are due to be completed in the future. There is a capacity for the Patient to be enrolled in multiple studies on the registry and each study will display a table for data collected within that Study.</section>
+
+	<section>We have different types of forms and schedules based around them. I'm going to click to add a new Follow Up form and I'll show what that might look like.</section>
+
+	<section>The Forms are a collection of Data fields grouped in different Sections. We have a anchor navigation to allow the user to jump different Sections of the form and we can configure these to allow a User to add and remove Sections depending on the particular use case.</section>
+
+	<section>As well as Validation being displayed around the field, we carry this signal up through the Section the field belongs to aswell. I'm going to Add a visit date.</section>
+
+	<section>So I'm just going to add some information to the form.</section>
+
+	<section>Once the form is free of any Validation Errors we can Save the form and continue, but as mentioned before Validation Warning may still be present to alert the user to potential quality issues with their data and will result in the raising of Query Discrepancy Note.</section>
+
+	<section>OK, so I've Saved the form and we can return to the Data Collection page, where we see the Follow Up listed and we can access it again.</section>
+
+	<section>I'll round out these side tabs. The Attachments are where a user can upload additional media associated with this Patient.</section>
+
+	<section>Sharing - this tab is where a Patients record can be Shared with another Clinician, another Centre or transfered to a different Centre altogether.</section>
+
+	<section>And finally I'll go to the Queries tab where all of the Discrepancy Note Queries raised against data entered in the system will be listed. </section>
+	<!-- The Queries haven't been configured for this demo Dataset but -->
+
+
+<section></section>
+
+</section>
+
+<section>
+	<section>Now I going to log out and back in again as a Data Manager which will help me explain some of the functionality of the Discrepancy notes</section>
+
+	<section>For the sake of explaining the Queries I'm going to view the a Patients data and raise a query against a field.</section>
+
+	<section>So the Data Maager can click on a the empty Query flag, enter the query text and raise the query. That this query is raised is communicated through a set of icons each indicating the query staus and ownership.</section>
+
+	<section>If I log back out and back in as the manager again I can locate that same query, view the response and accept the query</section>
+
+</section>
+
+
+<section>
+
+	<section>The Study Manager module is for Study Recruitment and Study Management. As before we land on a Dashboard </section>
+
+	<section>The system is set up with multiple roles and permissoins setup to define those roles. The roles for logging into the Study Manager are the Monitor and Data Manager.</section>
+
+	<sections>I'm going to begin in the Monitor section of the module where you the Monitor can check on various reports the progress made on Data Entry, including Centre reports</section>
+
+	<section>Also on the Monitor section a table for viewing the various Queries.</section>
+
+	<section>Data Validation Edit Checks</section>
+
+	<section>Exporting Data - we support CDISC, Excel and CSV, so we are supporting the format of Clinical Trial data analytics tools.</section>
+
+	<section>We have a full audit log of information added to the system</section>
+
+</section>
+
+
+<section>
+Adverse event
+
+Duchenne Dataset
+</section>
+<!-- // Adam 
+Configure Page to go straight to Centre 1
+
+-->
+
+
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

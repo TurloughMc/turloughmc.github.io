@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+<style>
+/*.container{
+    display: flex;
+}*/
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.col-5 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+
+.col-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-8 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+
+.row>.col, .row>[class^=col-] {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.2);
+}
+</style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h3>Information Dashboard Design</h3>
+					<p>To address the following questions;</p>
+				</section>
+
+				<section>
+					<ul>
+						<li><a href="#what-is">What is a data dashboard?</a></li>
+						<li><a href="#what-types">What are different types of reporting dashboards</a></li>
+						<li><a href="#operational">What is an Operational dashboard?</a></li>
+						<li><a href="#problems">What problems are we trying to solve?</a></li>
+						<li><a href="#common">What are the common measures that might reported on?</a></li>
+						<li><a href="#metrics">What might be appropriate metrics for CI to use?</a></li>
+						<li><a href="#medium">What are the best display medium to support this?</a></li>
+						<li>What are the most important rules regarding their useage?</li>
+					<ul>
+				</section>
+
+
+				<section>
+					<section id="what-is">
+						<h3>What is a data dashboard?</h3>
+						<p>A data dashboard is an information management tool that visually tracks, analyzes and displays key performance indicators (KPI), metrics and key data points to monitor the health of a business, department or specific process, to help make data-driven decisions.</p>
+					</section>
+
+					<section>
+						<h3>Dashboard definition</h3>
+						<ul>
+							<li><strong>Visual display</strong> of</li>
+							<li><strong>the most important information needed to achieve one or more objectives</strong> which</li>
+							<li><strong>fits entirely on a single computer screen</strong> so it can be</li>
+							<li><strong>monitored at a glance</strong></li>
+						</ul>
+					</section>
+
+<!-- 
+					<section>
+						<h3>Dashboard should;</h3>
+						<ul>
+							<li>Be Visual - graphical presentation can often communicate with greater and richer meaning than text alone</li>
+ 							<li>Display the information needed to achieve specific objectives</li>
+							<li>Fits entirely on a single computer screen - so it can be</li>
+							<li>Monitored at a glance - </li> 
+						</ul>
+					</section> -->
+				</section>
+
+				<section>
+
+					<section id="what-types">
+						<h3>Dashboard types by Business activity</h3>
+						<p>This classification is the only one that significantly relates to differences in visual design</p>
+						<ul>
+							<li><strong>Operational</strong> - often used across various levels of an organization, to understand in real-time, if its performance is on target</li>
+							<li><strong>Analytic</strong> - help organizations establish targets based on insights into historical data with ownership usually falling on business analysts/experts</li>
+							<li><strong>Strategic</strong> - typically supporting managers, focusing on high-level measures of performance, including forecasts to light the path into the future</li>
+						</ul>
+					</section>
+
+<!-- 
+					<section>
+						<h3>There are 2 large categories of dashboards</h3>
+						<ul>
+							<li>Operational</li>
+							<li>Analytical</li>
+						</ul>
+
+						<p>Operational Dashboards look at current performance related to your KPIs. They help organizations understand, in real-time, if its performance is on target. They are often used across various levels of an organization.</p>
+
+						<p>Analytical Dashboards help organizations establish targets based on insights into historical data. They are often complex: utilizing complex models and what-if statements. Analytical dashboard’s ownership usually falls on business analysts/experts.</p>
+					</section> -->
+					</section>
+
+					<section>
+						<section id="operational">
+							<h3>Operational Dashboards</h3>
+
+							<p>Look at current routine functioning and activities of an organization related to their KPIs. n our case the operation of Patient Care (for example - Clinical) or Data Collection (for example in a Registry)</p>
+							<ul>
+								<li>Dynamic and immediate</li>
+								<li>Display must be very simple</li>
+							</ul>
+						</section>
+
+<!-- 					<section>
+						<h1>Operational dashboards</h1>
+
+
+						<p>An operational dashboard is a reporting tool that is used to monitor business processes that frequently change and to track current performance of key metrics and KPIs. Compared to other types of dashboards, the data updates very frequently, sometimes even on a minute-by-minute basis. Operational dashboards are designed to be viewed multiple times throughout the day. They are often used to monitor progress towards a target.</p>
+
+						<p>An example of an operational dashboard is a Daily Web Overview Dashboard. It tracks hourly web performance against predetermined objectives for a digital marketing team.</p>
+
+
+						<p>provide the most precise abilities, so that they're being commonly used for monitoring and analyzing company's activities in a given business area.</p>
+					</section>
+ -->
+
+<!-- 					<section>
+						<h3>Examples of Operational Dashboards</h3>
+						<img src="images/figma-ui/11-Context-as-Filter.png" alt="" width="">
+
+					</section> -->
+
+
+				</section>
+
+				<section>
+
+					<section>
+						<h3>Analytical dashboards</h3>
+						<p>Analyse - examine (something) methodically and in detail, typically in order to explain and interpret it.<p>
+						<p>This could be done after the Data has been collected to see what the cause and affects can be ascertained about the disease</p>
+						<p>This could also be used to analyse reasons for the Data being the way it is Eg. Centre X Users weren't trained to entry the Data correctly</p>
+					</section>
+
+					<section>
+						<h3>Analytic</h3>
+						<ul>
+							<li>Greater context - rich comparisions , more extensive history, and subtler performance evaluators</li>
+							<li>Static snapshots - no constant changing</li>
+							<li>More sophisticated display media more useful for analysts</li>
+							<li>Support interactions with data - drill downs etc. to examine causes</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Strategic Dashboards</h3>
+						<ul>
+							<li>Extremely simple display mechanisms</li>
+							<li>Long-term strategic direction - Benefit from static snapshots taken over monthly, weekly or daily</li>
+							<li>Unidirectional displays - without interaction that would be needed to support further analysis</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Strategic dashboards</h3>
+						<p>Strategic - Relating to the identification of long-term or overall aims and interests and the means of achieving them.</p>
+						<p>Typically created for Management, CMO and CFO</p>
+<!-- 						<p>commonly used whilst aligning company's strategic goals.</p>
+
+						<p>A strategic dashboard is a reporting tool used to monitor the status of key performance indicators (KPIs), and are typically used by executives. The data behind a strategic dashboard updates on a recurring basis, but at less frequent intervals than an operational dashboard. Strategic dashboards may be viewed once a day, and assist executives in staying on top of KPIs throughout the business.</p>
+
+						<p>An example of a strategic dashboard is the SaaS CEO dashboard. It monitor KPIs across the organization using simple data visualizations.</p> -->
+					</section>
+
+				</section>
+
+				<section>
+					<section id="problems">
+						<h3>What Problems Are We Trying To Solve?</h3>
+
+						<p>Determining which overarching category your dashboard sits in is the first order of business.</p>
+
+						<ul>
+							<li>What is the main purpose of a dashboard?</li>
+							<li>And, is your dashboard startegic, analytical or operational?</li>
+						</ul>
+
+					</section>
+				</section>
+
+
+				<section>
+					<section id="common">
+						<h3>Common measures</h3>
+						<p>In almost all cases dashboards primarily display "quantitative measures of whats currently going on'.
+
+						<table>
+						  <tr>
+						    <th>Category</th>
+						    <th>Measures</th>
+						  </tr>
+						  <tr>
+						    <td>Clinical Care</td>
+						    <td>Smith</td>
+						  </tr>
+						  <tr>
+						    <td>Registry</td>
+						    <td>No. of Centres collecting<br />
+						    	No. of Centres fully Recruited<br />
+						    	No. of Centres fully Completed<br />
+						    	No. of Recruitments<br />
+						    	No. of Recruitments finished<br />
+						    	No. of Forms filled<br />
+						    	No. of Forms Completed<br />
+						    	No. of Fields filled<br />
+						    	No. of Fields valid
+						    </td>
+						  </tr>
+						</table>
+					</section>
+
+					<section>
+						<h3>Variations of Timing</h3>
+						<p>Measures of whats currently going on can be expressed in a variety of timeframes, including;</p>
+						<ul>
+							<li>This Study to date</li>
+							<li></li>
+
+							<li>This year to date</li>
+							<li>This week to date</li>
+							<li>This quarter to date</li>
+							<li>Yesterday</li>
+							<li>This month to date</li>
+							<li>Today so far</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h3>Enrichment through comparisons</h3>
+
+						<table style="text-size:smaller">
+						  <tr>
+						    <th>Comparative measure</th>
+						    <th>Example</th>
+						    <th>Useful for</th>
+						  </tr>
+<!-- 						  <tr>
+						    <td>The current target</td>
+						    <td>A budgeted amount for the current period</td>
+						  </tr> -->
+						  <tr>
+						    <td>The same measure at some point in time in the past</td>
+						    <td>The previous month</td>
+						    <td></td>
+						  </tr>
+
+						  <tr>
+						    <td>A prior prediction of a future measure</td>
+						    <td>Forecast of where you expected to be today</td>
+						    <td>Registry Recruitment/Collection</td>
+						  </tr>
+
+						  <tr>
+						    <td>Some measure of the norm for the measure</td>
+						    <td>Average, normal, or a benchmark</td>
+						    <td>Recruitment/Collection against other Centres</td>
+						  </tr>
+						</table>
+
+					</section>
+
+					<section>
+						<h3>Non-Quantitative Data</h3>
+						<ul>
+							<li>Top 10 Customers</li>
+							<li>Issues that need to be investigated</li>
+							<li>Tasks that need to be completed</li>
+							<li>People that need to contacted</li>
+							<li>Management of process Schedules - tasks, due dates, people</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<section id="metrics">
+						<h3>What might be appropriate metrics for CI to use?</h3>
+						<p>Typically there are 2 things to report on</p>
+						<ol>
+							<li>Success of 'Bread and butter' of the business/department/process</li>
+							<li>Quantity and Quality of the Data collected to serve first</li>
+						<ol>
+						<p>It may be the case that the true Analysis of the first might occur outside of our system using a tool specialised in doing this</p>
+					</section>
+
+					<section>
+						<h3>Dashboard Roles</h3>
+						<p>We need to first ask what the role is for</p>
+						<ul>
+							<li>Clinical Care</li>
+							<li>Data Collection</li>
+							<li>System Administration</li>
+							<li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Metrics 2</h3>
+						<p>Expand onto different level</p>
+						<ul>
+							<li>Clinical Care - Patient level</li>
+							<li>Management of Clinical Care - Centre level</li>
+							<li>Management of Clinical Care - System level</li>
+							<li>Data Collection - Subject level</li>
+							<li>Management of Data Collection - Centre level</li>
+							<li>Management of Data Collection - System level</li>
+							<li>System Administration</li>
+							<li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h3>Metrics Matrix</h3>
+						<p>Expand onto different level</p>
+						<table style="font-size: smaller;">
+							<tr>
+								<td>Role</td>
+								<td>Level</td>
+								<td>Activity Type</td>
+								<td>Measures</td>
+							</tr>
+							<tr>
+								<td>Clinical Care</td>
+								<td>Patient level</td>
+								<td>Analytical ???</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Management of Clinical Care</td>
+								<td>Centre level</td>
+								<td>Operational</td>
+								<td>
+									<strong>No. Total Patients<strong><br />
+									Gender<br />
+									Children/Adults<br />
+									Dead/Alive<br />
+									Age at Diagnosis<br />
+									Type<br />
+									Severity<br />
+									Therapies<br />
+									Outcomes<br />
+									<strong>Forms - Total started</strong><br />
+									<strong>Total Completed</strong>
+								</td>
+							</tr>
+							<tr>
+								<td>Management of Clinical Care</td>
+								<td>System level</td>
+								<td>Operational</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Data Collection</td>
+								<td>Subject level</td>
+								<td>Operational</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Management of Data Collection</td>
+								<td>Centre level</td>
+								<td>Operational</td>
+								<td>
+						    	No. of Recruitments<br />
+						    	No. of Recruitments finished<br />
+						    	No. of Forms filled<br />
+						    	No. of Forms Completed<br />
+						    	No. of Fields filled<br />
+						    	No. of Fields valid
+								</td>
+							</tr>
+							<tr>
+								<td>Management of Data Collection</td>
+								<td>System level</td>
+								<td>Operational</td>
+								<td>
+									Audit Log<br />
+
+Started, Completed. Frozen. Locked
+
+
+<strong>DOCUMENTS. + by TIME</strong><br />						
+<strong>PATIENTS + by TIME</strong><br />
+<strong>SITES  + by TIME</strong><br />
+
+<strong>DOCUMENTS by SITE. + by TIME</strong><br />						
+<strong>PATIENTS by SITE. + by TIME</strong><br />
+
+
+
+
+
+						    	No. of Centres collecting<br />
+						    	No. of Centres fully Recruited<br />
+						    	No. of Centres fully Completed<br />
+						    	
+
+
+
+No. Forms Locked<br />
+No. Forms Frozen<br />
+
+No. Distributions of Fields<br />
+
+No. Forms Completed per Patients per Centre<br />
+No. Forms Frozened per Patients per Centre<br />
+No. Forms Locked per Patients per Centre<br />
+
+
+Forms - view a summary of data gathered selected by Centre and Form Type.
+View/Manage Individual Forms<br />
+View a report of all Queries on the Study<br />
+
+
+Total No. of Recruitments<br />
+No. Recruitments per Site<br />
+No. Recruitment per Site per Month<br />
+No. Recruitment per Country per Month<br />
+Total No. of Documents<br />
+No. of Document Activity<br />
+Toatl No. of Deleted Documents<br />
+No. of Manage Queries<br />
+No. of Queries per Site by Type<br />
+No. of Queries per User per Month<br />
+No. of Queries per site by Month<br />
+No. of Queries Open By Site<br />
+No. of Queries Answered Per Site<br />
+No. of Queries Closed By Site<br />
+No. of Casebook signature and flagging<br />
+No. Updated Consents<br />
+No. Signed Casebooks<br />
+
+Site User Activation Status<br />
+Site User Use of System<br />
+
+								</td>
+							</tr>
+							<tr>
+								<td>System Administration</td>
+								<td>System Level</td>
+								<td>Operational</td>
+								<td>
+									Users<br />
+									Roles<br />
+									Authentication<br />
+									Configuration<br />
+									Alert Maintenance
+								</td>
+							<tr>
+						</table>
+
+<!-- 
+
+Clinical Data Manager
+
+
+
+
+Clinical Patient
+	Forms - Total started
+			Total Completed???
+
+	Hospitalisations - Total
+	Adverse Events - Total
+
+
+	Outcomes Chart
+
+--------------------------------------------------------
+Registry Data Manager
+	Recruitment
+
+
+
+Registry Centre
+Registry Patient
+
+
+
+
+ECFS PR Covid-19 Registry
+
+
+
+Demographics
+Number of CF patients infected with COVID-19   
+Proportion Male / Female   
+Proportion Children / Adults (18 years or older)   
+Age at diagnosis; all age groups: 0-11; 12-17; 18 -29; 30 - 49; 50+
+Median and IQR of FEV1 % pred.   
+Severety groups by FEV1 % pred: <40%, 41-70%, >70%  
+Proportion of pat. of PA pos.   
+Proportion of pat. with CFRD 
+Number of reporting centres by country; total  
+Map of Europe with cases by country 
+ Transplanted patients total
+
+Symptoms
+ Asymptomatic Infection: Inclusion criteria: none of the symptoms reported  
+Pulmonary symptoms Inclusion: criteria: increased cough, dyspnoea, chest tightness, wheezing, sputum production, haemoptysis  
+Fever / General symptoms: Inclusion criteria: fever, fatigue, headache, arthralgia/myalgia  
+Gastrointestinal symptoms: Inclusion criteria: diarrhea, vomiting/nausea, abdominal pain  
+Respiratory failure: Inclusion criteria: respiratory failure  
+Other: Inclusion criteria: non of the above
+
+Severity grade
+ Mild  
+Severe  
+Critical
+
+Therapy
+Antibiotics: Additional IV ATB, additional Azithromycin, additional oral ATV  
+Antiviral therapy: Antiviral therapy  
+Systematic steroids: Systemic steroids  
+Hydroxychloroquin: Hydroxychloroquin  
+Respiratory support: Respiratory support  
+Non-invasive ventilation or respiratory support: NIV, CPAP/BiPAP, High-Flow  
+Invasive Ventilation: Invasive ventilation  
+ECMO: ECMO  
+Oxygen: Oxygen therapy
+
+Outcome
+Patients discharged and recovered  
+Patients discharged with infection disease ongoing  
+Patients transferred to another facility  
+Patients discharged for palliative therapy  
+Patients deceased
+ -->
+
+
+
+
+				</section>
+
+
+				<section>
+					<section id="medium">
+						<h3>What are the best display medium to support this?</h3>
+						<ul>
+							<li>Graphs</li>
+							<li>Images</li>
+							<li>Icons</li>
+							<li>Drawing objects</li>
+							<li>Text</li>
+							<li>Organizers</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Graphs 1</h3>
+						<p>Not all Graphs are equally suited to an OPeration Dashboards as some are more complex than others. Best suited include;<p>
+						<ul>
+							<li>Bullet Graphs</li>
+							<li>Bar Graphs / Donut Chart / Pie Chart</li>
+							<li>Stacked bar graphs</li>
+							<li>Combination bar and line graphs</li>
+							<li>Line graphs</li>
+							<li>Sparklines</li>
+
+							<li>Box plots</li>
+							<li>Scatter plots</li>
+							<li>Treemaps</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Graphs 2</h3>
+						<p>Too complicated include;<p>
+						<ul>
+							<li>Box plots</li>
+							<li>Scatter plots</li>
+							<li>Treemaps</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Icons</h3>
+						<p>Icons are simple images that communicate a clear and simple meaning.<p>
+						<ul>
+							<li>Alert</li>
+							<li>Up/down</li>
+							<li>On/off</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Alert</h3>
+						<ul>
+							<li>Simple shapes are best suited - circles and squares</li>
+							<li>Try to limit to 1 or 2 levels</li>
+							<li>Distinct intensities of the same hue might be better than a colour change like Green to Red where a colour-blind user might not see the change</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Up/down icons</h3>
+						<ul>
+							<li>A triangle or arrow with the tip pointing up or down</li>
+							<li>A pairing of red and green can back up the signal with up/down icons but these should contrast in intensity aswell as hue</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>On/off</h3>
+						<ul>
+							<li></li>
+							<li></li>
+						</ul>
+					</section>
+
+<!-- 					<section>
+						<h3>Icons</h3>
+						<p>Icons are simple images that communicate a clear and simple meaning.<p>
+						<ul>
+							<li>Alert</li>
+							<li>Up/down</li>
+							<li>On/off</li>
+						</ul>
+					</section> -->
+
+				</section>
+
+				<section>
+					<h3>PDF Resources</h3>
+					<ul>
+
+						<li><a href="pdfs/how_to_build_dashboardswp_0.pdf" target="_blank">how_to_build_dashboardswp_0.pdf</a></li>
+						<li><a href="pdfs/whitepaper_datastorytelling.pdf" target="_blank">whitepaper_datastorytelling.pdf</a></li>
+
+						<li><a href="pdfs/himss_optimal_patient_experience_final_0.pdf" target="_blank">himss_optimal_patient_experience_final_0.pdf</a></li>
+						<li><a href="pdfs/Modern_Data_Management_AWS.pdf" target="_blank">Modern Data Management_AWS.pdf</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Online Resources</h3>
+					<ul>
+						<li><a href="https://www.klipfolio.com/resources/articles/what-is-data-dashboard">What is a data dashboard?</a></li>
+						<li><a href="https://www.klipfolio.com/choosing-the-right-dashboard-report">The three types of reporting dashboards</a></li>
+						<li><a href="https://www.datapine.com/blog/strategic-operational-analytical-tactical-dashboards/">Know The Difference Between Strategic, Analytical, Operational And Tactical Dashboards</a></li>
+						<li><a href="https://www.justinmind.com/blog/dashboard-design-best-practices-ux-ui/">Justinmind - dashboard-design-best</a></li>
+						<li><a href="https://uxplanet.org/10-rules-for-better-dashboard-design-ef68189d734c">10-rules-for-better-dashboard-design</a></li>
+						<li><a href="https://www.smashingmagazine.com/category/data-visualization/">data-visualization</a></li>
+						<li><a href="https://www.klipfolio.com/choosing-the-right-dashboard-report">choosing-the-right-dashboard-report</a></li>
+						<li><a href="https://www.datapine.com/blog/wp-content/uploads/2019/09/operational-dashboard-customer-service.png">operational-dashboard-customer-service</a></li>
+						<li><a href="http://duelingdata.blogspot.com/2019/01/5-types-of-dashboards.html">5-types-of-dashboards</a></li>
+						<li><a href="https://blog.panoply.io/dashboard-101-basics-of-a-great-dashboard">101-basics-of-a-great-dashboard</a></li>
+						<li><a href="https://ui-patterns.com/patterns/dashboard">ui-patterns</a></li>
+						<li><a href="https://uxmag.com/articles/four-cognitive-design-guidelines-for-effective-information-dashboards">uxmag.com</a></li>
+						<li><a href="https://www.geckoboard.com/best-practice/dashboard-design/#.Vx_I4JN950s">dashboard-design</a></li>
+						<li><a href="https://www.geckoboard.com/blog/9-dashboard-design-principles-see-them-in-action-with-real-examples/">9-dashboard-design-principles</a></li>
+					<ul>
+				</section>
+
+				<section id="comments">
+					<section>
+						<h3>Comments</h3>
+						<p>Quantity and Quality. The measure is of Patients in both Clinical and Registry settings. But the Quality is of Patient Care (or the other Primary task recorded by the data) and Data Quality. And this is the where the Stories will lie.</p>
+
+						<p>Insight = Stories</p>
+					</section>
+
+					<section>
+						<h3>What type of Analytics are we doing?</h3>
+					</section>
+
+					<section>
+						<h3>Descriptive, predictive, and prescriptive analytics</h3>
+						<p>Depending on the goals of your data initiative, and how you’re measuring patient experience (or other task) KPIs, you will be focusing on either descriptive, predictive, or prescriptive analytics—and perhaps all three.</p>
+					</section>
+
+					<section>
+						<h3>Descriptive analytics</h3>
+						<p>Is the interpretation of historical data/record to better understand what has already occurred.</p>
+
+						<p>This is based on the majority of all healthcare data, and includes claims data, clinical documentation, patient surveys, and lab tests. It’s report-based, and offers no trend of forecast analysis.</p>
+					</section>
+
+					<section>
+						<h3>Predictive analytics</h3>
+						<p>Uses descriptive data to forecast future events. 
+
+						<p>Predictive analytics is the use of data, statistical algorithms and machine learning techniques to identify the likelihood of future outcomes based on historical data. The goal is to go beyond knowing what has happened to providing a best assessment of what will happen in the future.</p>
+
+						<p>To conduct predictive analysis, an organization needs true interoperability, and more data than what’s found in electronic medical records (EMRs).</p>
+					</section>
+
+					<section>
+						<h3>Prescriptive analytics</h3>
+
+						<p>Prescriptive analytics makes use of machine learning to help an organisation/business decide a course of action based on a computer program's predictions.</p>
+
+	<!-- Prescriptive analytics works with predictive analytics, which uses data to determine near-term outcomes. -->
+
+						<p>Relies heavily on machine learning algorithms to indicate what course of action will yield the most significant benefit when a predicted event occurs. Prescriptive analytics in healthcare <!-- tends to be a more mature initiative, --> has a number of barriers to adoption: lack of skilled employees, regulatory issues, and too much data.</p>
+					</section>
+
+					<section>
+						<h3>1 Disengage from the data and focus on the users</h3>
+
+						<ul>
+							<li>What does my audience need? How often will they look at this data?</li>
+							<li>What do they need from it?</li>
+							<li>What do they already know about this subject? Have they used dashboards before?</li>
+						</ul>
+						<p>Adapt your story for your audience.</p>
+					</section>
+
+					<section>
+						<h3>2. Remove everything you can—and nothing else</h3>
+						<p>j</p>
+					</section>
+
+					<section>
+						<h3>3. Show your work. Iterate relentlessly</h3>
+						<p>Encourage critique through trust and publication.</p>
+						<p>Iterate, refine, and polish.</p>
+					</section>
+	<!-- 
+	monitoring multiple KPIs and metrics on one central dashboard, users can make adjustments to their business practices in real time.
+
+	Data dashboards track the KPIs and metrics unique to these areas of business, but ultimately the ones that meet your specific analytics needs.
+	 -->
+					<section>
+						<ul>
+							<li>Descriptive Analytics of Paient should be on Patient</li>
+							<li>Registries would do Descriptive Analytics on the Trial but not so much on our tool</li>
+							<li>Operational in Clinic</li>
+							<li>Operational in as Monitor on Recruitment</li>
+						</ul>
+					</section>
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
