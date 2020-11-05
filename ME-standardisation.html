@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    	<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+				<section>
+					<h1>Standardisation</h1>
+<!-- 					<h3>The HTML Presentation Framework</h3> -->
+<!-- 					<p>
+						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+					</p> -->
+				</section>
+
+
+				<section>
+
+					<section>
+						<h3>Tiger v Sherman</h3>
+						<img src="images/ux-lego/sherman.jpg" alt="" height="480" width="480">
+					</section>
+
+					<section>
+						<h3>Standardization & mass production</h3>
+						<p>In comparison to small numbers of highly-engineered German Panzers, Allied forces opted for standardization and mass production. The obvious defects of the Sherman — a thin skin and small gun — were ignored in an effort to overwhelm Nazi Europe with tens of thousands of cheap, fast tanks. The Sherman had a high reliability rate, and they were available in a near-limitless supply.<p>
+					</section>
+
+					<section>
+						<h3></h3>
+						<p>It wasn’t unusual for a Canadian tank crew to have a Sherman shot out from under them, make their way back to friendly territory, hop in a new tank and return to the battlefield.<p>
+					</section>
+
+					<section>
+						<h3>Flexibility</h3>
+						<p>The Sherman design was also flexible enough to accept numerous upgrades. Within every Canadian tank troop of four Shermans, one was the “Firefly” model equipped with a longer 17-pounder gun that could go toe-to-toe with a Tiger’s 88.</p>
+					</section>
+
+					<section>
+						<h3></h3>
+						<p>By April 1945, the American army had 11,000 Shermans at their disposal, and the British and Canadians another three or four thousand. The German army facing them had perhaps one hundred working tanks.</p>
+					</section>
+
+					<section>
+						<h3></h3>
+						<p>The Sherman wasn't easy to produce because it wasn't designed, it was designed to be;</p>
+						<ul>
+							<li>easy to produce</li>
+							<li>standardised</li>
+							<li>flexible</li>
+							<li>reliable</li>
+						</ul>
+					</section>
+
+				</section>
+
+<!-- 				<section>
+					<h3>Resources</h3>
+					<ul>
+						<li><a href="https://think.design/blog/ucd-vs-design-thinking">ucd-vs-design-thinking</a></li>
+
+					</ul>
+				</section> -->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

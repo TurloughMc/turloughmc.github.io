@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    	<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+<!-- 					<h1>Reveal.js</h1> -->
+					<h1>Data Table & Filtering</h1>
+					<h3>Priorities and Take Aways</h3>
+<!-- 					<p>
+						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+					</p> -->
+				</section>
+
+				<section>
+					<h3>Recognise the difference</h3>
+					<ul>
+						<li class="fragment"><strong>Operational Filtering Tasks</strong> - supporting the day-to-day functions. Lower value > Lower expertise > Lower Complexity</li>
+						<li class="fragment"><strong>Analytical Filtering Tasks</strong> - supporting the strategic and planning functions of management. Higher value > Higher expertise > Higher Complexity</li>
+					</ul>
+				</section>
+
+ 				<section>
+	 				<section>
+						<h3>Prioritise Operational Tasks</h3>
+						<p>Provide a list that enables Operational tasks and prioritise it on the UI over everything else, so speed and simplicity is promoted over power and complexity.</p>
+					</section>
+
+	 				<section>
+						<h3>Prioritise Operational Tasks</h3>
+						<p>This filtering is'nt discrete</p>
+						<img src="images/filtering/1_amazon-sidebar.png" alt="" height="552" width="700">
+					</section>
+
+	 				<section>
+						<h3>Prioritise Operational Tasks</h3>
+						<p>This filtering is much in terms of staying out of the way</p>
+						<img src="images/filtering/2_wayfair-top.png" alt="" height="349" width="700">
+					</section>
+				</section>
+
+ 				<section>
+					<h3>Flexible enough for multiple Use Cases</h3>
+					<p>The parts need to be modular and scaleable where possible. We aren't in a position to design the information ahead of time.</p>
+				</section>
+
+ 				<section>
+					<h3>Provide category specific filters</h3>
+<!-- 					<p>This functionality can be powerful but must be discrete enough to be ignored by less technically capable Users and certainly not get in the way of the main task at hand .</p>
+				</section>
+
+ 				<section> -->
+<!-- 					<h3>Only allow filters on visible columns</h3> -->
+					<ul>
+						<li>Only allow filters on visible columns - simpler mind model?</li>
+						<li>Maybe this isn't a problem with a 'Applied Fiter' section</li>
+				</ul>
+				</section>
+
+ 				<section>
+					<h3>Provide dropdowns if only single choice filters are required</h3>
+					<ul>
+						<li>Applied Filters section is overkill if table listing only requires a a single choice dropdown or two</li>
+						<li>We need to engineer the ability for a developer to go with this simpler option when its the best solution</li>
+					</ul>
+				</section>
+
+ 				<section>
+					<h3>Search box</h3>
+					<ul>
+						<li>Add a search box so there is more inherent power at very little cost in UI complexity</li>
+						<li>Possibly saves the need for multiple checkbox filters and therefore Applied Filters section at all</li>
+					</ul>
+				</section>
+
+ 				<section>
+	 				<section>
+						<h3>But do support multiple selections when suitable</h3>
+						<p>Single choice filtering is unlikely to provide enough power in many use cases.</p>
+						<ul>
+							<li class="fragment">Allow selections in multiple columns/categories - Dog, Brown</li>
+							<li class="fragment">Allow multiple selections within each category/column - Brown, Black, White. This makes the a 'Applied Filter' section(s) a requirement, as there is no easy way of showing multiple choices in a dropdown element.</li>
+						</ul>
+					</section>
+<!-- 
+	 				<section>
+						<h3>Allow multiple selections</h3>
+						<img src="images/filtering/2_wayfair-top.png" alt="" height="349" width="700">
+					</section> -->
+
+				</section>
+
+ 				<section>
+	 				<section>
+						<h3>Therefore Filter Selections should be 'Modal'</h3>
+
+<!-- 						<p>Something like a filtering sidebar is overkill an Operational table, so Filter Selections should be 'Modal'.</p> -->
+
+						<ul>
+							<li>Ie. they happen on a level above the main level of the UI so when the using isn't actually selecting a filter the form elements needed to make the selection are hidden from view</li>
+							<li>A Popup will support more complicated filters like Start Date to End Date, while also being modular and scaleable</li>
+						</ul>
+					</section>
+
+	 				<section>
+						<h3>Filter Selections should be 'Modal'</h3>
+						<img src="images/filtering/5_linkedin-apply-2.jpeg" alt="" height="552" width="700">
+					</section>
+				</section>
+
+ 				<section>
+					<h3>Batch filtering</h3>
+					<ul>
+						<li class="fragment">Batch filtering means that the page refreshes and gives results only after you’ve made some selection and clicked the Apply button.</li>
+
+						<li class="fragment">Interactive filtering is when the system reacts to your every choice and refreshes the page every time.</li>
+
+						<li class="fragment">The choice between introducing batch or interactive filters depends on whether the User is likely to have multiple selection criteria or only one, and the app speed (how quickly a user gets the search result).</li>
+
+						<li class="fragment">If we allow mulitple choices in each category and some lists are long (ie results might be slow) we should probably use a 'Apply' button.</li>
+					</ul>
+				</section>
+
+ 				<section>
+	 				<section>
+						<h3>Applied filters section advantages</h3>
+						<ul>
+							<li class="fragment">Providing a context for the results list</li>
+							<li class="fragment">Providing an obvious and immediate confirmation that filters have been applied</li>
+							<li class="fragment">*Providing a quick way to remove filters</li>
+							<li class="fragment">As well as allowing the filters selection to be placed inside a Popup and this;</li>
+							<li class="fragment">Allows a model which can be implmented on small screens</li>
+						</ul>
+					</section>
+
+	 				<section>
+						<h3>Hiding applied filters creates a disconnect</h3>
+						<img src="images/filtering/6-linkedin-all-filters.png" alt="" width="700">
+					</section>
+
+	 				<section>
+						<h3>Applied filters</h3>
+						<img src="images/filtering/5_ebay-applied.png" alt="" width="900">
+					</section>
+
+	 				<section>
+						<h3>Applied filters</h3>
+						<p>The display of the 'Applied filters' should sit immediately below the elements that allowed the selection and above the actual Table list.</p>
+
+						<p>The proximity and placement provides the best hint of the relationship between these elements.</p>
+					</section>
+
+	 				<section>
+						<h3>Good context, but still disconnected</h3>
+						<img src="images/filtering/7_bh-applied.jpg" alt="" height="381" width="700">
+					</section>
+
+	 				<section>
+						<h3>Better Placement</h3>
+						<img src="images/filtering/8_gap-applied.jpg" alt="" height="381" width="700">
+						<p>Running the Applied Filters down page - nice but too dominating of space for functionality provided</p>
+					</section>
+
+	 				<section>
+						<h3>Presentation of Applied filters</h3>
+						<p>Applied filters should display left to right horizontally with some filter names truncated after x number of characters, with the additional of a rollover for full length and a link to provide the option to display full length.</p>
+						<p>Results count is also very useful</p>
+					</section>
+
+	 				<section>
+						<h3>Position and Presentation</h3>
+						<img src="images/filtering/8_ann-taylor-applied.jpg" alt="" width="900">
+					</section>
+
+	 				<section>
+						<h3>Filter types</h3>
+						<p>Some filters make no sense without also stating the filter type. We need a one size fits all solution to this option so we should either state the type in smaller text above the actual selection OR group the types so they are only needing stated once per group</p>
+					</section>
+
+	 				<section>
+						<h3>Filter types</h3>
+						<img src="images/filtering/10_bh-type.jpg" alt="" height="449" width="700">
+					</section>
+
+	 				<section>
+						<h3>Mobile Version</h3>
+						<img src="images/filtering/9_wayfair-mobile-1.jpg" alt="" height="753" width="375">
+					</section>
+
+	 				<section>
+						<h3>Mobile Version</h3>
+						<img src="images/filtering/9_wayfair-mobile-2.jpg" alt="" height="753" width="375">
+					</section>
+
+				</section>
+
+ 				<section>
+					<h3>No Match</h3>
+					<p>We need to be more elegant when delivering no results</p>
+					<img src="images/filtering/7_linkedin-no-matching.jpg">
+				</section>
+
+				<section>
+					<h3>Applied to information in Insight</h3>
+
+					<ul>
+						<li>Filters a developed and considered individually</li>
+						<li>A listing can have zero, one or multiple filters</li>
+						<li>Different UIs for different types of filters, e.g. date range, pick from list, patient picker</li>
+						<li>Easy to remove / add a filter (for the user)</li>
+						<li>Filters which are currently active and their values are clear</li>
+						<li>UI will work on smaller screens</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Applied to information in Insight</h3>
+
+					<ul>
+						<li>The developer can prefill a filter, e.g. for meetings list show current and future meetings by default</li>
+					</ul>
+
+					<p>This is fine but we need to decide case by case if its really navigation or default filtering we are providing. We should use prefilled filters sparingly as it increases cognitive load.</p>
+
+				</section>
+<!-- 
+				<section>
+					<h3>Applied to information in Insight</h3>
+
+					<ul>
+						<li>Obviously t needs to work</li>
+						<li class="fragment">But with regards the type of table list and the nature of the filter we shouldn't care</li>
+					</ul>
+				</section> -->
+
+	 			<section>
+	 				<section>
+						<h3>Navigation versus Filtering</h3>
+						<ul>
+							<li class="fragment">Navigation and Filtering are 2 different concepts even if the end result is the same.</li>
+
+							<li class="fragment">The scope provided by navigation is a hard ceiling, and the filter provided thereafter can only create a smaller subset of results. The Naigation link should be clearly stated at the top of the page 'content' area and any subsequent context provided by filtering must sit below and inside this.</li>
+
+							<li class="fragment">The default of most screens should also be a 'No Filter' state, where the 'Applied Filters' section should not be displayed until a filter selction has been made by the User.</li>
+						</ul>
+					</section>
+
+	 				<section>
+						<h3>Navigation Tabs</h3>
+						<p>Navigation can be provided by a set of Tabs inside the main Tabs, but the exact presentation of the navigation isn't crucial as long as its very obviously Navigation rather than A. Filtering or B. The Table results listing itself</p>
+					</section>
+
+	 				<section>
+						<h3>Navigation Tabs</h3>
+						<img src="images/filtering/12_menu.png" alt="" height="" width="900">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Current</h3>
+						<img src="images/filtering/filtering-2.png" alt="" height="" width="1400">
+					</section>
+
+					<section>
+						<h3>Improved with modest effort</h3>
+						<img src="images/filtering/filter.png" alt="" height="" width="1400">
+					</section>
+				</section>
+
+				<section>
+					<h3>Resources</h3>
+					<ul>
+						<li><a href="https://baymard.com/blog/how-to-design-applied-filters">how-to-design-applied-filters</a></li>
+
+						<li><a href="https://uxdesign.cc/crafting-a-kickass-filtering-ux-beea1798d64b">uxdesign.cc/crafting-a-kickass-filtering</a></li>
+
+						<li><a href="https://medium.com/@thierrymeier/filtering-and-sorting-best-practices-on-mobile-61626449cec#.7kb8xdjtu">filtering-and-sorting-best-practices-on-mobile</a></li>
+
+						<li>https://uxplanet.org/9-filtering-design-best-practices-to-improve-e-commerce-ux-edac50560f94</li>
+
+						<li>https://uxplanet.org/how-to-improve-advanced-search-ux-450df698004c</li>
+
+						<li>http://ui-patterns.com/patterns/LiveFilter/examples/777</li>
+					</ul>
+				</section>
+
+				<!-- kevin - nav, selection,  -->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
