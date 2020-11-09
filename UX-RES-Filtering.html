@@ -168,7 +168,7 @@
 							<li class="fragment">Providing an obvious and immediate confirmation that filters have been applied</li>
 							<li class="fragment">*Providing a quick way to remove filters</li>
 							<li class="fragment">As well as allowing the filters selection to be placed inside a Popup and this;</li>
-							<li class="fragment">Allows a model which can be implmented on small screens</li>
+							<li class="fragment">Allows a model which can be implemented on small screens</li>
 						</ul>
 					</section>
 
@@ -183,7 +183,7 @@
 					</section>
 
 	 				<section>
-						<h3>Applied filters</h3>
+						<h3>Applied filters positioning</h3>
 						<p>The display of the 'Applied filters' should sit immediately below the elements that allowed the selection and above the actual Table list.</p>
 
 						<p>The proximity and placement provides the best hint of the relationship between these elements.</p>
@@ -285,14 +285,58 @@
 					</section>
 
 	 				<section>
-						<h3>Navigation Tabs</h3>
-						<p>Navigation can be provided by a set of Tabs inside the main Tabs, but the exact presentation of the navigation isn't crucial as long as its very obviously Navigation rather than A. Filtering or B. The Table results listing itself</p>
+						<h3>Navigation Tabs v Links</h3>
+						<p>Tabs are useful if we know the number of links are going to be limited to 4 or 5, but need to sit on a line of their own</p>
+						<img src="images/filtering/tabs.png" alt="" height="" width="900">
 					</section>
 
 	 				<section>
 						<h3>Navigation Tabs</h3>
-						<img src="images/filtering/12_menu.png" alt="" height="" width="900">
+						<p>If larger they won't fit in horizontal tabs and vertical tabs are unsuitable for the these type of tasks where navigation is more likely to get in the way</p>
+						<img src="images/filtering/tabs-2.png" alt="" height="" width="900">
 					</section>
+
+<!-- 	 				<section>
+						<h3>Navigation Links</h3>
+							<ul>
+								<li><a href="#">Link 1</a></li>
+								<li><a href="#">Link 2</a></li>
+								<li><a href="#">Link 3</a></li>
+							</ul>
+					</section> -->
+
+<!-- 	 				<section>
+						<h3>Navigation Tab markup</h3>
+						<pre style="width:400px; margin:0; padding:0;">
+							<code style="width:400px; margin:0; padding:0;" data-trimx data-noescapex>
+							<ul>
+								<li><a href="#">Link 1</a></li>
+								<li><a href="#">Link 2</a></li>
+								<li><a href="#">Link 3</a></li>
+							</ul>
+						</code></pre>
+					</section> -->
+
+	 				<section>
+						<h3>Navigation Links</h3>
+						<p>A simple set of links inside a UL list that easily grows with the additional tables is a better solution.</p>
+
+						<pre><code data-trim data-noescape>
+							<ul>
+								<li><a href="#">Link 1 sed do eiusmod tempor </a></li>
+								<li><a href="#">Link 2 accusantium doloremque laudantium</a></li>
+								<li><a href="#">Link 3 Lorem ipsum dolor</a></li>
+								<li><a href="#">Link 4 accusantium doloremque laudantium</a></li>
+								<li><a href="#">Link 5 Excepteur sint occaecat</a></li>
+								<li><a href="#">Link 6 Lorem ipsum dolor</a></li>
+								<li><a href="#">Link 7 sed do eiusmod tempor </a></li>
+								<li><a href="#">Link 8 Excepteur sint occaecat</a></li>
+								<li><a href="#">Link 9 Lorem ipsum dolor</a></li>
+							</ul>
+						</code></pre>
+<!-- 						<img src="images/filtering/12_menu.png" alt="" height="" width="900"> -->
+					</section>
+
 				</section>
 
 				<section>
@@ -304,6 +348,18 @@
 					<section>
 						<h3>Improved with modest effort</h3>
 						<img src="images/filtering/filter.png" alt="" height="" width="1400">
+					</section>
+
+					<section>
+						<h3>List navigation</h3>
+						<img src="images/filtering/filter-2.png" alt="" height="" width="1400">
+						<p>Most flexible solution and most suitable for large number of table/lists</p>
+					</section>
+
+					<section>
+						<h3>Tabs</h3>
+						<img src="images/filtering/filter-3.png" alt="" height="" width="1400">
+						<p>This is suitable will a limited number of items</p>
 					</section>
 				</section>
 
