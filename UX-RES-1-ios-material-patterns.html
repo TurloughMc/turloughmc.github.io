@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+ 				<section>
+					<h3>iOS & Material UX Patterns</h3>
+<!-- 					<p>Purpose of Presentation - to look at the main patterns used in Users Interface Design with a view to summarise the most useful for building a UX Toolkit</p> -->
+					<ul>
+						<li><a href="#/strategy">Strategy</a></li>
+ 						<li><a href="#/summary-table">iOS vs. Android UI Design: The Main Differences</a></li>
+<!-- 						<li><a href="#/xx">xx</a></li> -->
+<!--						<li><a href="#/">Master > Detail as Modal screen</a></li>
+						<li><a href="#/2-types">Modal v Non-Modal screens</a></li> -->
+					</ul>
+				</section>
+
+				<section>
+ 					<section id="strategy">
+						<h2>Look at how Apple and Google deal with depth and navigation</h2>
+					</section>
+
+ 					<section>
+ 						<h3>Depth</h3>
+						<ul>
+							<li>Google has been inspired by the flat design movement and believes that humans should interact with their components as if they were sheets of paper stacked on top of each other. The depth is tactile.</li>
+
+							<li>Apple believes that mobile devices should be seen as a window in to another world. They embrace infinite depth in their applications and use components such as their alert buttons and text messages with blurred background to create the feeling that the items are floating and exist in their own space.</li>
+						</ul>
+ 					</section>
+
+ 					<section>
+ 						<h3>Navigation - Google</h3>
+						<ul>
+							<li>Google has loose rules for navigation and thus gives designers more flexibility for customization</li>
+							<li>Makes it a bit more strenuous for users to grasp the navigational patterns of an application</li>
+							<li>Google believes that navigation should be obvious and that it can be in many different places</li>
+						</ul>
+ 					</section>
+
+ 					<section>
+ 						<h3>Navigation - Google</h3>
+
+						<p>Its important we lay more structure to this approach so designers, developers and users will be able to identify the navigational easily. This might involve using the ones familiar from Apples Flat design aswell as leaning on tried and trusted patterns from desktop UI</p>
+ 					</section>
+
+ 					<section>
+ 						<h3>Navigation - Apple</h3>
+						<ul>
+							<li>Apple uses a very simple navigation system that is easy for all users to understand</li>
+							<li>They use a “tab bar” that is attached to the bottom of the screen with an app’s main functions</li>
+							<li>Usually containing no more than 5 main functions, a hamburger icon is sometimes listed on the tab bar for less important navigational items, as is the case with the the apple music application</li>
+							<li>Apple also uses “tabs” like Google’s material design spec, but instead uses a component called “segmented control”. Allowing only up to 3 segmented controls maximum again restricting the user and designers options</li>
+						</ul>
+						<p>Using a 'tab bar' with a hamburger may be an intuitive cornerstone. 'Tabs / Segmented Control' also seem like a powerful and familiar UI concept, but one which may allow for more flexibility than allowed with the 'Segmented Control' (3 max).</p>
+ 					</section>
+
+ 					<section>
+ 						<h3>Navigation - Hamburger</h3>
+						<ul>
+							<li>Google and Apple’s view differ greatly when it comes to the use of the hamburger icon. Google often uses the hamburger menu for their primary navigation. Once you click on the hamburger it opens up a “drawer” as they call it or conversely a “side nav” for apple</li>
+
+							<li>Apple disagrees with this sentiment as believes that primary navigation elements should be present in the foreground and that the hamburger should be used only as a place to store functions that are not daily tasks performed by the user. Apple uses their side nav function to store items they would like out of site by the user</li>
+						</ul>
+
+						<p>The use of Hamburger menu is not disputed in either system but rather how heavily the pattern should be used to provide the primary navigation (Apple = not at all).</p>  
+ 					</section>
+ 				</section>
+
+
+ 				<section>
+ 					<section id="summary-table">
+						<h3>iOS vs. Android UI Design: The Main Differences</h3>
+						<table style="font-size:smaller;">
+							<thead>
+								<tr>
+									<th>Design element</th>
+									<th>iOS</th>
+									<th>Android</th>
+<!-- 									<th style="width:35%;">Notes</th> -->
+								</tr>
+							</thead>
+							<tbody>
+<!-- 								<tr>
+									<td><a href="#tap-target">Minimum tap target size</a></td>
+									<td>44x44 pt</td>
+									<td>48x48 dp (<a href="#tap-target">What's a dp?</a>)</td>
+								</tr> -->
+
+
+								<tr>
+									<td><a href="#primary-nav">Main app navigation</a></td>
+									<td>Bottom nav</td>
+									<td>Tabs at top of screen</td>
+<!-- 									<td>If we need Context (specific & changing) menus these need to anchor near Context (at the top). Therefore a general menu should sit at the bottom (universal & fixed)</td> -->
+								</tr>
+								<tr>
+									<td><a href="#secondary-nav">Secondary app navigation</a></td>
+									<td>Bottom nav “More” OR on-page UI</td>
+									<td>Bottom nav OR "hamburger button" side menu</td>
+<!-- 									<td>So a "hamburger"/"More" probably provides the best mix of consistancy & scaleability, while leaving space at the top for other stuff</td> -->
+								</tr>
+								<tr>
+									<td><a href="#primary-actions">Primary button/action</a></td>
+									<td>Top nav, right side</td>
+									<td>Floating action button</td>
+<!-- 									<td>Both use Top nav, right side which seems more transferable outside of a full embracement of Material Design</td> -->
+								</tr>
+								<tr>
+									<td><a href="#secondary-actions">Secondary actions</a></td>
+									<td>On-page UI</td>
+									<td>Top nav, right side</td>
+									<td></td>
+								</tr>
+
+								<tr>
+									<td><a href="#selection">Single-choice lists</a></td>
+									<td>List with checkmark for selected item</td>
+									<td>Radio button list</td>
+<!-- 									<td>We should retain radio</td> -->
+								</tr>
+								<tr>
+									<td><a href="#multiple-choice">Multiple-choice lists</a></td>
+									<td>List with switches OR list with checkmarks for selected items</td>
+									<td>Checkbox list OR list with switches</td>
+<!-- 									<td>We should retain checkbox, but switches are also good</td> -->
+								</tr>
+								<tr>
+									<td><a href="#undo">Confirm or allow undo of destructive actions</a></td>
+									<td>Modal dialog to confirm choice</td>
+									<td>Allow Undo via temporary on-screen notifications</td>
+<!-- 									<td>Again Apples seems a safer bet as a default when we would have to decide if the item that might be deleted is trivial enough to deal with an undo</td> -->
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+<!-- toc
+
+								<a href="#primary-nav">Main app navigation</a>
+								<a href="#secondary-nav">Secondary app navigation</a>
+								<a href="#primary-actions">Primary button/action</a>
+								<a href="#">Secondary actions</a>
+								<a href="#selection">Single-choice lists</a>
+								<a href="#">Multiple-choice lists</a>
+								<a href="#undo">Confirm or allow undo of destructive actions</a>
+
+
+<h3>iOS vs. Android UI Design: The Main Differences</h3>
+
+<h3>iOS vs. Android Navigation</h3>
+	<h3>Top-of-screen navigation</h3> ="#top"
+	<h3>Primary Navigation Destinations</h3> ="#primary-nav"
+	<h3>Secondary Navigation Destinations</h3> ="#secondary-nav"
+	<h3>“Back” Pattern on iOS vs. Android</h3> ="#back"
+
+<h3>iOS vs. Android Control Design</h3>
+	<h3>Primary call-to-action buttons</h3> ="#primary-actions"
+	<h3>Search on iOS vs. Android</h3> ="#search"
+	<h3>iOS & Android Action Menus</h3> ="#action-menu"
+	<h3>Selection controls</h3> ="#selection"
+	<h3>Date pickers on iOS vs. Android</h3>
+	<h3>iOS and Android Tabs</h3>
+	<h3>“Undo” Pattern on iOS and Android</h3> ="#undo"
+
+-->
+
+ 					<section id="">
+ 						<h1>iOS vs. Android Navigation</h1>
+ 					</section>
+
+ 					<section id="top">
+						<h3>Top-of-screen navigation</h3>
+
+						<img src="images/iOS/versus/nav-top-of-screen.png" alt="" width="">
+
+						<ul>
+							<li>iOS, the left action is some sort of “back” – whether to the previous screen sequentially or the parent screen hierarchically. The page title is virtually always present. Optional right page action(s) can be displayed as a single text action or multiple icon actions</li>
+
+							<li>Android, there doesn’t need to be anything to the left of the page title, but (a) if the page is a top-level page and there’s a hamburger button in the app, it appears there, or (b) if this page follows another sequentially, you can optionally add a back button</li>
+
+							<li>Resources: iOS navigation bars; Material Design top app bar</li>
+						</ul>
+					</section>
+
+
+ 					<section id="primary-nav">
+						<h3>Primary Navigation Destinations</h3>
+
+						<img src="images/iOS/versus/nav-primary.png" alt="" width="">
+						<p>iOS, primary destinations in the app are listed as tabs across the bottom.</p>
+						<ul>
+							<li>There are 2-5 tabs total</li>
+							<li>They represent the main destinations or “nouns” of the application</li>
+						</ul>
+
+					</section>
+
+
+ 					<section>
+						<p>Many popular third-party iOS apps also conform to a few additional guidelines:</p>
+						<ul>
+							<li>Any tab that represents the primary action of the app – for instance, adding a new photo in a photo-based app – is centered</li>
+							<li>Any profile- or settings-related tab appears last</li>
+							<li>Search appears second</li>
+						</ul>
+
+						<p>iOS default apps, on the other hand, (1) discourage actions being in the tab bar, (2) don’t have profile- or settings-related tabs, and (3) make search appear last.</p>
+					</section>
+
+
+ 					<section>
+<!-- 						<h3>Primary Navigation Destinations 2</h3> -->
+
+						<img src="images/iOS/versus/nav-primary.png" alt="" width="500px">
+
+						<ul>
+							<li>The biggest difference on Android is that the same primary destinations are more spread out throughout the interface – often between (a) a hamburger button, (b) a search bar, (c) tabs, or (d) a floating action button. Note: Android does use bottom navigation more recently.</li>
+
+							<li>Resources: iOS tab bars; Material Design understanding navigation</li>
+						</ul>
+					</section>
+
+ 					<section id="secondary-nav">
+						<h3>Secondary Navigation Destinations</h3>
+						<img src="images/iOS/versus/nav-secondary.png" alt="" width="500">
+					</section>
+
+ 					<section id="">
+<!-- 						<h3>Secondary Navigation Destinations</h3> -->
+
+						<ul>
+							<li>iOS, navigation destinations that can’t fit in the bottom tab bar can (a) be shunted into a catch-all “More” tab or (b) appear as actions in the top-left or top-right of other destinations.</li>
+
+							<li>Android, secondary nav destinations are listed in a side menu accessible by pressing a hamburger button.</li>
+
+							<li>Note: while Apple doesn’t specifically encourage use of the hamburger button (or use it in their default apps), a lot of third-party iOS apps do have one</li>
+
+							<li>Resources: Material Design nav drawer</li>
+						</ul>
+					</section>
+
+ 					<section>
+						<h3>Navigation Takeaways</h3>
+						<ul>
+							<li>Bottom of screen - both use this and it is a safe option for placing universal primary navigation</li>
+							<li>"Hamburger"/"More" probably provides the best mix of consistancy & scaleability, while leaving space at the top for other components</li>
+							<li>Tabs - below the context these provide the means to show Parent and Children at any level of the information hierarchy</li>
+							<li>Search - probably want to place a scoped search near the lists (hence below the context & tabs). A more universal one needs to be positioned at the top of the hierarchy. The 2nd spot on the footer menu may be best position as a universal default</li>
+
+							<li>Floating action - this seems very particular to Material design, as a first pass we should probably start with a pattern closer to desktop model</li>
+						</ul>
+<!-- 
+								<tr>
+									<td><a href="#primary-nav">Main app navigation</a></td>
+									<td>Bottom nav</td>
+									<td>Tabs at top of screen</td>
+									<td>If we need Context (specific & changing) menus these need to anchor near Context (at the top). Therefore a general menu should sit at the bottom (universal & fixed)</td>
+								</tr>
+								<tr>
+									<td><a href="#secondary-nav">Secondary app navigation</a></td>
+									<td>Bottom nav “More” OR on-page UI</td>
+									<td>Bottom nav OR "hamburger button" side menu</td>
+									<td>So a "hamburger"/"More" probably provides the best mix of consistancy & scaleability, while leaving space at the top for other stuff</td>
+								</tr>
+								<tr>
+									<td><a href="#primary-actions">Primary button/action</a></td>
+									<td>Top nav, right side</td>
+									<td>Floating action button</td>
+									<td>Both use Top nav, right side which seems more transferable outside of a full embracement of Material Design</td>
+								</tr>
+ -->
+					</section>
+
+ 					<section id="back">
+						<h3>“Back” Pattern on iOS vs. Android</h3>
+						<img src="images/iOS/versus/nav-back.png" alt="" width="">
+					</section>
+
+ 					<section>
+						<p>On iOS, you can navigate backwards in 4 different ways, depending on the context.
+						<ul>
+							<li><strong>Press “Back” action on top-left of screen - Any screen on which a “Back" action appears</strong></li>
+							<li>Swipe right from left edge of screen - Any screen on which a “Back” action appears in the upper-left</li>
+							<li><strong>Press “Done” action on top-right of screen - Non-editing modal views</strong></li>
+							<li>Swipe down on screen content - Modal or fullscreen views</li>
+						</ul>
+					</section>
+
+
+ 					<section id="modal">
+						<h3>Modal and fullscreen views</h3>
+
+						<img src="images/iOS/versus/nav-back-modal.png" alt="" width="">
+
+						<ul>
+							<li>Modal views can be dismissed by swiping down or tapping a “Back” action at the top.</li>
+
+							<li>Fullscreen views are media like photos or videos that take up the entire screen. They’re dismissed by swiping down on both iOS and Android.</li>
+						</ul>
+					</section>
+
+
+ 					<section id="">
+ 						<h1>iOS vs. Android Control Design</h1>
+ 					</section>
+
+ 					<section id="primary-actions">
+						<h3>Primary call-to-action buttons</h3>
+
+						<img src="images/iOS/versus/controls-cta.png" alt="" width="">
+
+						<ul>
+							<li>On iOS, the page’s primary button will usually be on the upper-right.</li>
+
+							<li>On Android, however, the page’s primary button will often appear in the bottom-right as a floating action button, or FAB for short.</li>
+
+							<li>It’s worth noting that each platform will still have exceptions. Let’s take a look.</li>
+						</ul>
+					</section>
+
+ 					<section id="secondary-actions">
+<!-- 						<h3>Primary call-to-action buttons</h3> -->
+						<img src="images/iOS/versus/controls-cta-2.png" alt="" width="">
+
+						<ul>
+							<li>Occasionally on iOS, important page actions will appear on a bottom toolbar. Apple likes to stress this is reeeeally different from a tab bar, but come on now.</li>
+
+							<li>Likewise, occasionally on Android, important actions will appear at the top of the screen.</li>
+
+							<li>Resources: iOS buttons; Material Design floating action button</li>
+						</ul>
+
+					</section>
+
+ 					<section id="">
+						<h3>Primary call-to-action Takeways</h3>
+						<ul>
+							<li>We need to prioritise Create, Read, Update, Delete</li>
+							<li>Read is navigation problem</li>
+							<li>Update is the primary action from read</li>
+							<li>Should probably be placed to right top side which seems more transferable outside of a full embracement of Material Design flot action</li>
+							<li>Delete must only be available in context > tab > table > select</li>
+							<li>Create is the primary on the list view. 
+							<li>Is Create (child) a pairing with Update (parent) depending on the tab chosen and if the tabs can scroll is that an issue? Possibly not if the active tab is prioritised to keep in view.</li>
+							<li>This suggests that the tabs need to locked to the header so the action is in proximity with the context tab.</li>
+							<li>In a scrolling tab - if last place just inside right otherwise just inside left</li>
+						</ul>
+					</section>
+
+ 					<section id="">
+						<h3>Primary call-to-action Takeways 2</h3>
+						<ul>
+							<li>Google and Apple both use tabs</li>
+							<li>Google and Apple both place primary actions elsewhere</li> 
+						</ul>
+					</section>
+
+
+ 					<section id="search">
+						<h3>Search</h3>
+
+<!-- 						<p>On both iOS and Android, search is a common yet highly flexible control. Sometimes it’s the primary point of the app, other times it’s basically an edge use-case, and most of the time, it’s in between the two. As you might expect, each platform allows for some flexibility here. Let’s look at common paradigms.</p> -->
+
+						<img src="images/iOS/versus/controls-search-1.png" alt="" width="">
+
+						<p>iOS vs Android search UI differences;</p>
+						<ul>
+							<li>To cancel the search, press “Cancel” on iOS or “←” on Android
+							<li>To clear the current query, but remain on the search screen, press “X” on iOS or “X” on Android</li>
+						</ul>
+ 					</section>
+
+ 					<section>
+						<h3>Search 2</h3>
+
+						<img src="images/iOS/versus/controls-search-2.png" alt="" width="">
+ 					</section>
+
+ 					<section>
+						<h3>Search 3</h3>
+<!-- 						<ul>
+							<li>When search is a highly important functionality, iOS and Android will display the search bar right away. As always on these platforms,  -->
+
+						<p>Tapping the search bar will bring up a totally separate screen, when search isn’t as critical or common, you can access it via other places.</p>
+
+						<ul>
+							<li>iOS vs Android search access UI differences</li>
+							<li>On iOS, it’s common to see search as one of the tabs in the primary tabs, or an action in the top nav bar.</li>
+
+							<li>On Android, you’ll also see it in the contextual actions on the top bar as well.</li>
+
+							<li>Resources: iOS search bars; Material Design search pattern</li>
+						</ul>
+					</section>
+
+ 					<section id="action-menu">
+						<h3>iOS & Android Action Menus</h3>
+
+						<img src="images/iOS/versus/controls-action-1.png" alt="" width="">
+
+
+						<ul>
+							<li>On iOS, action menus can be triggered by any button or attempting to take any action. They slide up from the bottom, where they’re easily within thumb’s reach.</li>
+
+							<li>On Android, however, bottom sheets only appear when you tap a three-dot “kebab menu” icon (which is the Android icon for “more options”). And appearing from the bottom typically only happens when there’s a lot of possible actions.</li>
+
+							<li>Both platforms have standards for on-action menus.</li>
+						</ul>
+					</section>
+
+ 					<section>
+						<h3>iOS & Android Action Menus 2</h3>
+						<img src="images/iOS/versus/controls-action-2.png" alt="" width="">
+					</section>
+
+ 					<section>
+						<h3>iOS & Android Action Menus 3</h3>
+						<ul>
+							<li>A newer (iOS 13) iOS feature called “context menus” shows related actions when you tap and hold an element. When the context menu is shown, the background is blurred out.</li>
+
+							<li>And on Android, many menus will appear in-place directly on the element. In newer versions of Android, the menu will cover the kebab icon itself.</li>
+
+							<li>Resources: iOS action sheets, context menus; Android menus, bottom sheets</li>
+						</ul>
+					</section>
+
+
+
+ 					<section>
+						<h3>Action Menus Takeaways</h3>
+						<ul>
+							<li>3 dot "kebab menus" need to be supported</li>
+
+							<li>These might be an option for Primary actions lets try to keep them on the list views</li>
+
+							<li>iOS need to be explored better to see if we should have a place for them</li>
+						</ul>
+					</section>
+
+
+
+ 					<section id="selection">
+						<h3>Selection controls</h3>
+
+						<p>On mobile, it’s smart to handle choices among few options differently from choices among many options.</p>
+
+
+						<img src="images/iOS/versus/controls-picker-1.png" alt="" width="">
+						<ul>
+							<li>For choices among relatively few options, use a picker control on iOS. Pickers can appear anchored at the bottom (shown above), or inline with the content (see “Date Pickers” below for an example).</li>
+
+							<li>For choices among few options on Android, it’s typical to use a dropdown menu (which appears in-place) or a modal dialog (which appears centered and darkens the app background) listing the options.</li>
+						</ul>
+
+					</section>
+
+
+ 					<section id="multiple-choice">
+						<h3>Selection controls 2</h3>
+
+						<img src="images/iOS/versus/controls-picker-2.png" alt="" width="">
+						<ul>
+							<li>For longer lists of options, or when multi-selection is possible, it’s common to see a dedicated “picker screen” on both iOS and Android. One of the biggest beginning designer mistakes in mobile design is not dedicating a full screen to the picking of a single choice with many options.</li>
+
+							<li>Resources: iOS pickers; Android dropdown menus, dialogs</li>
+						</ul>
+					</section>
+
+ 					<section>
+						<h3>Selection controls Takeaways</h3>
+
+						<ul>
+							<li>Android Patterns look closest to desktop and should define the default behavious - dropdowns, radio buttons, checkboxes</li>
+						</ul>
+
+					</section>
+
+ 					<section id="date-pickers">
+						<h3>Date pickers on iOS vs. Android</h3>
+
+						<img src="images/iOS/versus/controls-date.png" alt="" width="">
+
+					</section>
+
+ 					<section>
+						<h3>Date pickers on iOS vs. Android 2</h3>
+
+						<ul>
+							<li>On iOS, date pickers take the appearance of any other picker control, but with a column for day, month, and optionally year.</li>
+
+							<li>Android has its own custom date picker control. You can choose to include year, not include it, or allow the user to choose whether or not they want to include it.</li>
+
+							<li>Resources: iOS picker; Android date picker (notice the differences in the Material Design spec)</li>
+						</ul>
+					</section>
+
+
+ 					<section>
+						<h3>Date pickers Takeaways</h3>
+
+						<ul>
+							<li>Android Pattern look closest to desktop and should define the default behavious</li>
+						</ul>
+
+					</section>
+
+
+
+ 					<section id="tabs">
+						<h3>iOS and Android Tabs</h3>
+
+						<img src="images/iOS/versus/controls-tabs.png" alt="" width="">
+
+						<ul>
+							<li>It’s worth noting that iOS doesn’t have a control that visually resembles “tabs”. Instead, Apple calls for you to use a segmented button to navigate between sister views.</li>
+
+							<li>On Android, a “flat design” style tab is used for the same display.</li>
+
+							<li>Resources: iOS segmented controls; Material Design tabs</li>
+						</ul>
+					</section>
+
+
+ 					<section>
+						<h3>Tabs Takeaways</h3>
+
+						<ul>
+							<li>This is possibly the most important Pattern to help us with a toolkit</li>
+							<li>It needs to reconcile with the Patterns used on a desktop machine</li>
+							<li>Android Pattern with a back botton on left, primary button as text and tabs scrollable if needed</li>
+						</ul>
+
+					</section>					
+
+ 					<section id="undo">
+						<h3>“Undo” Pattern on iOS and Android</h3>
+
+						<img src="images/iOS/versus/controls-undo.png" alt="" width="">
+
+						<ul>
+							<li>On iOS, alerts appear in the center of the screen, but you’ll also see alerts slide up from the bottom of the screen (technically called “action panels” in iOS lingo). Destructive actions (like deleting something) are red.</li>
+
+							<li>On Android, some alerts appear in the center of the screen. However, for alerts that don’t require user input and should disappear after a few seconds, you can use “snackbars”. Snackbars are fantastic, because (a) they give you a way to tell the user that their action was a success, and (b) you can add an action or two on them – which makes them the ideal place for “Undo”. And when it comes down to it, I’d rather give my users the option to undo a mistake then ask them twice every single time they try to make an important decision.</li>
+
+							<li>Resources: iOS Undo; Material Design snackbars</li>
+						</ul>
+					</section>
+
+ 					<section>
+						<h3>"Undo" Takeaways</h3>
+
+						<ul>
+							<li>iOS Pattern look closest to desktop with non trivial data and should define the default behavious</li>
+						</ul>
+					</section>
+				</section>
+
+
+ 				<section>
+ 					<section>
+ 						<h3>iOS - this is duplicating much of first set</h3>
+ 					</section>
+
+ 					<section>
+ 						<h3>iOS Nav Bar</h3>
+
+						<p>The nav bar is where the app displays navigation, the page title, primary page actions, and – often – search.</p>
+
+						<p>You can think of the iOS nav bar as being comprised of up to three “rows”. Typically;</p>
+						<ul>
+							<li>First row: Page Actions</li>
+							<li>Second row: Page Title</li>
+							<li>Third row: Search (very optional)</li>
+						</ul>
+<!--
+https://learnui.design/blog/ios-design-guidelines-templates.html
+-->
+ 					</section>
+
+ 					<section>
+ 						<h3>iOS Nav Bar 2</h3>
+
+						<p>Use a single row if you just need to compactly display some page actions (even the page title is optional).</p>
+
+						<img src="images/iOS/nav-bar-1.png" alt="" width="">
+ 					</section>
+
+ 					<section>
+ 						<h3>iOS Nav Bar 3</h3>
+
+						<p>The default iOS app page layout contains two rows: one for page actions, and a second for a large page title.</p>
+
+						<p>But if you need to show search, then you need a third row (even if the first row is left blank!).</p>
+
+						<img src="images/iOS/nav-bar-3.png" alt="" width="">
+ 					</section>
+
+ 					<section>
+ 						<h3>iOS Nav Bar 4</h3>
+ 						<ul>
+							<li>As soon as the user starts scrolling, iOS specifies for some interesting behavior.</li>
+
+							<li>If a search bar is important to see at all times, it merely moves up from the third row to the second row while the app is scrolled.</li>
+
+							<li>If it’s less important, it will disappear entirely – only visible when the user is at the very top of the page.</li>
+
+							<li>When iOS nav bar rows disappear upon scrolling, they will re-appear when the user scrolls back to the top.</li>
+						</ul>
+
+						<img src="images/iOS/nav-bar-scroll.png" alt="" width="">
+ 					</section>
+
+
+
+ 					<section>
+ 						<h3>iOS Nav Bar 4</h3>
+ 						<p>We can simplify out by stating that we should only ever entertain the 1st 2 rows as 1 and they always have a background colour.</p>
+ 						<p>Also the Title should always be stated</p>
+ 					</section>
+
+
+
+
+
+ 					<section>
+ 						<h3>iOS Tab Bar </h3>
+						<p>On iOS apps, primary destinations in the app are listed as tabs across the bottom.</p>
+						<img src="images/iOS/tab-bar.png" alt="" width="">
+
+						<p>Let’s note a few things:</p>
+
+						<ul>
+							<li>The selected icon is denoted with the app theme fill color</li>
+							<li>Different tabs remember their state.</li>
+							<li>The tab bar is always visible within the app, except: ** When a keyboard is shown ** When a modal is open (during critical tasks, the user should focus on the task at hand rather than navigate to other parts of the app)</li>
+						</ul>
+
+ 					</section>
+
+ 					<section>
+ 						<h3>iOS Tab Bar 2</h3>
+						<p>There should be 2-5 tabs in total. If you need to display more than 5, the fifth icons should be a “More” catch-all that shows other destinations on a quasi-picker screen when tapped.</p>
+						<img src="images/iOS/tab-bar-more.png" alt="" width="">
+ 					</section>
+
+ 					<section>
+ 						<h3>Navigating Back</h3>
+
+						<p>On iOS, you can navigate backwards in 4 different ways, depending on the context. Swipe may not be appropriate as a pattern for multiple devices, so these may be more relevant;</p>
+
+						<ul>
+							<li>Tap “Back” action on top-left of screen	- Any screen on which a “Back" action appears</li>
+							<li>Tap “Cancel” or “Done” action on top of screen - Modal views</li>
+						</ul>
+					</section>
+
+
+ 					<section>
+ 						<h3>Also consider;</h3>
+
+						<ul>
+							<li>Modals</li>
+							<li>Table views</li>
+							<li>Search</li>
+						</ul>
+					</section>
+
+
+ 					<section>
+						<h2>Reclaiming the screen v creating a Modal</h2>
+
+						<p>In Asana the nav is kept til you get to Task (and then Sub Task) and then is dropped for a 'Task' menu.</p>
+
+						<p>In Google Chrome the app was showing a Navigation bar that dissappeared moving from U2 (Navigation bar + Context menu) to War (just Context menu), but I can no longer replicate this functionality and suggests I should have a persistant menu at the bottom (therefore a Tab bar), if I want to use Context menus at the top.</p>
+
+						<p>I need to re-visit Apple docs and the work done with this in mind.</p>
+
+<!-- 						<p>When we look at the example above we can see the Patterns whereby a more specific page is accessed and the User </p> -->
+<!-- 						<p>The approach (with Tonys Alopecia demo) used so far has done something a bit different but still largely compatible with what has been documented above. That is to reclaim the screen real estate where there is a significant space available.</p>	 -->
+					</section>
+
+				</section>
+
+
+
+
+
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://www.nectarpd.com/blog/3-differences-apples-hig-vs-googles-material-design-standards">3-differences-apples-hig-vs-googles-material-design-standards</a><br>
+
+						- <a href="https://learnui.design/blog/ios-design-guidelines-templates.html">ios-design-guidelines</a><br>
+
+						- <a href="https://learnui.design/blog/ios-vs-android-app-ui-design-complete-guide.html">ios-vs-android-app-ui-design-complete-guide</a><br>
+ 
+						- <a href="https://uxdesign.cc/googles-material-design-vs-apple-s-flat-design-96f8f2166a66">googles-material-design-vs-apple-s-flat-design</a><br>
+
+						- <a href="https://www.cleveroad.com/blog/flat-design-vs-material-design-how-different-they-are">flat-design-vs-material-design-how-different-they-are</a><br>
+
+						- <a href="https://www.hongkiat.com/blog/google-apple-microsoft-flat-design/">google-apple-microsoft-flat-design</a><br>
+
+					</p>
+				</section>
+
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+<!-- 						- <a href="https://uxplanet.org/modality-the-one-ux-concept-you-need-to-understand-when-designing-intuitive-user-interfaces-e5e941c7acb1">One ux concept you need to understand</a> <br>
+						- <a href="https://uxplanet.org/tab-bars-are-the-new-hamburger-menus-9138891e98f4">Tab bars are the new hamburger menus</a> <br>
+						- <a href="https://www.nngroup.com/articles/hamburger-menus/">www.nngroup.com/articles/hamburger-menus</a> <br> -->
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+ 				<section>
+					<h3>Master / Detail UX Pattern</h3>
+<!-- 					<p>Purpose of Presentation - to look at the main patterns used in Users Interface Design with a view to summarise the most useful for building a UX Toolkit</p> -->
+					<ul>
+						<li><a href="#/master">Master > Detail</a></li>
+						<li><a href="#/master-wizard">Master Wizard</a></li>
+						<li><a href="#/">Master > Detail as Modal screen</a></li>
+					</ul>
+				</section>
+
+ 				<section>
+ 					<section id="master">
+						<h1>Master detail</h1>
+						<p>This is widely found (see Gmail below) UI Pattern which can act as a work horse Pattern in our set of solutions</p>
+					</section>
+
+
+ 					<section>
+						<h2>Gmail Master > Detail</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/1_master-view.png">	
+					</section>
+
+ 					<section>
+						<h2>Gmail Master > Edit</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/2_master-edit.png">	
+					</section>
+
+ 					<section>
+						<h2>Gmail Master > Modal</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/3_master-edit-modal.png">
+					</section>
+
+ 					<section>
+						<h2>Gmail Large Modal</h2>
+						<img width="800" data-src="images/ux-principles/Google-Modal/4_master-edit-modal-large.png">	
+					</section>
+
+				</section>
+
+				<section>
+					<section id="master-wizard">
+						<h2>Master Detail Wizard</h2>
+						<p>The Master - Detail could amended to behave as a Wizard whereby the active row is the active Step of the Wizard.</p>
+						<img width="800" data-src="images/ux-principles/master-detail/8_master-detail-wizard.gif">
+					</section>
+
+					<section>
+						<h2>Master Detail Wizard</h2>
+						<p>The Master - Detail could amended to behave as a Wizard whereby the active row is the active Step of the Wizard.</p>
+						<img width="800" data-src="images/ux-principles/master-detail/9_wizard-error-reported.png">
+					</section>
+				</section>
+
+				<section>
+	 				<section>
+						<h3>Master detail on small screens</h3>
+						<p>Without adaption it is inappropriate for use on smaller screens. Modality is useful Pattern to help here.</p>
+
+<!-- 						<p>Mobile first is an approach suggesting the only way to design for mobile is by addressing mobile early</p> -->
+					</section>
+
+					<section>
+	  					<h3>Material Design example</h3>
+	  					<video width="640" height="" controls>
+	  					  <source src="images/ux-principles/modals/elevation-hero.mp4" type="video/mp4">
+	  					</video>
+						<p>https://medium.com/@manuel.vonau/what-happened-to-material-designs-beautiful-transitions-a0a10d5f4e54</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Microsoft single mode example</h2>
+						<p>This implementation of 2 layer Master > Detail is creating a layer while leaving the main navigation in place. This illustrates that Master > Detail inside a single 'Mode'.</p> 
+						<img width="800" data-src="images/ux-principles/master-detail/123.gif">
+					</section>
+				</section>
+
+				<section>
+
+					<section>
+						<h2>Master / Details as Material</h2>
+						<p>The example below shows the Master / Detail with a Material style treatment. The 'John Doe' detail view isn't strictly a Modal screen - there is no Cancel or Save buttons</p>
+					</section>
+
+					<section>
+						<h2>Large</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/1_master-detail_a.png">
+					</section>
+
+					<section>
+						<h2>Small</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/1_master-detail_b.png">
+					</section>
+
+					<section>
+						<h2>Large 3D</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/2_master-detail-large.png">
+					</section>
+
+					<section>
+						<h2>Small 3D</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/3_master-detail-small.png">
+					</section>
+
+					<section>
+						<h2>Responsive Small Phone</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/4_master-detail-responsive-360.png">
+					</section>
+
+					<section>
+						<h2>Responsive Tablet</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/5_master-detail-responsive-839.png">
+					</section>
+
+					<section>
+						<h2>Responsive Desktop</h2>
+						<img width="800" data-src="images/ux-principles/master-detail/6_master-detail-responsive-1280.png">
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Apple iOS</h2>
+
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Resources</h2>
+						<ul>
+							<li><a href="https://medium.com/@lucasurbas/case-study-master-detail-pattern-revisited-86c0ed7fc3e">Medium - case-study-master-detail-pattern-revisited</a></li>
+						</ul> 
+					</section>
+				</section>
+
+
+
+
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
