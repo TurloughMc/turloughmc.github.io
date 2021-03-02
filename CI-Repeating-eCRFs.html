@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    	<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Repeating Concepts/Forms</h1>
+<!-- 					<h3>Since it was asked</h3> -->
+					<p></p>
+				</section>
+
+				<section>
+					<section>
+						<h3>CDISC</h3>
+						<img src="images/repeating-ecrfs/repeating-ecrf-diagram-cdisc.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>CDISC Summary</h3>
+						<ul>
+							<li>The eCRF Portal consists of a range of eCRFs</li>
+							<li>Each Adverse Event instance is a eCRF</li>
+							<li>Each Medication instance or group of is a eCRF</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>CDISC AD</h3>
+						<img src="images/repeating-ecrfs/cdisc-2.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>CDISC Medication</h3>
+						<img src="images/repeating-ecrfs/cdisc-1.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>UX Takeaway</h3>
+						<ul>
+							<li>Reading a Med (for example) as a row on a table is a good fit as each entry repeats from the one before and there is little benefit repeating the labels</li>
+							<li class="fragment">Inline editing is a poor experience as the rows are too wide</li>
+							<li class="fragment">It makes sense to have the edit 'form' display from top to bottom, and as we might want to switch from creating a Visit/Encounter Mode to creating a Medication Mode to also place the form in a Modal</li>
+							<li class="fragment">This would work for creating a Medication from the Medication log table as well as within an Encounter. We know this table and button pair pattern</li>
+							<li class="fragment">This should be properly modular though - the Medication should be created as soon as the Save button is clicked. What if the associated parent encounter has not yet been Saved?</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>MEDIDATA</h3>
+						<img src="images/repeating-ecrfs/repeating-ecrf-diagram-medidata.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>MEDIDATA Summary</h3>
+						<ul>
+							<li>Visits are folders with a bundle of eCRFs, some Visits have alot of required eCRFs (Day 0), others very few</li>
+							<li class="fragment">Some of the required eCRFs contain Yes/No questions about Adverse Events, Medications, Pre-exisitng Conditions (a form of progressive disclosure which supports modular eCRFs)</li>
+							<li class="fragment">When triggered by a Yes - Adverse events and Medication eCRFs sit in their own ‘Pages’ (log forms) to group them</li>
+							<li class="fragment">Each new AE or MED eCRF can be added by clicking the button in the log form to add a new line - this displays a form and when saved adds a new row to log table</li>
+							<li class="fragment">MED eCRFs can be linked to AEs</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h3>MEDIDATA Summary</h3>
+						<ul>
+							<li>*Pre-existing Conditions seems to be located in the first Day 0 Visit</li>
+							<li>*Interim Visits (themselves eCRFs) allow you to define which other eCRFs to fill in including AEs - linkage method isn't obvious - ie does it visually appear twice in UI</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>MEDIDATA</h3>
+						<img src="images/repeating-ecrfs/medidata-1.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>MEDIDATA</h3>
+						<img src="images/repeating-ecrfs/medidata-2.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>MEDIDATA</h3>
+						<img src="images/repeating-ecrfs/medidata-3.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>MEDIDATA</h3>
+						<img src="images/repeating-ecrfs/medidata-4.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>MEDIDATA</h3>
+						<img src="images/repeating-ecrfs/medidata-5.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>MEDIDATA - Linking</h3>
+						<img src="images/repeating-ecrfs/medidata-6.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>MEDIDATA</h3>
+						<img src="images/repeating-ecrfs/medidata-7.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>UX Takeaway</h3>
+						<ul>
+							<li>Having to Save the log table view seems strange - why doesn't the Save occur on the individual eCRF?</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>ORACLE</h3>
+						<img src="images/repeating-ecrfs/repeating-ecrf-diagram-oracle.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+
+					<section>
+						<h3>Distinctions</h3>
+						<ul>
+							<li>Regular form—contains data that is specific to the visit in which the form occurs.</li>
+							<li class="fragment">Common form—contains data that is cumulative from visit to visit. Each time the form occurs in a visit, it displays the data accumulated from all previous - Concomitant Medication & Adverse Experience forms.</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>ORACLE Summary</h3>
+						<ul>
+							<li>Visits (Wk 1, Wk2 ...) are bundles of 'Regular' eCRFs</li>
+							<li class="fragment">Adverse events and Medications 'Common' eCRFs sit in their own group (unscheduled) along with Dates of Visits presumably for dates only related to these eCRFs</li>
+							<li class="fragment">Meds and Events have their own ‘page’ view so you can see a full set of the Meds or Events on their own</li>
+							<li class="fragment">You can add a new repeating eCRF by clicking on ‘New’ button</li>
+							<li class="fragment">There are 3 views - Summary, Detail and Cross reference</li>
+							<li class="fragment">Associations can be made between repeating eCRFs. This is facilitated using the detail view where you can see Meds in the Adverse Event view and click any that you want to associate</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>ORACLE - Regular</h3>
+						<img src="images/repeating-ecrfs/oracle-3.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>ORACLE - Common</h3>
+						<img src="images/repeating-ecrfs/oracle-4.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>ORACLE - Common</h3>
+						<img src="images/repeating-ecrfs/oracle-5.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>ORACLE - Common</h3>
+						<img src="images/repeating-ecrfs/oracle-1.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>ORACLE - Common - Associations</h3>
+						<img src="images/repeating-ecrfs/oracle-2.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>Shauns screenshots</h3>
+						<img src="images/repeating-ecrfs/shaun-1.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>Shauns screenshots</h3>
+						<img src="images/repeating-ecrfs/shaun-2.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<p>"To ‘activate’ a common form, for example adverse event, the form first asks ‘are there any serious or adverse events of interest to report?’ with yes and no radio buttons. When Yes is selected and saved the data point table appears"</p>
+
+						<p>I interpret this as a eCRF gatekeeping the additional eCRFs that are of a "Common" type. This has only one field - Yes or No. Our Sections don't do this as there is no field to state no. I assume the term Common is from Oracle or elsewhere. Also in the slideplayer examples the Yes/No were not on the same 'page' as the log items. Are these Visit or Subject log lists?</p>
+					</section>
+
+					<section>
+						<p>"A log form is used when multiple instances of the same form are needed; for example, concomitant medications or adverse events. The log form adds additional records or entries, as needed, to a single form. Each entry is a log line."</p>
+						<p>Here he switches to calling it a log form - note how this needs a Save on the log parent form not the child - this also lacks modularity you get on the Oracle system. It contains a Submit that can act on the association</p>
+					</section>
+
+					<section>
+						<p>To add additional log lines, the user clicks on ‘Add a new Log Line’. Instead of deleting log lines, the user can only inactivate the log line. When clicking inactivate, a drop down list of log numbers appears, with the user clicking the appropriate log number. Users can also reactivate inactivated log lines.</p>
+
+						<p></p>
+					</section>
+
+					<section>
+						<h3>Shauns screenshots</h3>
+						<img src="images/repeating-ecrfs/shaun-3.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>Shauns screenshots</h3>
+						<img src="images/repeating-ecrfs/shaun-4.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>CasterEDC</h3>
+						<img src="images/repeating-ecrfs/repeating-ecrf-diagram-casteredc.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>CasterEDC Summary</h3>
+						<ul>
+							<li>There is a distinction between Study and Report</li>
+							<li class="fragment">A Report is what is considered a Repeating or Common form in the other systems or an Unscheduled Visit</li>
+							<li class="fragment">A Study contains Phases and Steps</li>
+							<li class="fragment">Phases include - Informed Consent, Baseline, Follow Up Visits (scheduled)</li>
+							<li class="fragment">Steps include - Physical Exam, Laboratory, Medication Yes/No</li>
+							<li class="fragment">While not ‘Steps’, Reports can sit in the same level of the side ‘menu’ and also appear in a All Reports table</li>
+							<li class="fragment">Medications can be seen in the Medication Yes/No as a table of Medications associated with that Phase</li>
+							<li class="fragment">Reports can also be attached to other Reports</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>CasterEDC</h3>
+						<img src="images/repeating-ecrfs/caster-edc-2.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>CasterEDC</h3>
+						<img src="images/repeating-ecrfs/caster-edc-3.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>CasterEDC</h3>
+						<img src="images/repeating-ecrfs/caster-edc-1.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+				</section>
+
+
+<!-- 					<section>
+						<h3>SUMMARY</h3>
+						<img src="images/repeating-ecrfs/repeating-ecrf-diagram-oracle.png" alt="">
+						<aside class="notes"></aside>
+					</section> -->
+
+				<section>
+					<section>
+						<h3>Summary of other systems</h3>
+						<ul>
+							<li>The repeatable forms (instances of AEs and Medications) are modular, hence they can have their workflows</li>
+							<li class="fragment">They sit outside of the Visit eCRFs but can have an association with other eCRFs and can have a visual representation to them</li>
+							<li class="fragment">They can have a association with each other</li>
+							<li class="fragment">These shoud be creatable as log rows to a table but probably not as editable inline row</li>
+							<li class="fragment">There are other repeatable data items that could sit inside the main eCRFs but not be eCRFs themselves. Again these could be created as rows to a table but as these are part of a bigger form these might be as created as modes (the break from the main task)</li>
+							<li class="fragment">The decision to create long forms is a major stumbling block to both make the Adverse Events and Medications modular and create a Clinical workflow</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Summary</h3>
+						<ul>
+							<li>Reporting? What are the use cases whereby its beneficial to see relationships between 'Common' forms?</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+
+					<section>
+						<h3>A-Star Summary</h3>
+						<p>Its not an eCRD SO;</p>
+						<ul>
+							<li>Its workflow is tied to the Parent form</li>
+							<li class="fragment">As it belongs to a bigger form it is difficult to model cause and affect relationships between it and other 'Common forms'</li>
+							<li class="fragment">Its clunky you must 1. click the anchor nav, 2. click Register adverse event, 3. fill in the Adverse Event fields and 4. Save a Valid Parent to create an Adverse Event. Then it still needs to be reported</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>A-Star Summary</h3>
+						<ul>
+							<li>It works pretty well notwithstanding the lack of modularity due to it existing as part of the Encounter form</li>
+<!-- 							<li>As it belongs to a bigger form it is difficult to model cause and affect relationships between it and other 'Common forms'</li>
+							<li>Its clunky you must 1. click the anchor nav, 2. click Register adverse event, 3. fill in the Adverse Event fields and 4. Save a Valid Parent to create an Adverse Event. Then it still needs to be reported</li> -->
+						</ul>
+					</section>
+
+					<section>
+						<h3>A-Star</h3>
+						<img src="images/repeating-ecrfs/openapp-1.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>A-Star</h3>
+						<img src="images/repeating-ecrfs/openapp-2.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>A-Star</h3>
+						<img src="images/repeating-ecrfs/openapp-3.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>A-Star</h3>
+						<img src="images/repeating-ecrfs/openapp-4.png" alt="">
+						<aside class="notes"></aside>
+					</section>
+
+					<section>
+						<h3>Benefits</h3>
+						<ul>
+							<li>Any Clinical workflow has to work around a more flexible set of smaller form - Alopecia, Target 5000</li>
+							<li class="fragment"></li>
+						</ul>
+
+						<aside class="notes"></aside>
+					</section>
+
+
+				<section>
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
